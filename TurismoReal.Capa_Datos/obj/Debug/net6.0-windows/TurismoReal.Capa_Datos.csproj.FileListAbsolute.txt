@@ -1,0 +1,17 @@
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\bin\Debug\net6.0-windows\TurismoReal.Capa_Datos.exe
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\bin\Debug\net6.0-windows\TurismoReal.Capa_Datos.deps.json
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\bin\Debug\net6.0-windows\TurismoReal.Capa_Datos.runtimeconfig.json
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\bin\Debug\net6.0-windows\TurismoReal.Capa_Datos.dll
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\bin\Debug\net6.0-windows\TurismoReal.Capa_Datos.pdb
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.csproj.AssemblyReference.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos_MarkupCompile.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.AssemblyInfoInputs.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.AssemblyInfo.cs
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.dll
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\refint\TurismoReal.Capa_Datos.dll
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.pdb
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\TurismoReal.Capa_Datos.genruntimeconfig.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Datos\obj\Debug\net6.0-windows\ref\TurismoReal.Capa_Datos.dll

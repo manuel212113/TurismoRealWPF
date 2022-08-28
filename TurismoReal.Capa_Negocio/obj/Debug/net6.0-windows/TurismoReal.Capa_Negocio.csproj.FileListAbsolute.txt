@@ -1,0 +1,17 @@
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\bin\Debug\net6.0-windows\TurismoReal.Capa_Negocio.exe
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\bin\Debug\net6.0-windows\TurismoReal.Capa_Negocio.deps.json
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\bin\Debug\net6.0-windows\TurismoReal.Capa_Negocio.runtimeconfig.json
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\bin\Debug\net6.0-windows\TurismoReal.Capa_Negocio.dll
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\bin\Debug\net6.0-windows\TurismoReal.Capa_Negocio.pdb
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.csproj.AssemblyReference.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio_MarkupCompile.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.AssemblyInfoInputs.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.AssemblyInfo.cs
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.dll
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\refint\TurismoReal.Capa_Negocio.dll
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.pdb
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\TurismoReal.Capa_Negocio.genruntimeconfig.cache
+C:\Users\Usuario-Manuel\source\repos\TurismoReal-Escritorio\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\ref\TurismoReal.Capa_Negocio.dll
