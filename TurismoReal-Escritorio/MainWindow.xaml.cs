@@ -47,24 +47,22 @@ namespace TurismoReal_Escritorio
 
         private void rdHome_Click(object sender, RoutedEventArgs e)
         {
-            // PagesNavigation.Navigate(new HomePage());
-
-            PagesNavigation.Navigate(new System.Uri("Pages/HomePage.xaml", UriKind.RelativeOrAbsolute));
+            
         }
 
         private void rdDepartamento_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/SoundsPage.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Paginas/Departamento.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void rdUsuario_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/NotesPage.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Paginas/Usuarios.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void rdInventario_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Pages/PaymentPage.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Paginas/Inventario.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnTema_Click(object sender, RoutedEventArgs e)

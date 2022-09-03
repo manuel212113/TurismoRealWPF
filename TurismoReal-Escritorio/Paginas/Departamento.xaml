@@ -1,0 +1,202 @@
+﻿<Page x:Class="TurismoReal_Escritorio.Paginas.Inicio"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+
+
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="900"
+      Title="Inicio">
+
+
+    <materialDesign:DialogHost  x:Name="VentanaAgregarDepa" Background="{DynamicResource SecundaryBackgroundColor}" >
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
+                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Agregar Departamento" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
+
+                    <TextBox materialDesign:HintAssist.Hint="Dirección" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Metros Cuadrados" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Habitaciones" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Disponabilidad" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <ComboBox Grid.Row="0" Foreground="{DynamicResource ActionIconColor}"
+  materialDesign:HintAssist.Hint="Estado Departamento" Margin="0,10,0,0">
+                        <ComboBoxItem
+    Content="Bueno" />
+                        <ComboBoxItem
+    Content="Malo" />
+                      
+                    </ComboBox>
+                    <TextBox materialDesign:HintAssist.Hint="Valor por dia" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}"></TextBox>
+
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Content="Aceptar"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+
+
+
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        
+        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+      
+        <Grid Margin="0,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Left Menu-->
+
+            <!--Main Section-->
+            <Grid Grid.Column="1" Margin="10,20,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!--Search Textbox-->
+       
+
+                <!--Top Buttons-->
+                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
+                    <Icon:PackIconMaterial Kind="Cog"/>
+                </Button>
+
+                
+
+                <!--Page Title-->
+                <TextBlock Text="Departamento" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+
+                <!--Add Button-->
+                <Button x:Name="btnAgregarDepa" Style="{StaticResource addButton}" Click="btnAgregarDepa_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                        <TextBlock Text="Agregar Departamento"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                <!--Tab buttons-->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                    <Button Style="{StaticResource tabButton}" Content="Inicio" Foreground="{DynamicResource ActionIconColor}" BorderBrush="#784FF2"/>
+                    <Button Style="{StaticResource tabButton}" Content="Arrendados" Foreground="{DynamicResource ActionIconColor}" />
+                    <Button Style="{StaticResource tabButton}" Content="Libres" Foreground="{DynamicResource ActionIconColor}"/>
+                </StackPanel>
+
+                <!--Counter Title-->
+                <TextBlock Text="Departamentos:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Filtro" Foreground="{DynamicResource ActionIconColor}" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                <!--Filter Textbox-->
+                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+                   
+
+                    <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" materialDesign:HintAssist.Hint="Buscar"/>
+                </Grid>
+
+                <!--Members Data Grid-->
+                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+                        <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                        <DataGridTemplateColumn Header="Direccion" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BgColor}">
+                                            <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                        </Border>
+
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Dormitorios" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Valor Arriendo" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Baños" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Metros(m²)" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Comuna" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn Header="Reglas" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+
+                        <DataGridTemplateColumn Header="Acción" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource gridEditButton}">
+                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                        <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!--Pagingation Section-->
+                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#DEE4EC" BorderThickness="1" CornerRadius="5" Padding="5" Background="#ffffff" Margin="0 10 10 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource pagingButton}">
+                            <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>
+                        </Button>
+                        <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
+
+                        <Button Style="{StaticResource pagingButton}" Content="1" Background="{DynamicResource PrimaryBlueColor}" Foreground="#ffffff"/>
+                        <Button Style="{StaticResource pagingButton}" Content="2" />
+                        <Button Style="{StaticResource pagingButton}" Content="3"/>
+
+                        <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" Margin="10 0" FontSize="15"/>
+
+                        <Button Style="{StaticResource pagingButton}" Content="7"/>
+                        <Button Style="{StaticResource pagingButton}" Content="8"/>
+                        <Button Style="{StaticResource pagingButton}" Content="9"/>
+
+                        <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
+                        <Button Style="{StaticResource pagingButton}">
+                            <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+        </Grid>
+    </Border>
+    </materialDesign:DialogHost>
+
+</Page>

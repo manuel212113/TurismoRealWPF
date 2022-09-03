@@ -1,0 +1,172 @@
+﻿<Page x:Class="TurismoReal_Escritorio.Paginas.Usuarios"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Usuarios">
+
+    <materialDesign:DialogHost x:Name="VentanaAgregarDepa">
+        <materialDesign:DialogHost.DialogContent>
+            <Grid Margin="50">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <TextBlock FontFamily="/fuentes/#Quicksand Bold"  Text="Iniciando Sesión ..." Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" IsIndeterminate="True" Value="0" Grid.Row="1" Margin="0,0,0,10">
+
+                </ProgressBar>
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+
+            <Grid Margin="0,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Left Menu-->
+
+                <!--Main Section-->
+                <Grid Grid.Column="1" Margin="10,20,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Search Textbox-->
+
+
+                    <!--Top Buttons-->
+                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
+                        <Icon:PackIconMaterial Kind="Cog"/>
+                    </Button>
+
+
+
+                    <!--Page Title-->
+                    <TextBlock Text="Usuarios" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+                    <Button x:Name="btnAgregarDepa" Style="{StaticResource addButton}"  Margin="0,24,0,4" Grid.Row="1" Width="185">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                            <TextBlock Text="Agregar Usuario"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Seprator-->
+                    <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                    <!--Tab buttons-->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                        <Button Style="{StaticResource tabButton}" Content="Inicio" Foreground="{DynamicResource ActionIconColor}" BorderBrush="#784FF2"/>
+                        <Button Style="{StaticResource tabButton}" Content="Arrendados" Foreground="{DynamicResource ActionIconColor}" />
+                        <Button Style="{StaticResource tabButton}" Content="Libres" Foreground="{DynamicResource ActionIconColor}"/>
+                    </StackPanel>
+
+                    <!--Counter Title-->
+                    <TextBlock Text="Departamentos:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <TextBlock Text="Filtro" Foreground="{DynamicResource ActionIconColor}" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    <!--Filter Textbox-->
+                    <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+
+
+                        <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" materialDesign:HintAssist.Hint="Buscar"/>
+                    </Grid>
+
+                    <!--Members Data Grid-->
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                                <DataGridCheckBoxColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                    </DataTemplate>
+                                </DataGridCheckBoxColumn.HeaderTemplate>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="RUT" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                            <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BgColor}">
+                                                <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                            </Border>
+
+                                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Apellido" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Tipo" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+
+                            <DataGridTextColumn Header="Genero" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Edad" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Estado" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Correo" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Comuna" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+
+                            <DataGridTemplateColumn Header="Acción" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource gridEditButton}">
+                                                <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                            <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                                <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--Pagingation Section-->
+                    <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#DEE4EC" BorderThickness="1" CornerRadius="5" Padding="5" Background="#ffffff" Margin="0 10 10 10">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource pagingButton}">
+                                <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>
+                            </Button>
+                            <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
+
+                            <Button Style="{StaticResource pagingButton}" Content="1" Background="{DynamicResource PrimaryBlueColor}" Foreground="#ffffff"/>
+                            <Button Style="{StaticResource pagingButton}" Content="2" />
+                            <Button Style="{StaticResource pagingButton}" Content="3"/>
+
+                            <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" Margin="10 0" FontSize="15"/>
+
+                            <Button Style="{StaticResource pagingButton}" Content="7"/>
+                            <Button Style="{StaticResource pagingButton}" Content="8"/>
+                            <Button Style="{StaticResource pagingButton}" Content="9"/>
+
+                            <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
+                            <Button Style="{StaticResource pagingButton}">
+                                <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+        </Border>
+    </materialDesign:DialogHost>
+</Page>

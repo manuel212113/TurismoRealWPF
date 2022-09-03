@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TurismoReal_Escritorio"
+        xmlns:local="clr-namespace:TurismoReal_Escritorio" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Name="home"
         Title="MainWindow" Height="650" Width="1000"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
@@ -58,7 +58,13 @@
                         <RadioButton x:Name="rdDepartamento" Content="Departamento" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Apartament}" Margin="0 5 0 5" Click="rdDepartamento_Click"/>
                         <RadioButton x:Name="rdUsuario" Content="Usuarios" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource user}" Click="rdUsuario_Click" Cursor="Hand"/>
                         <RadioButton x:Name="rdInventario" Content="Inventario" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Inventory}" Margin="0 5 0 5" Click="rdInventario_Click"/>
-                        <ToggleButton x:Name="btnTema" IsChecked="False"  Tag="{DynamicResource payment}" Margin="0 5 0 5" Click="btnTema_Click" Cursor="Hand"/>
+                        <RadioButton x:Name="rdEstadisticas" Content="Reportes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Graph}" Margin="0 5 0 5" />
+
+                        <ToggleButton x:Name="btnTema" IsChecked="False"  Style="{StaticResource MaterialDesignActionToggleButton}" Background="{DynamicResource PrimaryBlueColor}"
+  ToolTip="MaterialDesignActionLightToggleButton"
+  Content="{materialDesign:PackIcon Kind=WbSunny}"
+  materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=WeatherNight}"
+                                      Margin="0 5 0 5" Click="btnTema_Click" Cursor="Hand"/>
 
                     </StackPanel>
 
@@ -86,7 +92,7 @@
 
                 <!-- Start: Button Close | Restore | Minimize -->
                 <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
-                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Cursor="Hand"/>
                     <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">

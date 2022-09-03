@@ -4,16 +4,16 @@
 
 
     <!-- Background Colors -->
-    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#14181D"/>
-    <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#1C1C25"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0f243d"/>
+    <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#101a32"/>
 
     <!-- Primary Colors -->
-    <SolidColorBrush x:Key="PrimaryBlueColor" Color="#496FFF"/>
-    <SolidColorBrush x:Key="PrimaryGrayColor" Color="#64677A"/>
+    <SolidColorBrush x:Key="PrimaryBlueColor" Color="#3772FF"/>
+    <SolidColorBrush x:Key="PrimaryGrayColor" Color="#8997b2"/>
 
     <!-- Secundary Colors -->
     <SolidColorBrush x:Key="SecundaryBlueColor" Color="#496FFF"/>
-    <SolidColorBrush x:Key="SecundaryGrayColor" Color="#CECECE"/>
+    <SolidColorBrush x:Key="SecundaryGrayColor" Color="#1e3252"/>
 
     <!-- Tertiary Colors -->
     <SolidColorBrush x:Key="TertiaryBlueColor" Color="#C2D1FC"/>
