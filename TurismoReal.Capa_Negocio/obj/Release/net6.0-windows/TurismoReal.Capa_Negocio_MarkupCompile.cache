@@ -1,18 +1,18 @@
 ﻿TurismoReal.Capa_Negocio
-1.0.0.0
+
 
 winexe
 C#
 .cs
-C:\Users\Leandro\Desktop\UltimoSemestre\TurismoReal\TurismoRealWPF\TurismoReal.Capa_Negocio\obj\Debug\net6.0-windows\
+C:\Users\Leandro\Desktop\UltimoSemestre\TurismoReal\TurismoRealWPF\TurismoReal.Capa_Negocio\obj\Release\net6.0-windows\
 TurismoReal.Capa_Negocio
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\Leandro\Desktop\UltimoSemestre\TurismoReal\TurismoRealWPF\TurismoReal.Capa_Negocio\App.xaml
 
 
-5986918381
+3221275238
 194-200944676
 
 

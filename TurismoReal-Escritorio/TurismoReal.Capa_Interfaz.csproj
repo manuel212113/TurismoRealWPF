@@ -38,6 +38,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="System.Data.OracleClient">
+      <HintPath>D:\Descargas\System.Data.OracleClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="fuentes\Quicksand-Light.ttf" />
     <Resource Include="fuentes\Quicksand-Medium.ttf" />
     <Resource Include="fuentes\Quicksand-Regular.ttf" />

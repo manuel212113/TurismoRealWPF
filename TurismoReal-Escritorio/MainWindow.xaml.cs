@@ -29,7 +29,11 @@ namespace TurismoReal_Escritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estas seguro que deseas cerrar la aplicación?", "Informacion", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void btnRestore_Click(object sender, RoutedEventArgs e)
