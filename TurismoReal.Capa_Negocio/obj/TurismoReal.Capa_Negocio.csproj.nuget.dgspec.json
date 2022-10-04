@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Leandro\\Desktop\\UltimoSemestre\\TurismoReal\\TurismoRealWPF\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj": {}
+    "C:\\Users\\Usuario-Manuel\\source\\repos\\TurismoReal-Escritorio\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Leandro\\Desktop\\UltimoSemestre\\TurismoReal\\TurismoRealWPF\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj": {
+    "C:\\Users\\Usuario-Manuel\\source\\repos\\TurismoReal-Escritorio\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leandro\\Desktop\\UltimoSemestre\\TurismoReal\\TurismoRealWPF\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario-Manuel\\source\\repos\\TurismoReal-Escritorio\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj",
         "projectName": "TurismoReal.Capa_Negocio",
-        "projectPath": "C:\\Users\\Leandro\\Desktop\\UltimoSemestre\\TurismoReal\\TurismoRealWPF\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj",
-        "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leandro\\Desktop\\UltimoSemestre\\TurismoReal\\TurismoRealWPF\\TurismoReal.Capa_Negocio\\obj\\",
+        "projectPath": "C:\\Users\\Usuario-Manuel\\source\\repos\\TurismoReal-Escritorio\\TurismoReal.Capa_Negocio\\TurismoReal.Capa_Negocio.csproj",
+        "packagesPath": "C:\\Users\\Usuario-Manuel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario-Manuel\\source\\repos\\TurismoReal-Escritorio\\TurismoReal.Capa_Negocio\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Usuario-Manuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

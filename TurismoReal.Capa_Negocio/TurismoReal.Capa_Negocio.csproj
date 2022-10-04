@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Departamento\" />
-    <Folder Include="Cliente\" />
     <Folder Include="Usuario\" />
   </ItemGroup>
 
