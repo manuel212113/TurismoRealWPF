@@ -190,3 +190,5 @@ git_stats/*
 StyleCop.Cache
 bin
 obj
+*.vsidx
+.vs/TurismoReal-Escritorio/DesignTimeBuild/.dtbcache.v2

@@ -38,7 +38,7 @@ namespace TurismoReal_Escritorio
 
         }
 
-        OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
+// OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
 
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)

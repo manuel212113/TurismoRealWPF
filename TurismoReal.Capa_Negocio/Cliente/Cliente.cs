@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace TurismoReal.Capa_Negocio.Cliente
 {
-    internal class Cliente
+    public class Cliente
     {
- 
+
+
+
+
+        private void CrearUsuario()
+        {
+           
+        }
+
+
+        private void ActualizarTipoUsuario()
+        {
+
+        }
+
     }
 
 
-    private void CrearUsuario()
-    {
 
-    }
 
 
 }
