@@ -78,7 +78,7 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnAgregarDepa_Click(object sender, RoutedEventArgs e)
         {
-            VentanaAgregarDepa.IsOpen = true;
+            VentanaAgregarusuario.IsOpen = true;
             
         }
     }

@@ -10,19 +10,43 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Usuarios">
 
-    <materialDesign:DialogHost x:Name="VentanaAgregarDepa">
-        <materialDesign:DialogHost.DialogContent>
-            <Grid Margin="50">
+    <materialDesign:DialogHost  x:Name="VentanaAgregarusario" Background="{DynamicResource SecundaryBackgroundColor}" >
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
 
                 </Grid.RowDefinitions>
-                <TextBlock FontFamily="/fuentes/#Quicksand Bold"  Text="Iniciando Sesión ..." Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
-                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" IsIndeterminate="True" Value="0" Grid.Row="1" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
+                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Agregar Usuario" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
-                </ProgressBar>
+                    <TextBox materialDesign:HintAssist.Hint="RUT" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Nombre" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Apellido" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Tipo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Genero" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Edad" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Estado civil" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Correo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Accion" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+
+
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Content="Aceptar"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+
+
+
             </Grid>
         </materialDesign:DialogHost.DialogContent>
         <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
@@ -42,8 +66,12 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                     
                     </Grid.RowDefinitions>
 
                     <!--Search Textbox-->
@@ -60,7 +88,7 @@
                     <TextBlock Text="Usuarios" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
 
                     <!--Add Button-->
-                    <Button x:Name="btnAgregarDepa" Style="{StaticResource addButton}"  Margin="0,24,0,4" Grid.Row="1" Width="185">
+                    <Button x:Name="btnAgregarUsuario" Style="{StaticResource addButton}" Click="btnAgregarUsuario_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                             <TextBlock Text="Agregar Usuario"/>
@@ -72,33 +100,23 @@
 
                     <!--Tab buttons-->
                     <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                        <Button Style="{StaticResource tabButton}" Content="Inicio" Foreground="{DynamicResource ActionIconColor}" BorderBrush="#784FF2"/>
-                        <Button Style="{StaticResource tabButton}" Content="Arrendados" Foreground="{DynamicResource ActionIconColor}" />
-                        <Button Style="{StaticResource tabButton}" Content="Libres" Foreground="{DynamicResource ActionIconColor}"/>
+                        <Button Style="{StaticResource tabButton}" Content="Registrados" Foreground="{DynamicResource ActionIconColor}"  Click="btnAgregarUsuario_Click" RenderTransformOrigin="0.5,0.422" Width="125">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="1.59"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
                     </StackPanel>
 
-                    <!--Counter Title-->
-                    <TextBlock Text="Departamentos:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
-                    <TextBlock Text="Filtro" Foreground="{DynamicResource ActionIconColor}" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"  HorizontalAlignment="Right" VerticalAlignment="Center"/>
-
-                    <!--Filter Textbox-->
-                    <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
-
-
-                        <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" materialDesign:HintAssist.Hint="Buscar"/>
-                    </Grid>
 
                     <!--Members Data Grid-->
                     <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
-                                <DataGridCheckBoxColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
-                                    </DataTemplate>
-                                </DataGridCheckBoxColumn.HeaderTemplate>
-                            </DataGridCheckBoxColumn>
+                           
                             <DataGridTextColumn Header="RUT" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
                             <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -140,29 +158,6 @@
                     </DataGrid>
 
                     <!--Pagingation Section-->
-                    <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#DEE4EC" BorderThickness="1" CornerRadius="5" Padding="5" Background="#ffffff" Margin="0 10 10 10">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Style="{StaticResource pagingButton}">
-                                <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>
-                            </Button>
-                            <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
-
-                            <Button Style="{StaticResource pagingButton}" Content="1" Background="{DynamicResource PrimaryBlueColor}" Foreground="#ffffff"/>
-                            <Button Style="{StaticResource pagingButton}" Content="2" />
-                            <Button Style="{StaticResource pagingButton}" Content="3"/>
-
-                            <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" Margin="10 0" FontSize="15"/>
-
-                            <Button Style="{StaticResource pagingButton}" Content="7"/>
-                            <Button Style="{StaticResource pagingButton}" Content="8"/>
-                            <Button Style="{StaticResource pagingButton}" Content="9"/>
-
-                            <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
-                            <Button Style="{StaticResource pagingButton}">
-                                <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>
-                            </Button>
-                        </StackPanel>
-                    </Border>
 
                 </Grid>
 

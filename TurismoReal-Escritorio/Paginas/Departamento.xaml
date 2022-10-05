@@ -13,7 +13,7 @@
       Title="Inicio">
 
 
-    <materialDesign:DialogHost  x:Name="VentanaAgregarDepa" Background="{DynamicResource SecundaryBackgroundColor}" >
+    <materialDesign:DialogHost  x:Name="VentanaAgregarusuario" Background="{DynamicResource SecundaryBackgroundColor}" >
         <materialDesign:DialogHost.DialogContent >
             <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
                 <Grid.RowDefinitions>
