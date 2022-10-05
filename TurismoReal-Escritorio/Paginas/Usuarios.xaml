@@ -30,8 +30,8 @@
                     <TextBox materialDesign:HintAssist.Hint="Contraseña" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtContrasena" Margin="0,10,0,0"></TextBox>
 
 
-                    <Button x:Name="btnGuardarusuario"
-          Style="{StaticResource MaterialDesignFlatButton}" Click="btnAgregarUsuario_Click"
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarUsuario_Click"
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
@@ -87,7 +87,7 @@
                     <TextBlock Text="Usuarios" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
 
                     <!--Add Button-->
-                    <Button x:Name="btnAgregarUsuario" Style="{StaticResource addButton}" Click="btnAgregarUsuario_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                    <Button Style="{StaticResource addButton}" Click="btnAgregarUsuario_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                             <TextBlock Text="Agregar Usuario"/>
