@@ -38,14 +38,14 @@ namespace TurismoReal_Escritorio
 
         }
 
-// OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
+    OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
 
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
             cone.Open();
 
-            OracleCommand comando = new OracleCommand("SELECT * FROM PERSONA WHERE USUARIOS = :Usuario AND CONTRASENA = :Contra", cone);
+            OracleCommand comando = new OracleCommand("SELECT * FROM PERSONA WHERE NOMBRE = :Usuario AND CONTRASENA = :Contra", cone);
 
             comando.Parameters.AddWithValue(":Usuario", TxtUsuario.Text);
             comando.Parameters.AddWithValue(":Contra", TxtContraseña.Password);

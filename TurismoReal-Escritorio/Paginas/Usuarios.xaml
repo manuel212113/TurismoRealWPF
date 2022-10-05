@@ -19,24 +19,23 @@
                 <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
                     <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Agregar Usuario" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
-                    <TextBox materialDesign:HintAssist.Hint="RUT" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Nombre" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Apellido" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Tipo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Genero" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Edad" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Estado civil" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Correo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Accion" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="RUT" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtRUT" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Nombre" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNombre" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Apellido" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtApellido" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Genero" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtGenero" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Edad" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtEdad" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Estado civil" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtEstado_civil" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Correo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtCorreo" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Contraseña" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtContrasena" Margin="0,10,0,0"></TextBox>
 
 
-                    <Button
-          Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button x:Name="btnGuardarusuario"
+          Style="{StaticResource MaterialDesignFlatButton}" Click="btnAgregarUsuario_Click"
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
-          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" >
                         <Button.CommandParameter>
                             <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                 False
@@ -100,7 +99,7 @@
 
                     <!--Tab buttons-->
                     <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                        <Button Style="{StaticResource tabButton}" Content="Registrados" Foreground="{DynamicResource ActionIconColor}"  Click="btnAgregarUsuario_Click" RenderTransformOrigin="0.5,0.422" Width="125">
+                        <Button Style="{StaticResource tabButton}" Content="Registrados" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="125">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -132,15 +131,13 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTextColumn Header="Apellido" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Tipo" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-
                             <DataGridTextColumn Header="Genero" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Edad" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Estado" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Correo" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Comuna" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
 
-                            <DataGridTemplateColumn Header="Acción" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn Header="Contraseña" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,8 +30,15 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnAgregarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            VentanaAgregarusario.IsOpen = true;           
+            VentanaAgregarusario.IsOpen = true;
 
+        }
+
+
+        private void BtnGuardarusuario_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow ventanaPrincipal = new MainWindow();
+            ventanaPrincipal.Show();
         }
     }
 }
