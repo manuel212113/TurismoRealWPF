@@ -192,3 +192,5 @@ bin
 obj
 *.vsidx
 .vs/TurismoReal-Escritorio/DesignTimeBuild/.dtbcache.v2
+.vs/ProjectEvaluation/turismoreal-escritorio.metadata.v5.1
+*.vsidx
