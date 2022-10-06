@@ -408,6 +408,11 @@ bin/
 obj/
 Debug/
 Release/
+
+bin/*
+obj/*
+Debug/*
+Release/*
 *.opensdf
 *.tlog
 *.log
