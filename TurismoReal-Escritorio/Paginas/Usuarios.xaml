@@ -24,9 +24,9 @@
                     <TextBox materialDesign:HintAssist.Hint="Apellido" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtApellido" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="Genero" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtGenero" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="Edad" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtEdad" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Estado civil" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtEstado_civil" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Celular" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtCelular" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="Correo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtCorreo" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="Comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Tipo Usuario" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtTipo" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="Contraseña" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtContrasena" Margin="0,10,0,0"></TextBox>
 
 
@@ -135,9 +135,9 @@
                             <DataGridTextColumn Header="Edad" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Estado" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Correo" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Comuna" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Tipo" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
 
-                            <DataGridTemplateColumn Header="Contraseña" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn Header="Estado" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">

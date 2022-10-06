@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using TurismoReal.Capa_Negocio.Usuario;
 
 namespace TurismoReal_Escritorio
 {
@@ -38,51 +39,38 @@ namespace TurismoReal_Escritorio
 
         }
 
-//    OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
 
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
-            cone.Open();
+            VentanaCargandoLogin.IsOpen = true;
+            Usuario usr = new Usuario();
 
-            OracleCommand comando = new OracleCommand("SELECT * FROM PERSONA WHERE NOMBRE = :Usuario AND CONTRASENA = :Contra", cone);
-
-            comando.Parameters.AddWithValue(":Usuario", TxtUsuario.Text);
-            comando.Parameters.AddWithValue(":Contra", TxtContraseña.Password);
-
-            OracleDataReader lector = comando.ExecuteReader();
-
-            if (lector.Read())
+            if (usr.Login(TxtUsuario, TxtContraseña) &  String.IsNullOrEmpty(TxtUsuario.Text)==false & String.IsNullOrEmpty(TxtContraseña.Password)==false)
             {
-                VentanaCargandoLogin.IsOpen = true;
-
-                /* Timer de 2 segundo de espera version de prueba*/
-                var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
-                timer.Start();
-                timer.Tick += (sender, args) =>
-                {
-                    timer.Stop();
-                    VentanaCargandoLogin.IsOpen = false;
-                    MainWindow ventanaPrincipal = new MainWindow();
-                    cone.Close();
-                    Close();
-                    ventanaPrincipal.Show();
-                };
+                VentanaCargandoLogin.IsOpen = false;
+                MainWindow ventanaPrincipal = new MainWindow();
+                Close();
+                ventanaPrincipal.Show();
             }
+            
             else
             {
-                VentanaCargandoLogin.IsOpen = true;
-
-                /* Timer de 2 segundo de espera version de prueba*/
-                var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
-                timer.Start();
-                timer.Tick += (sender, args) =>
+          
+                if(String.IsNullOrEmpty(TxtUsuario.Text) || String.IsNullOrEmpty(TxtContraseña.Password))
                 {
-                    timer.Stop();
                     VentanaCargandoLogin.IsOpen = false;
-                    cone.Close();
-                    MessageBox.Show("Ingrese correctamente el usuario y contraseña");
-                };
+                    MessageBox.Show("Tienes que llenar todos los campos de texto");
+
+                }
+                else
+                {
+                    VentanaCargandoLogin.IsOpen = false;
+                    MessageBox.Show("Contraseña o Usuario Incorrecto");
+                }
+              
+
+
             }
         }
 

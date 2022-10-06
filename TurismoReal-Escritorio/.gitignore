@@ -196,3 +196,7 @@ obj
 *.vsidx
 TurismoReal.Capa_Negocio/obj/Debug/net6.0-windows/TurismoReal.Capa_Negocio_MarkupCompile.i.cache
 *.cache
+*.cache
+*.cache
+TurismoReal.Capa_Negocio/obj/Debug/net6.0-windows/TurismoReal.Capa_Negocio_MarkupCompile.i.cache
+*.csproj
