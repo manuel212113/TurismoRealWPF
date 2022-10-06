@@ -28,6 +28,11 @@ namespace TurismoReal_Escritorio.Paginas
         public Usuarios()
         {
             InitializeComponent();
+
+            Usuario usr = new Usuario();
+
+            ObservableCollection<Usuario> usuarios_l = new ObservableCollection<Usuario>();
+            usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
         }
 
         private void btnAgregarUsuario_Click(object sender, RoutedEventArgs e)
