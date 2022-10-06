@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>TurismoReal_Escritorio</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fuentes\Quicksand-Bold.ttf" />
+    <None Remove="fuentes\Quicksand-Light.ttf" />
+    <None Remove="fuentes\Quicksand-Medium.ttf" />
+    <None Remove="fuentes\Quicksand-Regular.ttf" />
+    <None Remove="fuentes\Quicksand-SemiBold.ttf" />
+    <None Remove="img\login-imagen.jpg" />
+    <None Remove="img\logo_isotipo.png" />
+    <None Remove="img\logo_turismoreal.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Temas\TemaClaro.xaml" />
+    <Page Remove="Temas\TemaOscuro.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fuentes\Quicksand-Bold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TurismoReal.Capa_Negocio\TurismoReal.Capa_Negocio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Data.OracleClient">
+      <HintPath>..\System.Data.OracleClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fuentes\Quicksand-Light.ttf" />
+    <Resource Include="fuentes\Quicksand-Medium.ttf" />
+    <Resource Include="fuentes\Quicksand-Regular.ttf" />
+    <Resource Include="fuentes\Quicksand-SemiBold.ttf" />
+    <Resource Include="img\login-imagen.jpg" />
+    <Resource Include="img\logo_isotipo.png" />
+    <Resource Include="img\logo_turismoreal.png" />
+    <Resource Include="Temas\TemaClaro.xaml" />
+    <Resource Include="Temas\TemaOscuro.xaml" />
+  </ItemGroup>
+
+</Project>
