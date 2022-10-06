@@ -199,6 +199,4 @@ TurismoReal.Capa_Negocio/obj/Debug/net6.0-windows/TurismoReal.Capa_Negocio_Marku
 *.cache
 *.cache
 TurismoReal.Capa_Negocio/obj/Debug/net6.0-windows/TurismoReal.Capa_Negocio_MarkupCompile.i.cache
-*.csproj
-TurismoReal.Capa_Negocio/TurismoReal.Capa_Negocio.csproj
-*.csproj
+
