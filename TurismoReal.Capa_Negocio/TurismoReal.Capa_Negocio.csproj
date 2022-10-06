@@ -8,8 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Departamento\" />
     <Folder Include="Usuario\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Data.OracleClient">
+      <HintPath>..\System.Data.OracleClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

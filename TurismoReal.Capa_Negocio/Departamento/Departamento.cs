@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TurismoReal.Capa_Negocio.Departamento
 {
-    public  class Departartamento
+    public  class Departamento
     {
 
 
@@ -24,6 +24,11 @@ namespace TurismoReal.Capa_Negocio.Departamento
         public string _fecha;
         public string _habilitado;
 
+        public Departamento()
+        {
+            this.Init();
+        }
+
         public void Init()
         {
             _id_depa = 0;
@@ -38,6 +43,12 @@ namespace TurismoReal.Capa_Negocio.Departamento
             _valor_arriendo = string.Empty;
             _fecha = string.Empty;
             _habilitado = string.Empty;
+        }
+
+
+        public void CrearDepartamento()
+        {
+
         }
     }
 }

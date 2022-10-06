@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <Reference Include="System.Data.OracleClient">
-      <HintPath>D:\Descargas\System.Data.OracleClient.dll</HintPath>
+      <HintPath>..\System.Data.OracleClient.dll</HintPath>
     </Reference>
   </ItemGroup>
 
