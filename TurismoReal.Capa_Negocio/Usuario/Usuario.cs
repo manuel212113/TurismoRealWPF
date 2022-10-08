@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.OracleClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Markup;
 using System.Windows.Media.TextFormatting;
 using OracleCommand = Oracle.ManagedDataAccess.Client.OracleCommand;
@@ -20,19 +22,18 @@ namespace TurismoReal.Capa_Negocio.Usuario
 {
     public class Usuario
     {
-        public string _rut { get; set; }
-        public string _nombre { get; set; }
-        public string _email { get; set; }
-        public string _genero { get; set; }
-        public string _apellido { get; set; }
-        public string _celular { get; set; }
-        
-        public string _desc_tipo_usuario { get; set; }
+        public string RUT { get; set; }
+        public string NOMBRE { get; set; }
+        public string EMAIL { get; set; }
+        public string GENERO { get; set; }
+        public string APELLIDO { get; set; }
+        public string CELULAR { get; set; }
+
+        public string TIPOUSUARIO { get; set; }
 
 
 
-        OracleConnection cone = new OracleConnection(
-            "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
         public Usuario()
         {
             this.Init();
@@ -40,13 +41,28 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
         public void Init()
         {
-            _rut = string.Empty;
-            _nombre = string.Empty;
-            _apellido = string.Empty;
-            _email = string.Empty;
-            _genero = string.Empty;
-            _celular = string.Empty;
-            _desc_tipo_usuario = string.Empty;
+            RUT = string.Empty;
+            NOMBRE = string.Empty;
+            APELLIDO = string.Empty;
+            EMAIL = string.Empty;
+            GENERO = string.Empty;
+            CELULAR = string.Empty;
+            TIPOUSUARIO = string.Empty;
+        }
+
+
+
+        public static string EncriptarContraseña(string contraseña)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(contraseña));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+
+
         }
 
 
@@ -54,27 +70,39 @@ namespace TurismoReal.Capa_Negocio.Usuario
         public bool Login(TextBox txtUsuario, PasswordBox contraseña)
         {
 
-          
+
 
             cone.Open();
+
 
             OracleCommand comando = new OracleCommand("SELECT * FROM USUARIO WHERE EMAIL = :Usuario AND TIPO_USUARIO_ID_TIPO_USUARIO=2 AND CONTRASENA = :Contra", cone);
 
             comando.Parameters.Add(":Usuario", txtUsuario.Text);
-            comando.Parameters.Add(":Contra", contraseña.Password);
+            comando.Parameters.Add(":Contra", contraseña.Password );
 
-            OracleDataReader lector = comando.ExecuteReader();
 
-            if (lector.Read())
+            try
             {
-                cone.Close();
-                return true;
+
+                OracleDataReader lector = comando.ExecuteReader();
+
+                if (lector.Read())
+                {
+                    cone.Close();
+                    return true;
+                }
+                else
+                {
+                    cone.Close();
+                    return false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                cone.Close();
+                MessageBox.Show(ex.Message);
                 return false;
             }
+          
 
         }
 
@@ -107,6 +135,28 @@ namespace TurismoReal.Capa_Negocio.Usuario
             }
 
         }
+
+
+
+        public bool EliminarUsuario(string rut)
+        {
+            try
+            {
+                cone.Open();
+                OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_USUARIO", cone);
+                comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoEliminar.Parameters.Add("RUT_ELIMINAR", OracleType.VarChar).Value = rut;
+                MessageBox.Show("Persona agregada a la base de datos");
+                cone.Close();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+
+            }
+        }
         public void CargarUsuarios(ObservableCollection<Usuario> lista_usr, DataGrid dataGrid)
         {
 
@@ -129,13 +179,13 @@ namespace TurismoReal.Capa_Negocio.Usuario
                 {
                     Usuario usuar = new Usuario();
 
-                    usuar._rut = lector.GetString(0);
-                    usuar._nombre = lector.GetString(1);
-                    usuar._apellido = lector.GetString(4);
-                    usuar._email = lector.GetString(2);
-                    usuar._genero = lector.GetString(3);
-                    usuar._celular = lector.GetString(5);
-                    usuar._desc_tipo_usuario=lector.GetString(7);
+                    usuar.RUT = lector.GetString(0);
+                    usuar.NOMBRE = lector.GetString(1);
+                    usuar.APELLIDO = lector.GetString(4);
+                    usuar.EMAIL = lector.GetString(2);
+                    usuar.GENERO = lector.GetString(3);
+                    usuar.CELULAR = lector.GetString(5);
+                    usuar.TIPOUSUARIO=lector.GetString(7);
 
 
                     lista_usr.Add(usuar);
@@ -149,6 +199,8 @@ namespace TurismoReal.Capa_Negocio.Usuario
             }
 
         }
+
+      
 
     }
 }

@@ -67,5 +67,10 @@ namespace TurismoReal_Escritorio.Paginas
             
 
         }
+
+        private void BtnEliminarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

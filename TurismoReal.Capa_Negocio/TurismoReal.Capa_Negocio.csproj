@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -7,13 +7,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-
   <ItemGroup>
     <Folder Include="Usuario\" />
   </ItemGroup>
 
   <ItemGroup>
-   
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.70" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Data.OracleClient">
+      <HintPath>..\System.Data.OracleClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
