@@ -46,28 +46,29 @@ namespace TurismoReal_Escritorio
             VentanaCargandoLogin.IsOpen = true;
             Usuario usr = new Usuario();
 
-            if (usr.Login(TxtUsuario, TxtContraseña) &  String.IsNullOrEmpty(TxtUsuario.Text)==false & String.IsNullOrEmpty(TxtContraseña.Password)==false)
+            if (TxtUsuario.Text.Length!=0 &&  TxtContraseña.Password.Length != 0)
             {
-                VentanaCargandoLogin.IsOpen = false;
-                MainWindow ventanaPrincipal = new MainWindow();
-                Close();
-                ventanaPrincipal.Show();
-            }
-            
-            else
-            {
-          
-                if(String.IsNullOrEmpty(TxtUsuario.Text) || String.IsNullOrEmpty(TxtContraseña.Password))
+                if(usr.Login(TxtUsuario, TxtContraseña))
                 {
                     VentanaCargandoLogin.IsOpen = false;
-                    MessageBox.Show("Tienes que llenar todos los campos de texto");
-
+                    MainWindow ventanaPrincipal = new MainWindow();
+                    Close();
+                    ventanaPrincipal.Show();
                 }
                 else
                 {
                     VentanaCargandoLogin.IsOpen = false;
                     MessageBox.Show("Contraseña o Usuario Incorrecto");
                 }
+              
+            }
+            
+            else
+            {
+                VentanaCargandoLogin.IsOpen = false;
+                MessageBox.Show("Tienes que llenar todos los campos de texto");
+
+              
               
 
 

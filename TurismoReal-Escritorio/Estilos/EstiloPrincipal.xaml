@@ -435,9 +435,10 @@
 
     <Style x:Key="DataGridColumnHeaderStyle1" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="#69717D" />
-        <Setter Property="Margin" Value="15 0 15 10" />
+        <Setter Property="Height" Value="20"></Setter>
+        <Setter Property="Background" Value="{DynamicResource PrimaryBlueColor}" />
+        <Setter Property="Foreground" Value="#FFF" />
+        <Setter Property="Margin" Value="0 0 4 0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
