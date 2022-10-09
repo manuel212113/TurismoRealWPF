@@ -26,13 +26,13 @@ namespace TurismoReal_Escritorio.Paginas
     public partial class Usuarios : Page
     {
 
-
-        Usuario usr = new Usuario();
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
         public Usuarios()
         {
             InitializeComponent();
 
+            Usuario usr = new Usuario();
 
             ObservableCollection<Usuario> usuarios_l = new ObservableCollection<Usuario>();
             usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
@@ -49,25 +49,25 @@ namespace TurismoReal_Escritorio.Paginas
         {
             try
             {
-
-                string rut = TxtRUT.Text;
-                string nombre = TxtNombre.Text;
-                string apellido = TxtApellido.Text;
-                string contrasena = TxtContrasena.Text;
-                string email = TxtCorreo.Text;
-                string tipo = TxtTipo.Text;
-                string genero = TxtGenero.Text;
-                string celular = TxtCelular.Text;
-
-
-                usr.AgregarUsuario(rut, nombre, email, genero, contrasena, apellido, celular, tipo);
+                cone.Open();
+                OracleCommand ComandoAgregar = new OracleCommand("SP_CREAR_USUARIO", cone);
+                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoAgregar.Parameters.Add("rut", OracleType.VarChar).Value = TxtRUT.Text;
+                ComandoAgregar.Parameters.Add("nombre", OracleType.VarChar).Value = TxtNombre.Text;
+                ComandoAgregar.Parameters.Add("email", OracleType.VarChar).Value = TxtCorreo.Text;
+                ComandoAgregar.Parameters.Add("genero", OracleType.VarChar).Value = TxtGenero.Text;
+                ComandoAgregar.Parameters.Add("contrasena", OracleType.VarChar).Value = TxtContrasena.Text;
+                ComandoAgregar.Parameters.Add("apellido", OracleType.VarChar).Value = TxtApellido.Text;
+                ComandoAgregar.Parameters.Add("celular", OracleType.VarChar).Value = TxtCelular.Text;
+                ComandoAgregar.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", OracleType.VarChar).Value = TxtTipo.Text;
+                ComandoAgregar.ExecuteNonQuery();
+                MessageBox.Show("Persona agregada a la base de datos");
+                cone.Close();
             }
-               
-          
-            
             catch
             {
                 MessageBox.Show("No se agrego la persona a la base de datos");
+                cone.Close();
 
             }
 
