@@ -25,11 +25,14 @@ namespace TurismoReal_Escritorio.Paginas
     /// </summary>
     public partial class Usuarios : Page
     {
+
+
+        Usuario usr = new Usuario();
+
         public Usuarios()
         {
             InitializeComponent();
 
-            Usuario usr = new Usuario();
 
             ObservableCollection<Usuario> usuarios_l = new ObservableCollection<Usuario>();
             usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
@@ -44,27 +47,29 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            try 
+            try
             {
 
+                string rut = TxtRUT.Text;
+                string nombre = TxtNombre.Text;
+                string apellido = TxtApellido.Text;
+                string contrasena = TxtContrasena.Text;
+                string email = TxtCorreo.Text;
+                string tipo = TxtTipo.Text;
+                string genero = TxtGenero.Text;
+                string celular = TxtCelular.Text;
 
-                Usuario usr = new Usuario();
 
-                if (usr.AgregarUsuario(TxtRUT, TxtNombre,TxtCorreo,TxtGenero,TxtContrasena,TxtApellido,TxtCelular,TxtTipo))
-                {
-
-                }
-                else
-                {
-
-                }
+                usr.AgregarUsuario(rut, nombre, email, genero, contrasena, apellido, celular, tipo);
             }
+               
+          
+            
             catch
             {
-              
+                MessageBox.Show("No se agrego la persona a la base de datos");
 
             }
-            
 
         }
 

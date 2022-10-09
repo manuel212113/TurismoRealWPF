@@ -33,7 +33,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
 
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
         public Usuario()
         {
             this.Init();
@@ -106,30 +106,30 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
         }
 
-        public bool AgregarUsuario(TextBox rut, TextBox nombre, TextBox email,TextBox genero, TextBox contrasena,TextBox apellido, TextBox celular , TextBox tipo_user )
+        public bool AgregarUsuario(string rut, string nombre, string email,string genero, string contrasena,string apellido, string celular , string tipo_user )
         {
             try
             {
                 cone.Open();
                 OracleCommand comando3 = new OracleCommand("SP_CREAR_USUARIO", cone);
                 comando3.CommandType = System.Data.CommandType.StoredProcedure;
-                comando3.Parameters.Add("RUT", OracleType.VarChar).Value = rut.Text;
-                comando3.Parameters.Add("NOMBRE", OracleType.VarChar).Value = nombre.Text;
-                comando3.Parameters.Add("EMAIL", OracleType.VarChar).Value = email.Text;
-                comando3.Parameters.Add("GENERO", OracleType.VarChar).Value = genero.Text;
-                comando3.Parameters.Add("CONTRASENA", OracleType.VarChar).Value = contrasena.Text;
-                comando3.Parameters.Add("APELLIDO", OracleType.VarChar).Value = apellido.Text;
-                comando3.Parameters.Add("CELULAR", OracleType.VarChar).Value = celular.Text;
-                comando3.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", OracleType.Int32).Value = Int32.Parse(tipo_user.Text);
+                comando3.Parameters.Add("rut", OracleType.VarChar).Value = rut;
+                comando3.Parameters.Add("nombre", OracleType.VarChar).Value =nombre;
+                comando3.Parameters.Add("email", OracleType.VarChar).Value =email;
+                comando3.Parameters.Add("genero", OracleType.VarChar).Value =genero;
+                comando3.Parameters.Add("contrasena", OracleType.VarChar).Value = contrasena;
+                comando3.Parameters.Add("apellido", OracleType.VarChar).Value =apellido;
+                comando3.Parameters.Add("celular", OracleType.VarChar).Value =celular;
+                comando3.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", OracleType.VarChar).Value = (tipo_user);
                 comando3.ExecuteNonQuery();
                 MessageBox.Show("Persona agregada a la base de datos");
                 cone.Close();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
                 cone.Close();
-                MessageBox.Show("No se agrego la persona a la base de datos");
+                MessageBox.Show(e.Message);
                 return false;
 
             }
@@ -146,7 +146,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
                 OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_USUARIO", cone);
                 comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
                 comandoEliminar.Parameters.Add("RUT_ELIMINAR", OracleType.VarChar).Value = rut;
-                MessageBox.Show("Persona agregada a la base de datos");
+                MessageBox.Show("Usuario Eliminado de la base de datos");
                 cone.Close();
                 return true;
             }
@@ -190,6 +190,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
                     lista_usr.Add(usuar);
                 }
+                cone.Close();
                 dataGrid.ItemsSource=lista_usr;
 
             }
