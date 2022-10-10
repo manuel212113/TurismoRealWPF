@@ -91,5 +91,15 @@ namespace TurismoReal_Escritorio.Paginas
             string member_name = Convert.ToString(depa.Name);
             MessageBox.Show("el nombre es"+ member_name);
         }
+
+        private void textBoxFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
