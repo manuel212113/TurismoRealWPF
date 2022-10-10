@@ -30,13 +30,13 @@ namespace TurismoReal_Escritorio.Paginas
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
+        Usuario usr = new Usuario();
 
         ObservableCollection<Usuario> usuarios_l = new ObservableCollection<Usuario>();
         public Usuarios()
         {
             InitializeComponent();
 
-            Usuario usr = new Usuario();
 
             usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
             TXTTotalusuarios.Text = "USUARIOS: "+ usuarios_l.Count.ToString();
@@ -88,7 +88,31 @@ namespace TurismoReal_Escritorio.Paginas
                 MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a :"+nombre_completo_seleccionado  , "Eliminar Usuario:"+rut_seleccionado, MessageBoxButton.YesNo);
                 if (dialogResult == MessageBoxResult.Yes)
                 {
-                    //do something
+                    try
+                    {
+
+                    
+                        cone.Open();
+                        OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_USUARIO", cone);
+                        comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
+                        comandoEliminar.Parameters.Add("RUT_ELIMINAR", OracleType.VarChar).Value = rut_seleccionado;
+                        comandoEliminar.ExecuteNonQuery();
+                        MessageBox.Show("Usuario Eliminado de la base de datos");
+                        cone.Close();
+                        usuarios_l.Clear();
+                        usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
+                        UsuarioDatagrid.Items.Refresh();
+                        TXTTotalusuarios.Text = "USUARIOS: " + usuarios_l.Count.ToString();
+
+
+                    }
+
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+
+                    }
                 }
                 else if (dialogResult == MessageBoxResult.No)
                 {
