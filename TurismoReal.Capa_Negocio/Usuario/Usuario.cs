@@ -192,6 +192,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
                 }
                 cone.Close();
                 dataGrid.ItemsSource=lista_usr;
+                dataGrid.Items.Refresh();
 
             }
             catch (Exception e)
