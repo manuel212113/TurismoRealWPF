@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
+
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="900"
@@ -108,8 +110,12 @@
                     </StackPanel>
 
 
+                    <TextBlock x:Name="TXTTotalusuarios" Text="Usuarios:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <!--Filter Textbox-->
+                    <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4"/>
                     <!--Usuarios Data Grid-->
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="UsuarioDatagrid" Style="{DynamicResource DataGridStyle1}" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5">
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="UsuarioDatagrid" Style="{DynamicResource DataGridStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  Margin="-10,10,-10,60" Grid.Row="5">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                                 <DataGridCheckBoxColumn.HeaderTemplate>
@@ -118,22 +124,14 @@
                                     </DataTemplate>
                                 </DataGridCheckBoxColumn.HeaderTemplate>
                             </DataGridCheckBoxColumn>
-                            <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding RUT}"/>
-                            <DataGridTemplateColumn Header="Direccion" IsReadOnly="True" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                          
-                                            <TextBlock Text="{Binding NOMBRE}" VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Dormitorios" Binding="{Binding APELLIDO}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Valor Arriendo" Binding="{Binding EMAIL}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Baños" Binding="{Binding GENERO}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Metros(m²)" Binding="{Binding CELULAR}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Comuna" Binding="{Binding TIPOUSUARIO}" IsReadOnly="True" Width="*"/>
+
+                            <DataGridTextColumn Header="RUT" Binding="{Binding RUT}" IsReadOnly="True" Width="*"/>
+
+                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding NOMBRE}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="APELLIDO" Binding="{Binding APELLIDO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="GENERO" Binding="{Binding GENERO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="CELULAR" Binding="{Binding CELULAR}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="TIPO" Binding="{Binding TIPOUSUARIO}" IsReadOnly="True" Width="*"/>
                             <DataGridTemplateColumn Header="Acción" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

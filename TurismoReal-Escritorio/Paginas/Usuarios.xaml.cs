@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TurismoReal.Capa_Negocio.Usuario;
+using TurismoReal.Capa_Negocio.Cliente;
+using System.Data;
 
 namespace TurismoReal_Escritorio.Paginas
 {
@@ -28,14 +30,16 @@ namespace TurismoReal_Escritorio.Paginas
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
+
+        ObservableCollection<Usuario> usuarios_l = new ObservableCollection<Usuario>();
         public Usuarios()
         {
             InitializeComponent();
 
             Usuario usr = new Usuario();
 
-            ObservableCollection<Usuario> usuarios_l = new ObservableCollection<Usuario>();
             usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
+            TXTTotalusuarios.Text = "USUARIOS: "+ usuarios_l.Count.ToString();
         }
 
         private void btnAgregarUsuario_Click(object sender, RoutedEventArgs e)
@@ -75,7 +79,31 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void BtnEliminarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var usuarioSeleccionado = UsuarioDatagrid.SelectedItem as Usuario;
+                string rut_seleccionado = usuarioSeleccionado.RUT;
+                string nombre_completo_seleccionado=usuarioSeleccionado.NOMBRE +" " +usuarioSeleccionado.APELLIDO;
 
+                MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a :"+nombre_completo_seleccionado  , "Eliminar Usuario:"+rut_seleccionado, MessageBoxButton.YesNo);
+                if (dialogResult == MessageBoxResult.Yes)
+                {
+                    //do something
+                }
+                else if (dialogResult == MessageBoxResult.No)
+                {
+                    //do something else
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
         }
     }
 }
