@@ -27,7 +27,7 @@ namespace TurismoReal_Escritorio.Paginas
     public partial class Inicio : Page
     {
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
         public Inicio()
 
@@ -37,8 +37,10 @@ namespace TurismoReal_Escritorio.Paginas
             Departamento dep = new Departamento();
 
             ObservableCollection<Departamento> depa_l= new ObservableCollection<Departamento>();
+            ObservableCollection<Departamento> depa_lista = new ObservableCollection<Departamento>();
 
-            dep.LISTAR_DEPARTAMENTOS(depa_l, departamento_data_grid);
+            depa_lista = dep.CargarDepartamentos(depa_l);
+            DataGridDepa.ItemsSource=depa_lista;
             Departamento_depa.Text = "DEPARTAMENTO: " + depa_l.Count.ToString();
         }
 
