@@ -3,12 +3,17 @@ using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.OracleClient;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using OracleCommand = Oracle.ManagedDataAccess.Client.OracleCommand;
+using OracleConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
+using OracleDataReader = Oracle.ManagedDataAccess.Client.OracleDataReader;
+using OracleParameter = Oracle.ManagedDataAccess.Client.OracleParameter;
 
 namespace TurismoReal.Capa_Negocio.Departamento
 {
@@ -51,7 +56,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
             habilitado = string.Empty;
         }
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
         public void CrearDepartamento()
         {
@@ -117,6 +122,29 @@ namespace TurismoReal.Capa_Negocio.Departamento
             }
 
 
+
+        }
+
+
+        public void  EliminarDepartamento(string ID_DEPA)
+        {
+            try
+            {
+                cone.Open();
+                OracleCommand comandoEliminarDepa = new OracleCommand("SP_Eliminar_Depa", cone);
+                comandoEliminarDepa.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoEliminarDepa.Parameters.Add("ID_DEPA", OracleType.VarChar).Value = ID_DEPA;
+                MessageBox.Show("Departamento Eliminado de la base de datos");
+                comandoEliminarDepa.ExecuteNonQuery();
+                cone.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+
+            }
         }
     }
 }

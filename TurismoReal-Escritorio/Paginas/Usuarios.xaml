@@ -9,7 +9,7 @@
 
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="900"
+      d:DesignHeight="650" d:DesignWidth="976"
       Title="Usuarios">
 
     <materialDesign:DialogHost  x:Name="VentanaAgregarusario" Background="{DynamicResource SecundaryBackgroundColor}" >
