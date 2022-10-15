@@ -58,8 +58,38 @@ namespace TurismoReal.Capa_Negocio.Departamento
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
-        public void CrearDepartamento()
+       
+
+        public void AgregarDepartamento(string iddepa, string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado)
         {
+            try
+            {
+                cone.Open();
+                OracleCommand ComandoAgregar = new OracleCommand("SP_Crear_Departamento", cone);
+                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoAgregar.Parameters.Add("id_depa", iddepa);
+                ComandoAgregar.Parameters.Add("nombre", nombre);
+                ComandoAgregar.Parameters.Add("direccion", direccion);
+                ComandoAgregar.Parameters.Add("descripcion", descripcion);
+                ComandoAgregar.Parameters.Add("metros_cuadrados", metroscuadrados);
+                ComandoAgregar.Parameters.Add("habitaciones", habitaciones);
+                ComandoAgregar.Parameters.Add("banos", banos);
+                ComandoAgregar.Parameters.Add("region", region);
+                ComandoAgregar.Parameters.Add("comuna", comuna);
+                ComandoAgregar.Parameters.Add("valor_arriendo", valorarriendo);
+                ComandoAgregar.Parameters.Add("fecha", fecha);
+                ComandoAgregar.Parameters.Add("habilitado", habilitado);
+
+                ComandoAgregar.ExecuteNonQuery();
+                MessageBox.Show("Departamento agregado a la base de datos");
+                cone.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se agrego el Departamento a la base de datos");
+                cone.Close();
+
+            }
 
         }
 

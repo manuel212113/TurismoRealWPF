@@ -40,8 +40,6 @@
                         </ComboBoxItem>
                     </ComboBox>
                     <TextBox materialDesign:HintAssist.Hint="Contraseña" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtContrasena" Margin="0,10,0,0"></TextBox>
-
-
                     <Button
           Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarUsuario_Click"
           IsCancel="True"
