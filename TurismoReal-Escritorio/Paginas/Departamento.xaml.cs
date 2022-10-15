@@ -30,8 +30,11 @@ namespace TurismoReal_Escritorio.Paginas
     public partial class Inicio : Page
     {
 
+
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
         Departamento dep = new Departamento();
+
+   
 
         public Inicio()
 
@@ -53,6 +56,32 @@ namespace TurismoReal_Escritorio.Paginas
         private void btnAgregarDepa_Click(object sender, RoutedEventArgs e)
         {
             VentanaAgregarusuario.IsOpen = true;
+
+        }
+        private void btnGuardarDepa_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string iddepa = TxtIddepa.Text;
+                string nombre = TxtNombre.Text;
+                string direccion = TxtDireccion.Text;
+                string descripcion = TxtDescripcion.Text;
+                string metroscuadrados = TxtMetrosCua.Text;
+                string habitaciones = TxtHabitaciones.Text;
+                string banos = TxtBanos.Text;
+                string region = TxtRegion.Text;
+                string comuna = TxtComuna.Text;
+                string valorarriendo = TxtValorArriendo.Text;
+                string fecha = TxtFecha.Text;
+                string habilitado = TxtHabilitado.Text;
+
+                dep.AgregarDepartamento(iddepa, nombre, direccion, descripcion, metroscuadrados, habitaciones, banos, region, comuna, valorarriendo, fecha, habilitado);
+                }
+                catch
+                {
+                      MessageBox.Show("No se agrego el Departamento a la base de datos");
+                      cone.Close();
+            }
 
         }
 
