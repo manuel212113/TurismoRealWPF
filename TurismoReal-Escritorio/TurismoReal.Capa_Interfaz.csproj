@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="DataGridExtensions" Version="2.5.14" />
+    <PackageReference Include="Imgur.API" Version="4.0.1" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
   </ItemGroup>

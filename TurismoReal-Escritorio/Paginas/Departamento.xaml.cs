@@ -30,14 +30,14 @@ namespace TurismoReal_Escritorio.Paginas
     public partial class Inicio : Page
     {
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        Departamento dep = new Departamento();
 
         public Inicio()
 
         {
             InitializeComponent();
 
-            Departamento dep = new Departamento();
 
             ObservableCollection<Departamento> depa_l = new ObservableCollection<Departamento>();
             ObservableCollection<Departamento> depa_lista = new ObservableCollection<Departamento>();
@@ -57,10 +57,7 @@ namespace TurismoReal_Escritorio.Paginas
         }
 
 
-        private void btnEditar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
 
         private void textBoxFilter_KeyDown(object sender, KeyEventArgs e)
         {
@@ -74,6 +71,7 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void BtnEliminarDepartamento_Click(object sender, RoutedEventArgs e)
         {
+            dep.AbrirVentanaArchivoImagen();
             try
             {
                 var departamentoSeleccionado = DataGridDepa.SelectedItem as Departamento;
@@ -110,6 +108,15 @@ namespace TurismoReal_Escritorio.Paginas
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+
+          
         }
     }
 }

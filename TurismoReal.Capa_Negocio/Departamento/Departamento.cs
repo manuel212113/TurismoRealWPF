@@ -1,19 +1,22 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.OracleClient;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using OracleCommand = Oracle.ManagedDataAccess.Client.OracleCommand;
 using OracleConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
 using OracleDataReader = Oracle.ManagedDataAccess.Client.OracleDataReader;
 using OracleParameter = Oracle.ManagedDataAccess.Client.OracleParameter;
+
+using System.Threading.Tasks;
+using System.Drawing;
+using Imgur.API.Authentication.Impl;
+using Imgur.API.Endpoints.Impl;
+using Imgur.API.Models;
+using Microsoft.Win32;
 
 namespace TurismoReal.Capa_Negocio.Departamento
 {
@@ -56,7 +59,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
             habilitado = string.Empty;
         }
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
         public void CrearDepartamento()
         {
@@ -145,6 +148,66 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 
 
             }
+
+
+
+        }
+
+
+        public void AbrirVentanaArchivoImagen()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filename = openFileDialog.FileName;
+                MessageBox.Show(filename);
+                SubirImagen(filename);
+
+
+            }
+
+        }
+
+
+
+        public void  SubirImagen( string pathfoto)
+        {
+            try
+            {
+
+                var client = new ImgurClient("a677cc15537cab0", "f6d689a421b3d132b522715e9e5eb1f3ff231b0c");
+                var endpoint = new ImageEndpoint(client);
+                IImage image;
+                string path = pathfoto;
+                try
+                {
+
+                    if (File.Exists(path))
+                    {
+
+                        using (var fs = new FileStream(path, FileMode.Open))
+                        {
+                            image = endpoint.UploadImageStreamAsync(fs).GetAwaiter().GetResult();
+                        }
+                        MessageBox.Show("image uploaded");
+                        MessageBox.Show(image.Link);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Произошла ошибка при загрузке изображения");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred uploading an image to Imgur.");
+                Debug.Write(ex.Message);
+            }
+
+
         }
     }
 }

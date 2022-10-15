@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Imgur.API" Version="4.0.1" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.70" />
   </ItemGroup>
 
