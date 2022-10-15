@@ -173,9 +173,13 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" >
+                                            <Button x:Name="btnvVerImagen" Style="{StaticResource gridEditButton}" >
+                                                <Icon:PackIconMaterial Kind="Eye" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                            <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" Click="btnEditar_Click" >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
+                                          
                                             <Button Margin="5 0 0 0" x:Name="BtnEliminarDepartamento" Style="{StaticResource gridRemoveButton}" Click="BtnEliminarDepartamento_Click">
                                                 <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>

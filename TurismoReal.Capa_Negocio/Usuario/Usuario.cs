@@ -28,12 +28,14 @@ namespace TurismoReal.Capa_Negocio.Usuario
         public string GENERO { get; set; }
         public string APELLIDO { get; set; }
         public string CELULAR { get; set; }
+        public string CONTRASENA { get; set; }
+
 
         public string TIPOUSUARIO { get; set; }
 
 
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
         public Usuario()
         {
             this.Init();
@@ -48,6 +50,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
             GENERO = string.Empty;
             CELULAR = string.Empty;
             TIPOUSUARIO = string.Empty;
+            CONTRASENA = string.Empty;
         }
 
 
@@ -186,6 +189,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
                     usuar.GENERO = lector.GetString(3);
                     usuar.CELULAR = lector.GetString(5);
                     usuar.TIPOUSUARIO = lector.GetString(7);
+                    usuar.CONTRASENA = lector.GetString(8);
 
 
                     lista_usr.Add(usuar);

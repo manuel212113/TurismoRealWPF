@@ -125,9 +125,23 @@ namespace TurismoReal_Escritorio.Paginas
             }
         }
 
-        private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
+      
+        
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-           
+
+            var usuarioSeleccionado = UsuarioDatagrid.SelectedItem as Usuario;
+            string rut_seleccionado = usuarioSeleccionado.RUT;
+            string  contrasena_seleccionada= usuarioSeleccionado.CONTRASENA;
+            string email_seleccionado = usuarioSeleccionado.EMAIL;
+            string celular_seleccionado = usuarioSeleccionado.CELULAR;
+            string tipo_usuario_seleccionado = usuarioSeleccionado.TIPOUSUARIO;
+
+
+            ActualizarUsuario pagina_actualizar = new ActualizarUsuario(rut_seleccionado, email_seleccionado,contrasena_seleccionada,celular_seleccionado,tipo_usuario_seleccionado);
+
+            pagina_actualizar.Show();
         }
     }
 }

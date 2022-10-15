@@ -12,7 +12,7 @@
       d:DesignHeight="650" d:DesignWidth="976"
       Title="Usuarios">
 
-    <materialDesign:DialogHost  x:Name="VentanaAgregarusario" Background="{DynamicResource SecundaryBackgroundColor}" >
+    <materialDesign:DialogHost  x:Name="VentanaAgregarusario" Background="{DynamicResource SecundaryBackgroundColor}"  >
         <materialDesign:DialogHost.DialogContent >
             <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
                 <Grid.RowDefinitions>
@@ -144,7 +144,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" >
+                                            <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" Click="btnEditar_Click" >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                             <Button Margin="5 0 0 0" x:Name="BtnEliminarUsuario" Style="{StaticResource gridRemoveButton}" Click="BtnEliminarUsuario_Click">
