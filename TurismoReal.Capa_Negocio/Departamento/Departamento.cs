@@ -17,6 +17,7 @@ using Imgur.API.Authentication.Impl;
 using Imgur.API.Endpoints.Impl;
 using Imgur.API.Models;
 using Microsoft.Win32;
+using System.Windows.Controls;
 
 namespace TurismoReal.Capa_Negocio.Departamento
 {
@@ -37,6 +38,8 @@ namespace TurismoReal.Capa_Negocio.Departamento
         public string valorarriendo { get; set; }
         public string fecha { get; set; }
         public string habilitado { get; set; }
+        public string imagen { get; set; }
+
 
         public Departamento()
         {
@@ -57,14 +60,20 @@ namespace TurismoReal.Capa_Negocio.Departamento
             valorarriendo = string.Empty;
             fecha = string.Empty;
             habilitado = string.Empty;
+            imagen = string.Empty;
+
         }
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
        
 
-        public void AgregarDepartamento( string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado)
+        public string AgregarDepartamento( string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado,string imagen)
         {
+            if (imagen.Length >= 0)
+            {
+                imagen = "https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg";
+            }
             try
             {
                 cone.Open();
@@ -81,17 +90,21 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 ComandoAgregar.Parameters.Add("valor_arriendo", valorarriendo);
                 ComandoAgregar.Parameters.Add("fecha", fecha);
                 ComandoAgregar.Parameters.Add("habilitado", habilitado);
+                ComandoAgregar.Parameters.Add("imagen", imagen);
 
                 ComandoAgregar.ExecuteNonQuery();
-                MessageBox.Show("Departamento agregado a la base de datos");
+                MessageBox.Show("Departamento agregado a la base de datos","Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 cone.Close();
+                return "Exito";
             }
             catch(Exception ex)
             {
-                MessageBox.Show("No se agrego el Departamento a la base de datos");
+                MessageBox.Show("No se agrego el Departamento a la base de datos","Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 cone.Close();
 
                 MessageBox.Show(ex.Message);
+                return "Error";
+
 
             }
 
@@ -132,6 +145,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
                     DEPA.valorarriendo = lector.GetString(9);
                     DEPA.fecha = lector.GetString(10);
                     DEPA.habilitado = lector.GetString(11);
+                    DEPA.imagen = lector.GetString(12);
 
                     listaDepa.Add(DEPA);
                 }
@@ -171,7 +185,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 cone.Open();
                 OracleCommand comandoEliminarDepa = new OracleCommand("SP_Eliminar_Depa", cone);
                 comandoEliminarDepa.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoEliminarDepa.Parameters.Add("ID_DEPA", OracleType.VarChar).Value = ID_DEPA;
+                comandoEliminarDepa.Parameters.Add("ID_DEPA",ID_DEPA);
                 MessageBox.Show("Departamento Eliminado de la base de datos");
                 comandoEliminarDepa.ExecuteNonQuery();
                 cone.Close();
@@ -179,6 +193,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
             }
             catch (Exception ex)
             {
+                cone.Close();
                 MessageBox.Show(ex.Message);
                 
 
@@ -189,7 +204,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
         }
 
 
-        public void AbrirVentanaArchivoImagen()
+        public string AbrirVentanaArchivoImagen()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = false;
@@ -198,16 +213,17 @@ namespace TurismoReal.Capa_Negocio.Departamento
             {
                 string filename = openFileDialog.FileName;
                 MessageBox.Show(filename);
-                SubirImagen(filename);
+                return (filename);
 
 
             }
+            return null;
 
         }
 
 
 
-        public void  SubirImagen( string pathfoto)
+        public void  SubirImagen( string pathfoto, TextBox urlImagen)
         {
             try
             {
@@ -226,19 +242,19 @@ namespace TurismoReal.Capa_Negocio.Departamento
                         {
                             image = endpoint.UploadImageStreamAsync(fs).GetAwaiter().GetResult();
                         }
-                        MessageBox.Show("image uploaded");
-                        MessageBox.Show(image.Link);
+                        MessageBox.Show("Imagen Agregada correctamente");
+                        urlImagen.Text=(image.Link);
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Произошла ошибка при загрузке изображения");
+                    MessageBox.Show("Error al subir la imagen");
                 }
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred uploading an image to Imgur.");
+                MessageBox.Show("Error al subir la imagen");
                 Debug.Write(ex.Message);
             }
 

@@ -31,7 +31,7 @@ namespace TurismoReal_Escritorio.Paginas
     {
 
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
         Departamento dep = new Departamento();
 
    
@@ -90,7 +90,6 @@ namespace TurismoReal_Escritorio.Paginas
                 MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a el departamento con  ID :" + departamento_seleccionado_id, "Eliminar Departamento:" , MessageBoxButton.YesNo);
                 if (dialogResult == MessageBoxResult.Yes)
                 {
-                    Departamento depa = new Departamento();
 
                     try
                     {
@@ -142,9 +141,10 @@ namespace TurismoReal_Escritorio.Paginas
                 string valorarriendo = TxtValorArriendo.Text;
                 string fecha = DateTime.UtcNow.ToString("MM-dd-yyyy");
                 string habilitado = ComboBoxHabilitado.Text;
+                string imagen=txtImagen.Text;
                 
 
-                dep.AgregarDepartamento(nombre, direccion, descripcion, metroscuadrados, habitaciones, banos, region, comuna, valorarriendo, fecha, habilitado);
+                dep.AgregarDepartamento(nombre, direccion, descripcion, metroscuadrados, habitaciones, banos, region, comuna, valorarriendo, fecha, habilitado,imagen);
             }
             catch (Exception ex)
             {
@@ -166,6 +166,16 @@ namespace TurismoReal_Escritorio.Paginas
             int val;
             // If parsing is successful, set Handled to false
             e.Handled = !int.TryParse(fullText, out val);
+        }
+
+        private void btnAgregarImagen_Click(object sender, RoutedEventArgs e)
+        {
+            string ruta_imagen=dep.AbrirVentanaArchivoImagen();
+            if (ruta_imagen != null)
+            {
+                dep.SubirImagen(ruta_imagen, txtImagen);
+
+            }
         }
     }
 }
