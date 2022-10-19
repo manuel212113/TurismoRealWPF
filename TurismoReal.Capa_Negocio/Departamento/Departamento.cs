@@ -63,14 +63,13 @@ namespace TurismoReal.Capa_Negocio.Departamento
 
        
 
-        public void AgregarDepartamento(string iddepa, string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado)
+        public void AgregarDepartamento( string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado)
         {
             try
             {
                 cone.Open();
                 OracleCommand ComandoAgregar = new OracleCommand("SP_Crear_Departamento", cone);
                 ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
-                ComandoAgregar.Parameters.Add("id_depa", iddepa);
                 ComandoAgregar.Parameters.Add("nombre", nombre);
                 ComandoAgregar.Parameters.Add("direccion", direccion);
                 ComandoAgregar.Parameters.Add("descripcion", descripcion);
@@ -87,10 +86,12 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 MessageBox.Show("Departamento agregado a la base de datos");
                 cone.Close();
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("No se agrego el Departamento a la base de datos");
                 cone.Close();
+
+                MessageBox.Show(ex.Message);
 
             }
 
@@ -136,10 +137,13 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 }
                 try
                 {
+                    cone.Close();
                     return listaDepa;
+
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
+                    cone.Close();
                     return listaDepa;
                     MessageBox.Show(e.Message); 
                 }
@@ -149,6 +153,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
             }
             catch (Exception e)
             {
+                cone.Close();
                 return listaDepa;
 
                 Console.WriteLine(e.Message);

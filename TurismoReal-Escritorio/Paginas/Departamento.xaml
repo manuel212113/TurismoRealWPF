@@ -28,39 +28,66 @@
                 </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
 
-                        <TextBox materialDesign:HintAssist.Hint="iddepa" Width="200" Grid.Row="0"  Foreground="{DynamicResource ActionIconColor}" x:Name="TxtIddepa" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="nombre"  Grid.Row="0" Width="200" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNombre" Margin="0,10,0,0"></TextBox>
-                </StackPanel>
-                <TextBox materialDesign:HintAssist.Hint="dirección" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDireccion" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="descripcion" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDescripcion" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="metroscuadrados" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtMetrosCua" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="habitaciones" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtHabitaciones" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="banos" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtBanos" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="region" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtRegion" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="valorarriendo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtValorArriendo" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="fecha" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtFecha" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="habilitado" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtHabilitado" Margin="0,10,0,0"></TextBox>
+                        <TextBox materialDesign:HintAssist.Hint="nombre"  Grid.Row="0" Width="200" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNombre" Margin="0,10,0,0"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <TextBox materialDesign:HintAssist.Hint="dirección" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDireccion" Margin="0,10,0,0" Width="200"></TextBox>
+                        <TextBox materialDesign:HintAssist.Hint="descripcion" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDescripcion" Margin="20,10,0,0" Width="200"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <TextBox materialDesign:HintAssist.Hint="metroscuadrados" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtMetrosCua" Margin="0,10,0,0" Width="200"></TextBox>
+                        <TextBox materialDesign:HintAssist.Hint="habitaciones" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtHabitaciones" Margin="20,10,0,0" Width="200" PreviewTextInput="TxtHabitaciones_PreviewTextInput"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <TextBox materialDesign:HintAssist.Hint="banos" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtBanos" Margin="0,10,0,0" Width="200"></TextBox>
+                        <TextBox materialDesign:HintAssist.Hint="region" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtRegion" Margin="20,10,0,0" Width="200"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <TextBox materialDesign:HintAssist.Hint="comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0" Width="200"></TextBox>
+                        <TextBox materialDesign:HintAssist.Hint="valorarriendo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtValorArriendo" Margin="20,10,0,0" Width="200"></TextBox>
+                    </StackPanel>
                     
-                    
-                    <ComboBox Grid.Row="0" Foreground="{DynamicResource ActionIconColor}"
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <ComboBox x:Name="ComboBoxHabilitado" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Habilitado"> 
+                                    <ComboBoxItem
+                 Content="si" />
+                                    <ComboBoxItem
+                 Content="no" />
+                    </ComboBox>
+
+                    <ComboBox Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200"
                               
                                                                                
-  materialDesign:HintAssist.Hint="Estado Departamento" Margin="0,10,0,0">
-                        <ComboBoxItem
+  materialDesign:HintAssist.Hint="Estado Departamento" Margin="20,10,0,0">
+                            <ComboBoxItem
     Content="Bueno" />
-                        <ComboBoxItem
+                            <ComboBoxItem
     Content="Malo" />
-                      
-                    </ComboBox>
-                    <TextBox materialDesign:HintAssist.Hint="Valor por dia" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}"></TextBox>
 
+                        </ComboBox>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="40,10,0,0">
+                        <TextBox materialDesign:HintAssist.Hint="Valor por dia" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" Margin="0,10,0,0"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40,10,0,0">
+                        <TextBox Width="150"></TextBox>
+                        <Button Width="150" Content="Selecionar imagen" Margin="0,10,0,0"></Button>
+                    </StackPanel>
                     <Button
+                        x:Name="Boton_Guardar_depa"
+                        Click="Boton_Guardar_depa_Click"
           Style="{StaticResource MaterialDesignFlatButton}"
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
-          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+          >
+                          
                         <Button.CommandParameter>
                             <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                 False
@@ -86,20 +113,14 @@
             <!--Main Section-->
             <Grid Grid.Column="1" Margin="10,20,20,20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
 
                 <!--Search Textbox-->
        
