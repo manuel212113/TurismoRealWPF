@@ -18,11 +18,16 @@
     <None Remove="img\login-imagen.jpg" />
     <None Remove="img\logo_isotipo.png" />
     <None Remove="img\logo_turismoreal.png" />
+    <None Remove="img\SplashScreen.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Page Remove="Temas\TemaClaro.xaml" />
     <Page Remove="Temas\TemaOscuro.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="img\SplashScreen.png" />
   </ItemGroup>
 
   <ItemGroup>

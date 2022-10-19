@@ -76,8 +76,8 @@
                         <TextBox materialDesign:HintAssist.Hint="Valor por dia" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" Margin="0,10,0,0"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="40,10,0,0">
-                        <TextBox Width="150"></TextBox>
-                        <Button Width="150" Content="Selecionar imagen" Margin="0,10,0,0"></Button>
+                        <TextBox Width="150" x:Name="txtImagen" IsEnabled="False"></TextBox>
+                        <Button Width="150" Content="Selecionar imagen" x:Name="btnAgregarImagen" Click="btnAgregarImagen_Click" Margin="0,10,0,0"></Button>
                     </StackPanel>
                     <Button
                         x:Name="Boton_Guardar_depa"
@@ -186,6 +186,7 @@
                             <DataGridTextColumn Header="Valor arriendo" Binding="{Binding valorarriendo}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Fecha" Binding="{Binding fecha}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Habilitado" Binding="{Binding habilitado}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Imagen" Binding="{Binding imagen}" IsReadOnly="True" Width="*"/>
 
 
 
