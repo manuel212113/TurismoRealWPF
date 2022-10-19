@@ -60,28 +60,7 @@ namespace TurismoReal_Escritorio.Paginas
         }
         private void btnGuardarDepa_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string iddepa = TxtIddepa.Text;
-                string nombre = TxtNombre.Text;
-                string direccion = TxtDireccion.Text;
-                string descripcion = TxtDescripcion.Text;
-                string metroscuadrados = TxtMetrosCua.Text;
-                string habitaciones = TxtHabitaciones.Text;
-                string banos = TxtBanos.Text;
-                string region = TxtRegion.Text;
-                string comuna = TxtComuna.Text;
-                string valorarriendo = TxtValorArriendo.Text;
-                string fecha = TxtFecha.Text;
-                string habilitado = TxtHabilitado.Text;
-
-                dep.AgregarDepartamento(iddepa, nombre, direccion, descripcion, metroscuadrados, habitaciones, banos, region, comuna, valorarriendo, fecha, habilitado);
-                }
-                catch
-                {
-                      MessageBox.Show("No se agrego el Departamento a la base de datos");
-                      cone.Close();
-            }
+           
 
         }
 
@@ -142,10 +121,51 @@ namespace TurismoReal_Escritorio.Paginas
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
 
-                /*Poner metodo de actualizar*/
 
+
+        }
 
           
+        private void Boton_Guardar_depa_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAgregarusuario.IsOpen = false;
+            try
+            {
+                string nombre = TxtNombre.Text;
+                string direccion = TxtDireccion.Text;
+                string descripcion = TxtDescripcion.Text;
+                string metroscuadrados = TxtMetrosCua.Text;
+                string habitaciones = TxtHabitaciones.Text;
+                string banos = TxtBanos.Text;
+                string region = TxtRegion.Text;
+                string comuna = TxtComuna.Text;
+                string valorarriendo = TxtValorArriendo.Text;
+                string fecha = DateTime.UtcNow.ToString("MM-dd-yyyy");
+                string habilitado = ComboBoxHabilitado.Text;
+                
+
+                dep.AgregarDepartamento(nombre, direccion, descripcion, metroscuadrados, habitaciones, banos, region, comuna, valorarriendo, fecha, habilitado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se agrego el Departamento a la base de datos");
+                cone.Close();
+
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void TxtHabitaciones_PreviewTextInput(object sender, TextCompositionEventArgs e )
+        {
+            var textBox = sender as TextBox;
+            // Use SelectionStart property to find the caret position.
+            // Insert the previewed text into the existing text in the textbox.
+            var fullText = textBox.Text.Insert(textBox.SelectionStart, e.Text);
+
+            int val;
+            // If parsing is successful, set Handled to false
+            e.Handled = !int.TryParse(fullText, out val);
         }
     }
 }
