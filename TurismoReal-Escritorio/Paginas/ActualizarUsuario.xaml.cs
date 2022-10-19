@@ -47,5 +47,10 @@ namespace TurismoReal_Escritorio.Paginas
             }
 
         }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

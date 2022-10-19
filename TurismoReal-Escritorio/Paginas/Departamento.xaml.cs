@@ -142,7 +142,7 @@ namespace TurismoReal_Escritorio.Paginas
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
 
-
+                /*Poner metodo de actualizar*/
 
 
           
