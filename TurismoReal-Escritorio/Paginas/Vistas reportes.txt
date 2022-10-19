@@ -1,0 +1,15 @@
+Para MainWindow.xaml.cs 
+
+private void rdInventario_Click(object sender, RoutedEventArgs e)
+
+        {
+            PagesNavigation.Navigate(new System.Uri("Paginas/Inventario.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+Para MainWindow.xaml
+
+ <RadioButton x:Name="rdEstadisticas" Content="Reportes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Graph}" Margin="0 5 0 5" Click="rdReportes_Click" />
+
+
+
+

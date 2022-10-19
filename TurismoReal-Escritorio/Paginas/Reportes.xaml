@@ -1,0 +1,98 @@
+﻿<Page x:Class="TurismoReal_Escritorio.Paginas.Reportes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Reportes">
+
+    <materialDesign:DialogHost  x:Name="VentanaAgregarServicio" Background="{DynamicResource SecundaryBackgroundColor}" >
+       
+        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+
+            <Grid Margin="0,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Left Menu-->
+
+                <!--Main Section-->
+                <Grid Grid.Column="1" Margin="10,20,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+
+
+                    </Grid.RowDefinitions>
+
+                    <!--Search Textbox-->
+
+
+                    <!--Top Buttons-->
+                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
+                        <Icon:PackIconMaterial Kind="Cog"/>
+                    </Button>
+
+
+
+                    <!--Page Title-->
+                    <TextBlock Text="Reportes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+                    <Button Style="{StaticResource addButton}" Click="btnGenerarReportes_click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                            <TextBlock Text="Generar reportes"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Seprator-->
+                    <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                    <!--Tab buttons-->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                        <Button Style="{StaticResource tabButton}" Content="Ganancias de departamentos y zona" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="760" Click="Titulo_click">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
+                    </StackPanel>
+
+
+                    <!--Members Data Grid-->
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID DEPA" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="DIRECCION" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="REGION" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="COMUNA" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="FECHA" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="VALOR ARRIE." Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--Pagingation Section-->
+
+                </Grid>
+
+            </Grid>
+        </Border>
+    </materialDesign:DialogHost>
+</Page>
