@@ -7,11 +7,13 @@
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
 
-        Title="ActualizarUsuario" Height="550" Width="400">
-    <Grid Background="{DynamicResource SecundaryBackgroundColor}">
+        Title="ActualizarUsuario" Height="600" Width="400">
+    <Grid Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,60" Height="600" Width="400">
+
+        
 
 
-        <TextBlock Text="RUT" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,62,0,0" RenderTransformOrigin="1.765,0.622"></TextBlock>
+            <TextBlock Text="RUT" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,62,0,0" RenderTransformOrigin="1.765,0.622"></TextBlock>
         <TextBlock Text="Correo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,119,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="Contraseña" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,172,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="Celular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,235,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
@@ -28,7 +30,7 @@
             <ComboBoxItem>Funcionario</ComboBoxItem>
         </ComboBox>
 
-        <Button Margin="98,389,98,113" Background="CadetBlue" Content="Actualizar" BorderBrush="Transparent"></Button>
+        <Button Margin="64,363,63,205" Background="CadetBlue" Content="Actualizar" x:Name="btnActualizar" Click="btnActualizar_Click" BorderBrush="Transparent" RenderTransformOrigin="0.386,0.416" Cursor="Hand"></Button>
 
 
     </Grid>
