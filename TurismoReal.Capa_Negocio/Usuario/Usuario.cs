@@ -32,6 +32,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
 
         public string TIPOUSUARIO { get; set; }
+        public string HABILITADO { get; set; }
 
 
 
@@ -51,6 +52,8 @@ namespace TurismoReal.Capa_Negocio.Usuario
             CELULAR = string.Empty;
             TIPOUSUARIO = string.Empty;
             CONTRASENA = string.Empty;
+            HABILITADO = string.Empty;
+
         }
 
 
@@ -113,17 +116,18 @@ namespace TurismoReal.Capa_Negocio.Usuario
         {
             try
             {
+                int.Parse(tipo_user);
                 cone.Open();
                 OracleCommand comando3 = new OracleCommand("SP_CREAR_USUARIO", cone);
                 comando3.CommandType = System.Data.CommandType.StoredProcedure;
-                comando3.Parameters.Add("rut", OracleType.VarChar).Value = rut;
-                comando3.Parameters.Add("nombre", OracleType.VarChar).Value = nombre;
-                comando3.Parameters.Add("email", OracleType.VarChar).Value = email;
-                comando3.Parameters.Add("genero", OracleType.VarChar).Value = genero;
-                comando3.Parameters.Add("contrasena", OracleType.VarChar).Value = contrasena;
-                comando3.Parameters.Add("apellido", OracleType.VarChar).Value = apellido;
-                comando3.Parameters.Add("celular", OracleType.VarChar).Value = celular;
-                comando3.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", OracleType.VarChar).Value = (tipo_user);
+                comando3.Parameters.Add("rut",  rut);
+                comando3.Parameters.Add("nombre",  nombre);
+                comando3.Parameters.Add("email",  email);
+                comando3.Parameters.Add("genero",  genero);
+                comando3.Parameters.Add("contrasena",  contrasena);
+                comando3.Parameters.Add("apellido",  apellido);
+                comando3.Parameters.Add("celular", celular);
+                comando3.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", (tipo_user));
                 comando3.ExecuteNonQuery();
                 MessageBox.Show("Persona agregada a la base de datos");
                 cone.Close();

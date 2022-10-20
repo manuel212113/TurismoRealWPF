@@ -12,7 +12,7 @@
       d:DesignHeight="650" d:DesignWidth="976"
       Title="Usuarios">
 
-    <materialDesign:DialogHost  x:Name="VentanaAgregarusario" Background="{DynamicResource SecundaryBackgroundColor}"  >
+    <materialDesign:DialogHost  x:Name="VentanaAgregarusario" Background="{DynamicResource SecundaryBackgroundColor}"  CloseOnClickAway="False" >
         <materialDesign:DialogHost.DialogContent >
             <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
                 <Grid.RowDefinitions>
@@ -46,11 +46,7 @@
           Margin="0 8 8 0"
           Content="Aceptar"
           Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" >
-                        <Button.CommandParameter>
-                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                False
-                            </system:Boolean>
-                        </Button.CommandParameter>
+                       
                     </Button>
                 </StackPanel>
 

@@ -89,6 +89,11 @@ namespace TurismoReal_Escritorio
 
             }
         }
+
+        private void rdEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Paginas/Reportes.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
 

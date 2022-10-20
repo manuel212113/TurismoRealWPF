@@ -58,7 +58,7 @@
                         <RadioButton x:Name="rdDepartamento" Content="Departamento" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Apartament}" Margin="0 5 0 5" Click="rdDepartamento_Click"/>
                         <RadioButton x:Name="rdUsuario" Content="Usuarios" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource user}" Click="rdUsuario_Click" Cursor="Hand"/>
                         <RadioButton x:Name="rdInventario" Content="Inventario" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Inventory}" Margin="0 5 0 5" Click="rdInventario_Click"/>
-                        <RadioButton x:Name="rdEstadisticas" Content="Reportes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Graph}" Margin="0 5 0 5" />
+                        <RadioButton x:Name="rdEstadisticas" Content="Reportes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Graph}" Margin="0 5 0 5" Cursor="Hand" Click="rdEstadisticas_Click" />
 
                         <ToggleButton x:Name="btnTema" IsChecked="False"  Style="{StaticResource MaterialDesignActionToggleButton}" Background="{DynamicResource PrimaryBlueColor}"
   ToolTip="MaterialDesignActionLightToggleButton"

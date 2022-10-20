@@ -51,22 +51,36 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            if (TxtTipo.Text == "Administrador")
+            {
+                TxtTipo.Text = "2";
+
+            }else if (TxtTipo.Text == "Cliente")
+            {
+                TxtTipo.Text = "1";
+
+            }
+            else if (TxtTipo.Text == "Funcionario")
+            {
+                TxtTipo.Text = "3";
+
+            }
+
             try
             {
-                cone.Open();
-                OracleCommand ComandoAgregar = new OracleCommand("SP_CREAR_USUARIO", cone);
-                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
-                ComandoAgregar.Parameters.Add("rut", OracleType.VarChar).Value = TxtRUT.Text;
-                ComandoAgregar.Parameters.Add("nombre", OracleType.VarChar).Value = TxtNombre.Text;
-                ComandoAgregar.Parameters.Add("email", OracleType.VarChar).Value = TxtCorreo.Text;
-                ComandoAgregar.Parameters.Add("genero", OracleType.VarChar).Value = TxtGenero.Text;
-                ComandoAgregar.Parameters.Add("contrasena", OracleType.VarChar).Value = TxtContrasena.Text;
-                ComandoAgregar.Parameters.Add("apellido", OracleType.VarChar).Value = TxtApellido.Text;
-                ComandoAgregar.Parameters.Add("celular", OracleType.VarChar).Value = TxtCelular.Text;
-                ComandoAgregar.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", OracleType.VarChar).Value = TxtTipo.Text;
-                ComandoAgregar.ExecuteNonQuery();
-                MessageBox.Show("Persona agregada a la base de datos");
-                cone.Close();
+                 
+
+
+                if(usr.AgregarUsuario(TxtRUT.Text, TxtNombre.Text, TxtCorreo.Text, TxtGenero.Text, TxtContrasena.Text, TxtApellido.Text, TxtCelular.Text, TxtTipo.Text))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("No se agrego la persona a la base de datos");
+
+                }
+
             }
             catch
             {
