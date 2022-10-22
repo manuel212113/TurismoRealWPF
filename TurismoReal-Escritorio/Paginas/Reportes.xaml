@@ -61,7 +61,7 @@
 
                     <!--Tab buttons-->
                     <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                        <Button Style="{StaticResource tabButton}" Content="Ganancias de departamentos y zona" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="760" Click="Titulo_click">
+                        <Button Style="{StaticResource tabButton}" Content="Ganancias de departamentos y zona" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="240" Click="Titulo_click">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
