@@ -25,17 +25,12 @@
                     <TextBox materialDesign:HintAssist.Hint="PRODUCTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRODCUTO" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="CANTIDAD" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtCANTIDAD" Margin="0,10,0,0"></TextBox>
                     
-                    
-                    
-         
                     <ComboBox x:Name="ComboBoxESTADO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="TxtESTADO">
                         <ComboBoxItem
                  Content="BUENO" />
                         <ComboBoxItem
                  Content="MALO" />
                     </ComboBox>
-
-
 
                     <TextBox materialDesign:HintAssist.Hint="DESCRIPCION" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDESCRIPCION" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="TIPO_PROD" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtTIPO_PROD" Margin="0,10,0,0"></TextBox>
@@ -47,7 +42,9 @@
                     
 
                     <Button
-          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarInventario_Click"
+                         x:Name="guardar_inventario"
+                         Click="btnGuardarInventario_Click"
+          Style="{StaticResource MaterialDesignFlatButton}"
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
@@ -141,7 +138,7 @@
                             <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding DESCRIPCION}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="TIPO" Binding="{Binding TIPO_PROD}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="ID TIPO" Binding="{Binding TIPO_PROD_ID_T_PR}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="DEPA ID" Binding="{Binding  }" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="DEPA ID" Binding="{Binding DEPARTAMENTO_ID_DEPA}" IsReadOnly="True" Width="*"/>
                             <DataGridTemplateColumn Header="Accion" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -149,7 +146,7 @@
                                             <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}"  >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
-                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarUsuario" Style="{StaticResource gridRemoveButton}" >
+                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario" Style="{StaticResource gridRemoveButton}" Click="BtnEliminarProducto_Click"  >
                                                 <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                         </StackPanel>

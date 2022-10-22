@@ -59,17 +59,17 @@ namespace TurismoReal_Escritorio.Paginas
             VentanaAgregarServicio.IsOpen = false;
             try
             {
-                string idProducto = TxtID_INV.Text;
-                string Nombre = TxtPRODCUTO.Text;
-                string Cantidad = TxtCANTIDAD.Text;
-                string Estado = ComboBoxESTADO.Text;
-                string Descripcion = TxtDESCRIPCION.Text;
-                string IDTipoPro = TxtTIPO_PROD.Text;
-                string ID_T_PR = TxtTIPO_PROD_ID_T_PR.Text;
-                string Departamento_id = TxtDEPARTAMENTO_ID_DEPA.Text;
+                string ID_INV = TxtID_INV.Text;
+                string PRODUCTO = TxtPRODCUTO.Text;
+                string CANTIDAD = TxtCANTIDAD.Text;
+                string ESTADO = ComboBoxESTADO.Text;
+                string DESCRIPCION = TxtDESCRIPCION.Text;
+                string TIPO_PROD = TxtTIPO_PROD.Text;
+                string TIPO_PROD_ID_T_PR = TxtTIPO_PROD_ID_T_PR.Text;
+                string DEPARTAMENTO_ID_DEPA = TxtDEPARTAMENTO_ID_DEPA.Text;
 
 
-                inv.AgregarInventario(idProducto, Nombre, Cantidad, Estado, Descripcion, IDTipoPro, ID_T_PR, Departamento_id);
+                inv.AgregarInventario(ID_INV, PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
             }
             catch (Exception ex)
             {
