@@ -47,7 +47,7 @@ namespace TurismoReal_Escritorio.Paginas
             Inventario_inve.Text = "INVENTARIO: " + Invent.Count.ToString();
         }
 
-        private void btnAgregarInventario_click(object sender, RoutedEventArgs e)
+        private void btnFormularioInventario_Click(object sender, RoutedEventArgs e)
         {
             VentanaAgregarServicio.IsOpen = true;
 
@@ -69,7 +69,7 @@ namespace TurismoReal_Escritorio.Paginas
                 string DEPARTAMENTO_ID_DEPA = TxtDEPARTAMENTO_ID_DEPA.Text;
 
 
-                inv.AgregarInventario(ID_INV, PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
+                inv.guardar_inventario(ID_INV, PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
             }
             catch (Exception ex)
             {
@@ -78,6 +78,7 @@ namespace TurismoReal_Escritorio.Paginas
 
 
                 MessageBox.Show(ex.Message);
+                cone.Close();
             }
 
         }
@@ -101,7 +102,7 @@ namespace TurismoReal_Escritorio.Paginas
                 var ProductoSeleccionado = Lista.SelectedItem as Inventarios;
                 Inventarios ProductoSeleccionado1 = ProductoSeleccionado;
                 string id_Producto_seleccionado = ProductoSeleccionado1.ID_INV;
-                Int16 producto_id = Convert.ToInt16(ProductoSeleccionado.ID_INV);
+                int producto_id = int.Parse(ProductoSeleccionado.ID_INV);
 
 
                 MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a el Producto con  ID :" + id_Producto_seleccionado, "Eliminar Producto:", MessageBoxButton.YesNo);
@@ -113,7 +114,7 @@ namespace TurismoReal_Escritorio.Paginas
                         cone.Open();
                         OracleCommand comandoEliminar = new OracleCommand("SP_Eliminar_Produ", cone);
                         comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
-                        comandoEliminar.Parameters.Add("ID_PRODUCTO_ELIMINAR", int.Parse(id_Producto_seleccionado));
+                        comandoEliminar.Parameters.Add("ID_INV_ELIMINAR", (producto_id));
                         MessageBox.Show("Producto Eliminado de la base de datos");
                         comandoEliminar.ExecuteNonQuery();
                         cone.Close();

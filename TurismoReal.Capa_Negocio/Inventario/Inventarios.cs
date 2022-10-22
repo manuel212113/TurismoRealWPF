@@ -53,7 +53,7 @@ namespace TurismoReal.Capa_Negocio.Inventario
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
-        public string AgregarInventario(string ID_INV, string PRODUCTO, string CANTIDAD, string ESTADO, string DESCRIPCION, string TIPO_PROD, string TIPO_PROD_ID_T_PR, string DEPARTAMENTO_ID_DEPA)
+        public string guardar_inventario(string ID_INV, string PRODUCTO, string CANTIDAD, string ESTADO, string DESCRIPCION, string TIPO_PROD, string TIPO_PROD_ID_T_PR, string DEPARTAMENTO_ID_DEPA)
         {
            
             try
@@ -61,7 +61,6 @@ namespace TurismoReal.Capa_Negocio.Inventario
                 cone.Open();
                 OracleCommand ComandoAgregar = new OracleCommand("SP_Crear_Inven", cone);
                 ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
-                ComandoAgregar.Parameters.Add("ID_INV", ID_INV);
                 ComandoAgregar.Parameters.Add("PRODUCTO", PRODUCTO);
                 ComandoAgregar.Parameters.Add("CANTIDAD", CANTIDAD);
                 ComandoAgregar.Parameters.Add("ESTADO", ESTADO);
@@ -79,7 +78,6 @@ namespace TurismoReal.Capa_Negocio.Inventario
             {
                 MessageBox.Show("No se agrego a la base de datos", "Error", MessageBoxButton.OK);
                 cone.Close();
-                return "Error";
 
                 MessageBox.Show(ex.Message);
                 return "Error";
@@ -94,7 +92,9 @@ namespace TurismoReal.Capa_Negocio.Inventario
                 cone.Open();
                 OracleCommand comandoEliminar = new OracleCommand("SP_Eliminar_Produ", cone);
                 comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoEliminar.Parameters.Add("ID_ELIMINAR", OracleType.VarChar).Value = ID_INV;
+                comandoEliminar.Parameters.Add("ID_INV_ELIMINAR", ID_INV);
+                comandoEliminar.ExecuteNonQuery();
+
                 MessageBox.Show("Eliminado de la base de datos");
                 cone.Close();
                 return true;
