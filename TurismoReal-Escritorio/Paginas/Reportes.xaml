@@ -3,9 +3,11 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
+
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Reportes">
@@ -61,7 +63,7 @@
 
                     <!--Tab buttons-->
                     <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                        <Button Style="{StaticResource tabButton}" Content="Ganancias de departamentos y zona" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="760" Click="Titulo_click">
+                        <Button Style="{StaticResource tabButton}" Content="Ganancias de departamentos y zona" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="240" Click="Titulo_click">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
