@@ -34,8 +34,16 @@ namespace TurismoReal_Escritorio.Paginas
         Inventarios inv = new Inventarios();
 
 
+        Tipo_Prod CAT = new Tipo_Prod();
+
+        ObservableCollection<Tipo_Prod> ListaCategoria = new ObservableCollection<Tipo_Prod>();
+        ObservableCollection<Tipo_Prod> ListaCategoria2 = new ObservableCollection<Tipo_Prod>();
+
         public Inventario()
         {
+          
+
+
             InitializeComponent();
 
 
@@ -45,6 +53,13 @@ namespace TurismoReal_Escritorio.Paginas
             Invent_lista = inv.CargarInventario(Invent);
             Lista.ItemsSource = Invent_lista;
             Inventario_inve.Text = "INVENTARIO: " + Invent.Count.ToString();
+
+            ListaCategoria2 = CAT.CargarCategoria(ListaCategoria);
+
+            foreach (var i in ListaCategoria2)
+            {
+                ComboBoxCategoria.Items.Add(i.NOMBRE_CATEGORIA);
+            }
         }
 
         private void btnFormularioInventario_Click(object sender, RoutedEventArgs e)
@@ -59,17 +74,16 @@ namespace TurismoReal_Escritorio.Paginas
             VentanaAgregarServicio.IsOpen = false;
             try
             {
-                string ID_INV = TxtID_INV.Text;
                 string PRODUCTO = TxtPRODCUTO.Text;
                 string CANTIDAD = TxtCANTIDAD.Text;
                 string ESTADO = ComboBoxESTADO.Text;
                 string DESCRIPCION = TxtDESCRIPCION.Text;
-                string TIPO_PROD = TxtTIPO_PROD.Text;
-                string TIPO_PROD_ID_T_PR = TxtTIPO_PROD_ID_T_PR.Text;
+                string TIPO_PROD = "1";
+                string TIPO_PROD_ID_T_PR = "2";
                 string DEPARTAMENTO_ID_DEPA = TxtDEPARTAMENTO_ID_DEPA.Text;
 
 
-                inv.guardar_inventario(ID_INV, PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
+                inv.guardar_inventario( PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
             }
             catch (Exception ex)
             {

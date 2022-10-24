@@ -21,20 +21,26 @@
                 <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
                     <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Agregar Servicio o Producto" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
-                    <TextBox materialDesign:HintAssist.Hint="ID INV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtID_INV" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="PRODUCTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRODCUTO" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="CANTIDAD" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtCANTIDAD" Margin="0,10,0,0"></TextBox>
-                    
-                    <ComboBox x:Name="ComboBoxESTADO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="TxtESTADO">
+
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ComboBox x:Name="ComboBoxESTADO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="TxtESTADO">
                         <ComboBoxItem
                  Content="BUENO" />
                         <ComboBoxItem
                  Content="MALO" />
                     </ComboBox>
-
+                    </StackPanel>
                     <TextBox materialDesign:HintAssist.Hint="DESCRIPCION" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDESCRIPCION" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="TIPO_PROD" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtTIPO_PROD" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="TIPO_PROD_ID_T_PR" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtTIPO_PROD_ID_T_PR" Margin="0,10,0,0"></TextBox>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ComboBox x:Name="ComboBoxCategoria" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="TxtTIPO_PROD">
+                        </ComboBox>
+                    </StackPanel>
+
+                    
                     <TextBox materialDesign:HintAssist.Hint="DEPARTAMENTO_ID_DEPA" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtDEPARTAMENTO_ID_DEPA" Margin="0,10,0,0"></TextBox>
                    
 

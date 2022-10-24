@@ -53,7 +53,7 @@ namespace TurismoReal.Capa_Negocio.Inventario
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
-        public string guardar_inventario(string ID_INV, string PRODUCTO, string CANTIDAD, string ESTADO, string DESCRIPCION, string TIPO_PROD, string TIPO_PROD_ID_T_PR, string DEPARTAMENTO_ID_DEPA)
+        public string guardar_inventario( string PRODUCTO, string CANTIDAD, string ESTADO, string DESCRIPCION, string TIPO_PROD, string TIPO_PROD_ID_T_PR, string DEPARTAMENTO_ID_DEPA)
         {
            
             try
