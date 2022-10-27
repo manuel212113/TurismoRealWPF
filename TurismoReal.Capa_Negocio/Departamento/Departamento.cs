@@ -74,6 +74,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
             {
                 imagen = "https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg";
             }
+
             try
             {
                 cone.Open();
@@ -96,7 +97,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 MessageBox.Show("Departamento agregado a la base de datos","Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 cone.Close();
                 return "Exito";
-            }
+        }
             catch(Exception ex)
             {
                 MessageBox.Show("No se agrego el Departamento a la base de datos","Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -178,7 +179,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
         }
 
 
-        public void  EliminarDepartamento(string ID_DEPA)
+        public string EliminarDepartamento(string ID_DEPA)
         {
             try
             {
@@ -189,13 +190,14 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 MessageBox.Show("Departamento Eliminado de la base de datos");
                 comandoEliminarDepa.ExecuteNonQuery();
                 cone.Close();
-                
+                return "Exito";
             }
             catch (Exception ex)
             {
                 cone.Close();
                 MessageBox.Show(ex.Message);
-                
+                return "error";
+
 
             }
 
@@ -256,6 +258,47 @@ namespace TurismoReal.Capa_Negocio.Departamento
             {
                 MessageBox.Show("Error al subir la imagen");
                 Debug.Write(ex.Message);
+            }
+
+
+        }
+
+        public  string SubirImagenPrueba(string pathfoto)
+        {
+            try
+            {
+
+                var client = new ImgurClient("a677cc15537cab0", "f6d689a421b3d132b522715e9e5eb1f3ff231b0c");
+                var endpoint = new ImageEndpoint(client);
+                IImage image;
+                string path = pathfoto;
+                try
+                {
+
+                    if (File.Exists(path))
+                    {
+
+                        using (var fs = new FileStream(path, FileMode.Open))
+                        {
+                            image = endpoint.UploadImageStreamAsync(fs).GetAwaiter().GetResult();
+                        }
+                        MessageBox.Show("Imagen Agregada correctamente");
+                        return "Exito";
+                    }
+                    return "error";
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al subir la imagen");
+                    return "error";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al subir la imagen");
+                Debug.Write(ex.Message);
+                return "error";
             }
 
 
