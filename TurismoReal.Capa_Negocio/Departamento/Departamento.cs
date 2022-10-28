@@ -70,7 +70,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
 
         public string AgregarDepartamento( string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado,string imagen)
         {
-            if (imagen.Length >= 0)
+            if (imagen.Length == 0)
             {
                 imagen = "https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg";
             }

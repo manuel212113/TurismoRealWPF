@@ -152,7 +152,7 @@ namespace TurismoReal.Capa_Negocio.Usuario
                 cone.Open();
                 OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_USUARIO", cone);
                 comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoEliminar.Parameters.Add("RUT_ELIMINAR", OracleType.VarChar).Value = rut;
+                comandoEliminar.Parameters.Add("RUT_ELIMINAR" ,rut);
                 MessageBox.Show("Usuario Eliminado de la base de datos");
                 cone.Close();
                 return true;
