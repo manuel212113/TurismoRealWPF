@@ -101,6 +101,7 @@ namespace TurismoReal.Capa_Negocio.Inventario
             }
             catch (Exception ex)
             {
+                cone.Close();
                 MessageBox.Show(ex.Message);
                 return false;
 

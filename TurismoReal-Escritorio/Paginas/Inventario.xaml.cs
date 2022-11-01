@@ -109,7 +109,7 @@ namespace TurismoReal_Escritorio.Paginas
         }
         private void BtnEliminarProducto_Click(object sender, RoutedEventArgs e)
         {
-
+            
             try
             {
 
@@ -124,7 +124,7 @@ namespace TurismoReal_Escritorio.Paginas
                 {
 
                     try
-                    {
+                    {   
                         cone.Open();
                         OracleCommand comandoEliminar = new OracleCommand("SP_Eliminar_Produ", cone);
                         comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;

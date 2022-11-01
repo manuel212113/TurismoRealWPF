@@ -22,7 +22,6 @@ namespace PruebasUnitariasTurismoReal
             string habilitado = "si";
             string imagen = "";
 
-
             string resultado = dep.AgregarDepartamento(nombre, direccion, descripcion, metros_cuadrados, habitaciones, banos, region, comuna, valor_arriendo, fecha, habilitado, imagen);
 
             Assert.Equal("Exito", resultado);
