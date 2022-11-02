@@ -1,0 +1,133 @@
+﻿<Page x:Class="TurismoReal_Escritorio.Paginas.Servicios"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Servicios">
+
+    <materialDesign:DialogHost  x:Name="VentanaAgregarServicioextra" Background="{DynamicResource SecundaryBackgroundColor}" >
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
+                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario para agregar servicio extra por arriendo realizado" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
+
+                    <TextBox materialDesign:HintAssist.Hint="ID_SER" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtID_SER" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="FECHA_CONTRATACION" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtFECHA" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="ID_SRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtID_SRV" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="RESERVA_ID_RESERVA" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtRESERVA_ID_RESERVA" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="NOMBRE_SRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="PRECIO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
+                    
+
+
+
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarServicio_Click"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Content="Aceptar"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+
+
+
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+
+            <Grid Margin="0,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Left Menu-->
+
+                <!--Main Section-->
+                <Grid Grid.Column="1" Margin="10,20,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+
+
+                    </Grid.RowDefinitions>
+
+                    <!--Search Textbox-->
+
+
+                    <!--Top Buttons-->
+                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
+                        <Icon:PackIconMaterial Kind="Cog"/>
+                    </Button>
+
+
+
+                    <!--Page Title-->
+                    <TextBlock Text="Servicios extras" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+                    <Button Style="{StaticResource addButton}" Click="btnAgregarServicio_click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                            <TextBlock Text="Agregar Servicio extras"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Seprator-->
+                    <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                    <!--Tab buttons-->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                        <Button Style="{StaticResource tabButton}" Content="Por arriendos a departamentos" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="760" Click="Button_Click">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                        </Button>
+                    </StackPanel>
+
+
+                    <!--Members Data Grid-->
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID SER" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="FECHA" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="ID SRV" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="RESERVA ID" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="ID SRV" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="NOMBRE SRV" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="PRECIO" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--Pagingation Section-->
+
+                </Grid>
+
+            </Grid>
+        </Border>
+    </materialDesign:DialogHost>
+</Page>

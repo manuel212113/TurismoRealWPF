@@ -94,6 +94,13 @@ namespace TurismoReal_Escritorio
         {
             PagesNavigation.Navigate(new System.Uri("Paginas/Reportes.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void rdServicios_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Paginas/Servicios.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        <RadioButton x:Name="rdServicios" Content="Servicios extra" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Inventory}" Margin="0 5 0 5" Click="rdServicios_Click" />
     }
 }
 
