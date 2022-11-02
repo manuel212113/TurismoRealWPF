@@ -90,6 +90,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                <RadioButton x:Name="rdServicios" Content="Servicios extra" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Inventory}" Margin="0 5 0 5" Click="rdServicios_Click" />
+
+
                 <!-- Start: Button Close | Restore | Minimize -->
                 <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft">
                     <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton" Cursor="Hand"/>
