@@ -13,7 +13,7 @@
         
 
 
-            <TextBlock Text="RUT" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,62,0,0" RenderTransformOrigin="1.765,0.622"></TextBlock>
+        <TextBlock Text="RUT" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,62,0,0" RenderTransformOrigin="1.765,0.622"></TextBlock>
         <TextBlock Text="Correo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,119,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="Contraseña" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,172,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="Celular" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,235,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
