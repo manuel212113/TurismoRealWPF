@@ -65,8 +65,6 @@ namespace TurismoReal_Escritorio.Paginas
         }
 
 
-     
-
         private void textBoxFilter_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -150,6 +148,7 @@ namespace TurismoReal_Escritorio.Paginas
             {
                 MessageBox.Show("No se agrego el Departamento a la base de datos");
                 cone.Close();
+
 
                 MessageBox.Show(ex.Message);
             }

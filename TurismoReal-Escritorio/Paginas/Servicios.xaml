@@ -19,11 +19,7 @@
                 <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
                     <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario para agregar servicio extra por arriendo realizado" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
-                    <TextBox materialDesign:HintAssist.Hint="ID_SER" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtID_SER" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="FECHA_CONTRATACION" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtFECHA" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="ID_SRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtID_SRV" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="RESERVA_ID_RESERVA" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtRESERVA_ID_RESERVA" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="NOMBRE_SRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="NOMBRESRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="PRECIO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
                     
 
@@ -113,9 +109,8 @@
                     <!--Members Data Grid-->
                     <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID_SRV" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="NOMBRE_SRV" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="PRECIO" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="NOMBRE_SRV" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="PRECIO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
 

@@ -100,7 +100,10 @@ namespace TurismoReal_Escritorio
             PagesNavigation.Navigate(new System.Uri("Paginas/Servicios.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        private void rdServiciosExtra_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
 
