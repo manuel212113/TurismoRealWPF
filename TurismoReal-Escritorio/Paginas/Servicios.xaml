@@ -104,6 +104,20 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="NOMBRE_SRV" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="PRECIO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTemplateColumn Header="Accion" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}"  >
+                                                <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario" Style="{StaticResource gridRemoveButton}"   >
+                                                <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
 

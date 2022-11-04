@@ -118,7 +118,6 @@ namespace TurismoReal_Escritorio.Paginas
         {
 
             var departamentoSelecciona = DataGridDepa.SelectedItem as Departamento;
-            string id_seleccionado = departamentoSelecciona.iddepa;
             string nombre_seleccionada = departamentoSelecciona.nombre;
             string direccion_seleccionado = departamentoSelecciona.direccion;
             string descripcion_seleccionado = departamentoSelecciona.descripcion;
