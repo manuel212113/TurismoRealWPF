@@ -106,11 +106,11 @@ namespace TurismoReal.Capa_Negocio.Servicios
             try
             {
                 cone.Open();
-                OracleCommand comando_lista_Inven = new OracleCommand("FN_LISTAR_INVEN", cone);
+                OracleCommand comando_lista_Inven = new OracleCommand("FN_LISTAR_SERV_EXT", cone);
                 comando_lista_Inven.CommandType = System.Data.CommandType.StoredProcedure;
 
 
-                OracleParameter lista_salida = comando_lista_Inven.Parameters.Add("L_CURSOR", OracleDbType.RefCursor);
+                OracleParameter lista_salida = comando_lista_Inven.Parameters.Add("L_CURSOEX", OracleDbType.RefCursor);
 
                 lista_salida.Direction = System.Data.ParameterDirection.ReturnValue;
 
@@ -126,7 +126,7 @@ namespace TurismoReal.Capa_Negocio.Servicios
                     Inven.NOMBRESRV = lector.GetString(1);
                     Inven.PRECIO = lector.GetString(2);
                  
-
+                    
 
                     lista_Inven.Add(Inven);
                 }

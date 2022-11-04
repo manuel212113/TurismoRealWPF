@@ -38,10 +38,27 @@ namespace TurismoReal_Escritorio.Paginas
         public Servicios()
         {
             InitializeComponent();
+
+            ObservableCollection<ServiciosExtra> serv_lista = new ObservableCollection<ServiciosExtra>();
+            ObservableCollection<ServiciosExtra> ser_lista2 = new ObservableCollection<ServiciosExtra>();
+
+            serv_lista = srv.CargarInventario(ser_lista2);
+            Lista.ItemsSource = serv_lista;
+            Servicio_srv.Text = "SERVICIO: " + serv_lista.Count.ToString();
+
         }
         private void btnAgregarServicio_click(object sender, RoutedEventArgs e)
         {
             VentanaAgregarServicioextra.IsOpen = true;
+        
+
+        }
+
+
+        //       OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
+
+        private void btnGuardarServicio_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
                 string NOMBRESRV = TxtNOMBRE_SRV.Text;
@@ -57,15 +74,6 @@ namespace TurismoReal_Escritorio.Paginas
 
                 MessageBox.Show(ex.Message);
             }
-
-        }
-
-
-        //       OracleConnection cone = new OracleConnection("DATA SOURCE = xe ; PASSWORD = 123 ; USER ID = TURISMOREALWPF");
-
-        private void btnGuardarServicio_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("WOOOW");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

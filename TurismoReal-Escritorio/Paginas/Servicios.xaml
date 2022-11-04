@@ -3,9 +3,11 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
+
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Servicios">
@@ -21,7 +23,7 @@
 
                     <TextBox materialDesign:HintAssist.Hint="NOMBRESRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="PRECIO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
-                    
+
 
 
 
@@ -85,29 +87,20 @@
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                             <TextBlock Text="Agregar Servicio extras"/>
+
                         </StackPanel>
                     </Button>
 
                     <!--Seprator-->
                     <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
 
-                    <!--Tab buttons-->
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                        <Button Style="{StaticResource tabButton}" Content="Por arriendos a departamentos" Foreground="{DynamicResource ActionIconColor}" RenderTransformOrigin="0.5,0.422" Width="760" Click="Button_Click">
-                            <Button.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="0"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Button.RenderTransform>
-                        </Button>
-                    </StackPanel>
+                    <!--Counter Title-->
+                    <TextBlock Text="Servicios:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="144"  x:Name="Servicio_srv"/>
+
 
 
                     <!--Members Data Grid-->
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="NOMBRE_SRV" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="PRECIO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>

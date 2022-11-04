@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,30 +25,30 @@ namespace TurismoReal_Escritorio.Paginas
             string region, string comuna, string valorarriendo, string fecha, string habilitado, string imagen)
         {
             InitializeComponent();
-            AgregarDatosFormulario( nombre, direccion, descripcion, metroscuadrados, habitaciones, banos,
-                                    region, comuna, valorarriendo, fecha, habilitado, imagen);
+
 
         }
 
-        public void AgregarDatosFormulario( string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos,
-            string region, string comuna, string valorarriendo, string fecha, string habilitado, string imagen)
-        {
-            txtNombreActualizar.Text = nombre;
-            txtDescripcionActualizar.Text = direccion;
-            txtMetroscuadradosActualizar.Text = metroscuadrados;
-            txtHabitacionesActualizar.Text = habitaciones;
-            txtBanosActualizar.Text = banos;
-            txtRegionActualizar.Text = region;
-            txtcomunaActualizar.Text = comuna;
-            txtValorarriendoActualizar.Text = valorarriendo;
-            txtFechaActualizar.Text = fecha;
-            txtHabilitadoActualizar.Text = habilitado;
-            txtImagenActualizar.Text = imagen;
-        }
+            public void AgregarDatosFormulario(string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos,
+                string region, string comuna, string valorarriendo, string fecha, string habilitado, string imagen)
+            {
+                txtNombreActualizar.Text = nombre;
+                txtDescripcionActualizar.Text = direccion;
+                txtMetroscuadradosActualizar.Text = metroscuadrados;
+                txtHabitacionesActualizar.Text = habitaciones;
+                txtBanosActualizar.Text = banos;
+                txtRegionActualizar.Text = region;
+                txtcomunaActualizar.Text = comuna;
+                txtValorarriendoActualizar.Text = valorarriendo;
+                txtFechaActualizar.Text = fecha;
+                txtHabilitadoActualizar.Text = habilitado;
+                txtImagenActualizar.Text = imagen;
+            }
 
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
-        {
+            private void btnActualizar_Click(object sender, RoutedEventArgs e)
+            {
 
-        }
+            }
+        
     }
 }
