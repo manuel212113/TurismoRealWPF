@@ -14,7 +14,7 @@
       d:DesignHeight="650" d:DesignWidth="900"
       Title="Inicio">
 
-    
+
 
     <materialDesign:DialogHost  x:Name="VentanaAgregarusuario" Background="{DynamicResource SecundaryBackgroundColor}" >
         <materialDesign:DialogHost.DialogContent >
@@ -28,7 +28,7 @@
 
                         <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Agregar Departamento" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,20" Width="200px" FontSize="15"></TextBlock>
                         <materialDesign:PackIcon Kind="UserAdd" FontSize="20" Width="100"></materialDesign:PackIcon>
-                </StackPanel>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
 
                         <TextBox materialDesign:HintAssist.Hint="nombre"  Grid.Row="0" Width="200" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNombre" Margin="0,10,0,0"></TextBox>
@@ -53,16 +53,16 @@
                         <TextBox materialDesign:HintAssist.Hint="comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0" Width="200"></TextBox>
                         <TextBox materialDesign:HintAssist.Hint="valorarriendo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtValorArriendo" Margin="20,10,0,0" Width="200"></TextBox>
                     </StackPanel>
-                    
-                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
-                        <ComboBox x:Name="ComboBoxHabilitado" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Habilitado"> 
-                                    <ComboBoxItem
-                 Content="si" />
-                                    <ComboBoxItem
-                 Content="no" />
-                    </ComboBox>
 
-                    <ComboBox Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200"
+                    <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                        <ComboBox x:Name="ComboBoxHabilitado" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Habilitado">
+                            <ComboBoxItem
+                 Content="si" />
+                            <ComboBoxItem
+                 Content="no" />
+                        </ComboBox>
+
+                        <ComboBox Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200"
                               
                                                                                
   materialDesign:HintAssist.Hint="Estado Departamento" Margin="20,10,0,0">
@@ -90,7 +90,7 @@
           Margin="0 8 8 0"
           Content="Aceptar"
           >
-                          
+
                         <Button.CommandParameter>
                             <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                 False
@@ -103,19 +103,19 @@
 
             </Grid>
         </materialDesign:DialogHost.DialogContent>
-        
+
         <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
-      
-        <Grid Margin="0,0,10,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
-            <!--Left Menu-->
+            <Grid Margin="0,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <!--Main Section-->
-            <Grid Grid.Column="1" Margin="10,20,20,20">
-                <Grid.RowDefinitions>
+                <!--Left Menu-->
+
+                <!--Main Section-->
+                <Grid Margin="15,20,15,20">
+                    <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -125,50 +125,50 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                <!--Search Textbox-->
-       
+                    <!--Search Textbox-->
 
-                <!--Top Buttons-->
-                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
-                    <Icon:PackIconMaterial Kind="Cog"/>
-                </Button>
 
-                
+                    <!--Top Buttons-->
+                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
+                        <Icon:PackIconMaterial Kind="Cog"/>
+                    </Button>
 
-                <!--Page Title-->
-                <TextBlock Text="Departamento" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
 
-                <!--Add Button-->
-                <Button x:Name="btnAgregarDepa" Style="{StaticResource addButton}" Click="btnAgregarDepa_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
-                    <StackPanel Orientation="Horizontal">
-                        <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
-                        <TextBlock Text="Agregar Departamento"/>
+
+                    <!--Page Title-->
+                    <TextBlock Text="Departamento" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+                    <Button x:Name="btnAgregarDepa" Style="{StaticResource addButton}" Click="btnAgregarDepa_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                            <TextBlock Text="Agregar Departamento"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Seprator-->
+                    <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                    <!--Tab buttons-->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                        <Button Style="{StaticResource tabButton}" Content="Inicio" Foreground="{DynamicResource ActionIconColor}" BorderBrush="#784FF2"/>
+                        <Button Style="{StaticResource tabButton}" Content="Arrendados" Foreground="{DynamicResource ActionIconColor}" />
+                        <Button Style="{StaticResource tabButton}" Content="Libres" Foreground="{DynamicResource ActionIconColor}"/>
                     </StackPanel>
-                </Button>
 
-                <!--Seprator-->
-                <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
-
-                <!--Tab buttons-->
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                    <Button Style="{StaticResource tabButton}" Content="Inicio" Foreground="{DynamicResource ActionIconColor}" BorderBrush="#784FF2"/>
-                    <Button Style="{StaticResource tabButton}" Content="Arrendados" Foreground="{DynamicResource ActionIconColor}" />
-                    <Button Style="{StaticResource tabButton}" Content="Libres" Foreground="{DynamicResource ActionIconColor}"/>
-                </StackPanel>
-
-                <!--Counter Title-->
-                <TextBlock Text="Departamentos:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="Departamento_depa"/>
+                    <!--Counter Title-->
+                    <TextBlock Text="Departamentos:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="Departamento_depa"/>
 
 
-                <!--Filter Textbox-->
-                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
-                   
+                    <!--Filter Textbox-->
+                    <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
 
-                </Grid>
 
-                <!--Departamento Data Grid-->
+                    </Grid>
+
+                    <!--Departamento Data Grid-->
                     <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="DataGridDepa" Style="{DynamicResource DataGridStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True" Margin="0,10,-21,60" Grid.RowSpan="2" Grid.Row="5" SelectionChanged="DataGridDepa_SelectionChanged">
-                    <DataGrid.Columns>
+                        <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                                 <DataGridCheckBoxColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -204,7 +204,7 @@
                                             <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" Click="btnEditar_Click" >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
-                                          
+
                                             <Button Margin="5 0 0 0" x:Name="BtnEliminarDepartamento" Style="{StaticResource gridRemoveButton}" Click="BtnEliminarDepartamento_Click">
                                                 <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
@@ -220,8 +220,8 @@
 
                 </Grid>
 
-        </Grid>
-    </Border>
+            </Grid>
+        </Border>
     </materialDesign:DialogHost>
 
 </Page>
