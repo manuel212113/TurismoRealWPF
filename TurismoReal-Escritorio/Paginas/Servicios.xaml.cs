@@ -32,15 +32,15 @@ namespace TurismoReal_Escritorio.Paginas
     {
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
-        ServiciosExtra srv = new ServiciosExtra();
+        TurismoReal.Capa_Negocio.Servicios.Servicios srv = new TurismoReal.Capa_Negocio.Servicios.Servicios();
 
 
         public Servicios()
         {
             InitializeComponent();
 
-            ObservableCollection<ServiciosExtra> serv_lista = new ObservableCollection<ServiciosExtra>();
-            ObservableCollection<ServiciosExtra> ser_lista2 = new ObservableCollection<ServiciosExtra>();
+            ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios> serv_lista = new ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios>();
+            ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios> ser_lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios>();
 
             serv_lista = srv.CargarInventario(ser_lista2);
             Lista.ItemsSource = serv_lista;

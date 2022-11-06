@@ -52,6 +52,15 @@ namespace PruebasUnitariasTurismoReal
 
         }
 
+        [Fact]
+        public void Listar()
+        {
+            Departamento dep = new Departamento();
+
+
+        }
+
+
 
     }
 }

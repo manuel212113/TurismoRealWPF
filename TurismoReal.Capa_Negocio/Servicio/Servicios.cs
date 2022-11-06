@@ -24,14 +24,14 @@ using TurismoReal.Capa_Negocio.Servicios;
 
 namespace TurismoReal.Capa_Negocio.Servicios
 {
-    public class ServiciosExtra
+    public class Servicios
     {
         public string IDSER { get; set; }
         public string NOMBRESRV { get; set; }
         public string PRECIO { get; set; }
 
 
-        public ServiciosExtra()
+        public Servicios()
         {
             this.Init();
         }
@@ -100,7 +100,7 @@ namespace TurismoReal.Capa_Negocio.Servicios
         }
 
 
-        public ObservableCollection<ServiciosExtra> CargarInventario(ObservableCollection<ServiciosExtra> lista_Inven)
+        public ObservableCollection<Servicios> CargarInventario(ObservableCollection<Servicios> lista_Inven)
         {
 
             try
@@ -120,7 +120,7 @@ namespace TurismoReal.Capa_Negocio.Servicios
 
                 while (lector.Read())
                 {
-                    ServiciosExtra Inven = new ServiciosExtra();
+                    Servicios Inven = new Servicios();
 
                     Inven.IDSER = lector.GetString(0);
                     Inven.NOMBRESRV = lector.GetString(1);
