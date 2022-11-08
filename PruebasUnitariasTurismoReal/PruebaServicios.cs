@@ -15,7 +15,7 @@ namespace PruebasUnitariasTurismoReal
         [Fact]
         public void CrearServicio()
         {
-            Servicios inv = new Servicios();
+            Servicio_Extra inv = new Servicio_Extra();
 
             string NOMBRESRV = "HBO";
             string PRECIO = "10000";
@@ -29,7 +29,7 @@ namespace PruebasUnitariasTurismoReal
         [Fact]
         public void EliminarServicios()
         {
-            Servicios inv = new Servicios();
+            Servicio_Extra inv = new Servicio_Extra();
 
             string IDSER = "5";
 

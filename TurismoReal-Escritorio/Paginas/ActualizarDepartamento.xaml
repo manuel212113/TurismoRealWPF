@@ -4,10 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
-      mc:Ignorable="d" d:DesignWidth="800"
+      mc:Ignorable="d"
      
-      Title="ActualizarDepartamento" Height="671" Width="400">
+      Title="ActualizarDepartamento" Height="667" Width="782">
     <Grid Background="{DynamicResource SecundaryBackgroundColor}" Margin="200,0,200,132" Width="400">
+        <TextBlock Text="iddepa_final" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" x:Name="iddepa_fina"  RenderTransformOrigin="1.323,0.535"></TextBlock>
 
         <TextBlock Text="nombre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="direccion" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,80,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
@@ -18,7 +19,6 @@
         <TextBlock Text="region" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,230,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="comuna" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,260,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="valorarriendo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,290,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
-        <TextBlock Text="fecha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,320,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="habilitado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,350,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
         <TextBlock Text="imagen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,390,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
 
@@ -30,8 +30,7 @@
         <TextBox x:Name="txtBanosActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,186,0,0"></TextBox>
         <TextBox x:Name="txtRegionActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,215,0,0"></TextBox>
         <TextBox x:Name="txtcomunaActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,245,0,0"></TextBox>
-        <TextBox x:Name="txtValorarriendoActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,275,0,0"></TextBox>
-        <TextBox x:Name="txtFechaActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,305,0,0"></TextBox>
+        <TextBox x:Name="txtValorarriendoActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,275,0,0" Cursor="Arrow"></TextBox>
         <TextBox x:Name="txtHabilitadoActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,335,0,0"></TextBox>
         <TextBox x:Name="txtImagenActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,375,0,0"></TextBox>
 

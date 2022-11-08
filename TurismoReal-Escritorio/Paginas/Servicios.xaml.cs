@@ -32,15 +32,15 @@ namespace TurismoReal_Escritorio.Paginas
     {
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
-        TurismoReal.Capa_Negocio.Servicios.Servicios srv = new TurismoReal.Capa_Negocio.Servicios.Servicios();
+        TurismoReal.Capa_Negocio.Servicios.Servicio_Extra srv = new TurismoReal.Capa_Negocio.Servicios.Servicio_Extra();
 
 
         public Servicios()
         {
             InitializeComponent();
 
-            ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios> serv_lista = new ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios>();
-            ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios> ser_lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicios>();
+            ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicio_Extra> serv_lista = new ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicio_Extra>();
+            ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicio_Extra> ser_lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Servicios.Servicio_Extra>();
 
             serv_lista = srv.CargarInventario(ser_lista2);
             Lista.ItemsSource = serv_lista;
@@ -86,6 +86,37 @@ namespace TurismoReal_Escritorio.Paginas
 
         }
 
+        private void BtnEliminarInventario_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var departamentoSeleccionado = Lista.SelectedItem as Servicio_Extra;
+                Servicio_Extra departamentoSeleccionado1 = departamentoSeleccionado;
+                string departamento_seleccionado_id = departamentoSeleccionado1.IDSER;
+                Int16 depart_id = Convert.ToInt16(departamentoSeleccionado.IDSER);
+
+                MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a el departamento con  ID :" + departamento_seleccionado_id, "Eliminar Departamento:", MessageBoxButton.YesNo);
+                if (dialogResult == MessageBoxResult.Yes)
+                {
+
+                    try
+                    {
+                      Servicio_Extra servicios = new Servicio_Extra();
+                        servicios.EliminarServicioExtra(departamento_seleccionado_id);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        cone.Close();
+
+
+                    }
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 
        

@@ -21,7 +21,7 @@ using System.Windows.Controls;
 
 namespace TurismoReal.Capa_Negocio.Departamento
 {
-    public  class Departamento
+    public class Departamento
     {
 
 
@@ -66,9 +66,9 @@ namespace TurismoReal.Capa_Negocio.Departamento
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
-       
 
-        public string AgregarDepartamento( string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado,string imagen)
+
+        public string AgregarDepartamento(string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string fecha, string habilitado, string imagen)
         {
             if (imagen.Length == 0)
             {
@@ -94,13 +94,13 @@ namespace TurismoReal.Capa_Negocio.Departamento
                 ComandoAgregar.Parameters.Add("imagen", imagen);
 
                 ComandoAgregar.ExecuteNonQuery();
-                MessageBox.Show("Departamento agregado a la base de datos","Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Departamento agregado a la base de datos", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 cone.Close();
                 return "Exito";
-        }
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("No se agrego el Departamento a la base de datos","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No se agrego el Departamento a la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 cone.Close();
 
                 MessageBox.Show(ex.Message);
@@ -111,6 +111,46 @@ namespace TurismoReal.Capa_Negocio.Departamento
 
         }
 
+        public string ActualizarDepartamento(string iddepa, string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos, string region, string comuna, string valorarriendo, string habilitado, string imagen){
+            if (imagen.Length == 0)
+            {
+                imagen = "https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg";
+            }
+
+            try
+            {
+                cone.Open();
+                OracleCommand ComandoAgregar = new OracleCommand("SP_ACTUALIZAR_DEPA", cone);
+                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoAgregar.Parameters.Add("ID_DEPA_ACTU", iddepa);
+                ComandoAgregar.Parameters.Add("nombre", nombre);
+                ComandoAgregar.Parameters.Add("direccion", direccion);
+                ComandoAgregar.Parameters.Add("descripcion", descripcion);
+                ComandoAgregar.Parameters.Add("metros_cuadrados", metroscuadrados);
+                ComandoAgregar.Parameters.Add("habitaciones", habitaciones);
+                ComandoAgregar.Parameters.Add("banos", banos);
+                ComandoAgregar.Parameters.Add("region", region);
+                ComandoAgregar.Parameters.Add("comuna", comuna);
+                ComandoAgregar.Parameters.Add("valor_arriendo", valorarriendo);
+                ComandoAgregar.Parameters.Add("habilitado", habilitado);
+                ComandoAgregar.Parameters.Add("imagen", imagen);
+
+                ComandoAgregar.ExecuteNonQuery();
+                MessageBox.Show("Departamento agregado a la base de datos", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                cone.Close();
+                return "Exito";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se agrego el Departamento a la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                cone.Close();
+
+                MessageBox.Show(ex.Message);
+                return "Error";
+
+
+            }
+        }
 
         public ObservableCollection<Departamento> CargarDepartamentos(ObservableCollection<Departamento> listaDepa)
         {

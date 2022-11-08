@@ -111,7 +111,7 @@
                                             <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}"  >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
-                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario" Style="{StaticResource gridRemoveButton}"   >
+                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario"  Click="BtnEliminarInventario_Click"  Style="{StaticResource gridRemoveButton}"   >
                                                 <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                         </StackPanel>

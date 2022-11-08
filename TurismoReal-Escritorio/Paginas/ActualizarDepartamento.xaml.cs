@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TurismoReal.Capa_Negocio.Departamento;
 
 namespace TurismoReal_Escritorio.Paginas
 {
@@ -21,26 +22,29 @@ namespace TurismoReal_Escritorio.Paginas
     /// </summary>
     public partial class ActualizarDepartamento : Window
     {
-        public ActualizarDepartamento(string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos,
-            string region, string comuna, string valorarriendo, string fecha, string habilitado, string imagen)
+        public ActualizarDepartamento(string iddepa, string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos,
+            string region, string comuna, string valorarriendo, string habilitado, string imagen)
         {
             InitializeComponent();
+
+            AgregarDatosFormulario(iddepa, nombre, direccion, descripcion, metroscuadrados, habitaciones, banos, region, comuna, valorarriendo, habilitado, imagen);
 
 
         }
 
-            public void AgregarDatosFormulario(string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos,
-                string region, string comuna, string valorarriendo, string fecha, string habilitado, string imagen)
+        public void AgregarDatosFormulario(string iddepa, string nombre, string direccion, string descripcion, string metroscuadrados, string habitaciones, string banos,
+                string region, string comuna, string valorarriendo, string habilitado, string imagen)
             {
+                iddepa_fina.Text = iddepa;
                 txtNombreActualizar.Text = nombre;
-                txtDescripcionActualizar.Text = direccion;
+                txtDescripcionActualizar.Text = descripcion;
+                txtDireccionActualizar.Text = direccion;
                 txtMetroscuadradosActualizar.Text = metroscuadrados;
                 txtHabitacionesActualizar.Text = habitaciones;
                 txtBanosActualizar.Text = banos;
                 txtRegionActualizar.Text = region;
                 txtcomunaActualizar.Text = comuna;
                 txtValorarriendoActualizar.Text = valorarriendo;
-                txtFechaActualizar.Text = fecha;
                 txtHabilitadoActualizar.Text = habilitado;
                 txtImagenActualizar.Text = imagen;
             }
@@ -48,7 +52,26 @@ namespace TurismoReal_Escritorio.Paginas
             private void btnActualizar_Click(object sender, RoutedEventArgs e)
             {
 
-            }
+            string nombre = txtNombreActualizar.Text;
+            string direccion = txtDireccionActualizar.Text;
+            string descripcion = txtDescripcionActualizar.Text;
+            string metroscuadrados = txtMetroscuadradosActualizar.Text;
+            string habitaciones = txtHabitacionesActualizar.Text;
+            string banos = txtBanosActualizar.Text;
+            string region = txtRegionActualizar.Text;
+            string comuna = txtcomunaActualizar.Text;
+            string valorarriendo = txtValorarriendoActualizar.Text;
+            string habilitado = txtHabilitadoActualizar.Text;
+            string imagen = txtImagenActualizar.Text;
+
+
+            string iddepa_final = iddepa_fina.Text;
+
+            Departamento departamento = new Departamento();
+            departamento.ActualizarDepartamento(iddepa_final, nombre, direccion, descripcion, metroscuadrados, habitaciones,
+                banos, region, comuna, valorarriendo, habilitado, imagen);
+
+        }
         
     }
 }

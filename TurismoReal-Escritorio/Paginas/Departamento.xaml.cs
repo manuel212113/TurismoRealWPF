@@ -118,6 +118,7 @@ namespace TurismoReal_Escritorio.Paginas
         {
 
             var departamentoSelecciona = DataGridDepa.SelectedItem as Departamento;
+            string iddepa_seleccionada = departamentoSelecciona.iddepa;
             string nombre_seleccionada = departamentoSelecciona.nombre;
             string direccion_seleccionado = departamentoSelecciona.direccion;
             string descripcion_seleccionado = departamentoSelecciona.descripcion;
@@ -127,7 +128,6 @@ namespace TurismoReal_Escritorio.Paginas
             string region_seleccionado = departamentoSelecciona.region;
             string comuna_seleccionado = departamentoSelecciona.comuna;
             string valorarriendo_seleccionado = departamentoSelecciona.valorarriendo;
-            string fecha_seleccionado = departamentoSelecciona.fecha;
             string habilitado_seleccionado = departamentoSelecciona.habilitado;
             string imagen_seleccionado = departamentoSelecciona.imagen;
 
@@ -135,9 +135,9 @@ namespace TurismoReal_Escritorio.Paginas
 
 
 
-            ActualizarDepartamento pagina_actualizar = new ActualizarDepartamento(nombre_seleccionada, direccion_seleccionado, descripcion_seleccionado,
+            ActualizarDepartamento pagina_actualizar = new ActualizarDepartamento(iddepa_seleccionada, nombre_seleccionada, direccion_seleccionado, descripcion_seleccionado,
              metros_cuadrados_seleccionado, habitaciones_seleccionado, banos_seleccionado, region_seleccionado, comuna_seleccionado, valorarriendo_seleccionado,
-            fecha_seleccionado, habilitado_seleccionado, imagen_seleccionado);
+            habilitado_seleccionado, imagen_seleccionado);
 
             pagina_actualizar.Show();
 
