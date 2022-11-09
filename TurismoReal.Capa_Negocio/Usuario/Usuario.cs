@@ -164,6 +164,58 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
             }
         }
+
+        public ObservableCollection<Usuario> CargarFuncionarioCliente(ObservableCollection<Usuario> lista_usr)
+        {
+
+            try
+            {
+                cone.Open();
+                OracleCommand comando_listar_usr = new OracleCommand("FN_LISTAR_USUARIOS_WEB", cone);
+                comando_listar_usr.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                OracleParameter lista_salida = comando_listar_usr.Parameters.Add("LD_CURSOR", OracleDbType.RefCursor);
+
+                lista_salida.Direction = System.Data.ParameterDirection.ReturnValue;
+
+                comando_listar_usr.ExecuteNonQuery();
+
+                OracleDataReader lector = ((OracleRefCursor)lista_salida.Value).GetDataReader();
+
+                while (lector.Read())
+                {
+                    Usuario usuar = new Usuario();
+
+                    usuar.RUT = lector.GetString(0);
+                    usuar.NOMBRE = lector.GetString(1);
+                    usuar.APELLIDO = lector.GetString(4);
+                    usuar.EMAIL = lector.GetString(2);
+                    usuar.GENERO = "Desconocido";
+                    usuar.CELULAR = lector.GetString(5);
+                    usuar.TIPOUSUARIO = lector.GetString(7);
+                    usuar.CONTRASENA = "Encriptada";
+
+
+                    lista_usr.Add(usuar);
+                }
+                cone.Close();
+                return lista_usr;
+
+
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+        
+
+    }
+
         public void CargarUsuarios(ObservableCollection<Usuario> lista_usr, DataGrid dataGrid)
         {
 
@@ -198,7 +250,11 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
                     lista_usr.Add(usuar);
                 }
+
+
+
                 cone.Close();
+                lista_usr=CargarFuncionarioCliente(lista_usr);
                 dataGrid.ItemsSource = lista_usr;
                 dataGrid.Items.Refresh();
 
