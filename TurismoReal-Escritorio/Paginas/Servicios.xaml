@@ -19,7 +19,7 @@
 
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
-                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario para agregar servicio extra por arriendo realizado" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
+                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
                     <TextBox materialDesign:HintAssist.Hint="NOMBRESRV" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
                     <TextBox materialDesign:HintAssist.Hint="PRECIO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
@@ -108,7 +108,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}"  >
+                                            <Button x:Name="btnEditar" Click="Editar_Click" Style="{StaticResource gridEditButton}"  >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                             <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario"  Click="BtnEliminarInventario_Click"  Style="{StaticResource gridRemoveButton}"   >
