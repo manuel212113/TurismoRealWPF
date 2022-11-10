@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
       mc:Ignorable="d"
      
-      Title="ActualizarDepartamento" Height="667" Width="782">
-    <Grid Background="{DynamicResource SecundaryBackgroundColor}" Margin="200,0,200,132" Width="400">
+      Title="ActualizarDepartamento" Height="600" Width="500">
+    <Grid Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,60" Height="600" Width="400">
         <TextBlock Text="iddepa_final" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" x:Name="iddepa_fina"  RenderTransformOrigin="1.323,0.535"></TextBlock>
 
         <TextBlock Text="nombre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>

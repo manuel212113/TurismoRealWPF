@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -215,6 +216,41 @@ namespace TurismoReal.Capa_Negocio.Usuario
         
 
     }
+
+        public void ActualizarUsuarioWeb(string rut , string correo , string celular, string tipo_usuario)
+        {
+            try
+            {
+                var client = new RestClient("http://127.0.0.1:8000/");
+                // client.Authenticator = new HttpBasicAuthenticator(username, password);
+                var request = new RestRequest("api/v1/Usuario/actualizar");
+                request.AddParameter("RUT", rut);
+                request.AddParameter("correo", correo);
+                request.AddParameter("celular", celular);
+                request.AddParameter("tipo_usuario", tipo_usuario);
+                request.AddParameter("token", "18oL6ZCi8ur5rMgBM1W1yC7JN07");
+                MessageBox.Show(client.ToString());
+
+
+                var response = client.Post(request);
+                var content = response.Content;
+                if (content.Contains("Exito"))
+                {
+                    MessageBox.Show("Usuario Actualizado Correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("No se puso Actualizar el Usuario");
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("No se pudo establecer conexion con la pagina web");
+
+            }
+
+        }
 
         public void CargarUsuarios(ObservableCollection<Usuario> lista_usr, DataGrid dataGrid)
         {

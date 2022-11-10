@@ -151,11 +151,20 @@ namespace TurismoReal_Escritorio.Paginas
             string email_seleccionado = usuarioSeleccionado.EMAIL;
             string celular_seleccionado = usuarioSeleccionado.CELULAR;
             string tipo_usuario_seleccionado = usuarioSeleccionado.TIPOUSUARIO;
+            if (usuarioSeleccionado.GENERO == "Desconocido")
+            {
+                ActualizarUsuarioWEB pagina_actualizar_cliente_funcionario = new ActualizarUsuarioWEB(rut_seleccionado, email_seleccionado, contrasena_seleccionada, celular_seleccionado, tipo_usuario_seleccionado);
 
+                pagina_actualizar_cliente_funcionario.Show();
+            }
+            else
+            {
+                ActualizarUsuario pagina_actualizar = new ActualizarUsuario(rut_seleccionado, email_seleccionado, contrasena_seleccionada, celular_seleccionado, tipo_usuario_seleccionado);
 
-            ActualizarUsuario pagina_actualizar = new ActualizarUsuario(rut_seleccionado, email_seleccionado,contrasena_seleccionada,celular_seleccionado,tipo_usuario_seleccionado);
+                pagina_actualizar.Show();
+            }
 
-            pagina_actualizar.Show();
+           
         }
     }
 }
