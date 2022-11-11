@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.OracleClient;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -215,6 +216,40 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
         
 
+    }
+
+        public string ActualizarUsuario(string rut, string correo,string contrasena, string celular)
+        {
+         
+
+            try
+            {
+                cone.Open();
+                OracleCommand ComandoAgregar = new OracleCommand("SP_ACTUALIZAR_USUARIO", cone);
+                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoAgregar.Parameters.Add("RUT_ACTUALIZAR", rut);
+                ComandoAgregar.Parameters.Add("EMAIL_AC", correo);
+                ComandoAgregar.Parameters.Add("CONTRASENA_AC", contrasena);
+                ComandoAgregar.Parameters.Add("CELULAR_AC", celular);
+                ComandoAgregar.Parameters.Add("TIPO_USUARIO_AC", "2");
+      
+
+                ComandoAgregar.ExecuteNonQuery();
+                MessageBox.Show("Usuario Actualizado Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                cone.Close();
+                return "Exito";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo Actualizar el Usuario", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                cone.Close();
+
+                MessageBox.Show(ex.Message);
+                return "Error";
+
+
+            }
+        
     }
 
         public void ActualizarUsuarioWeb(string rut , string correo , string celular, string tipo_usuario)
