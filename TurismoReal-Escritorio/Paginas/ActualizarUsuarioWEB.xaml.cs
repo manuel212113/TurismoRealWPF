@@ -37,9 +37,17 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usr = new Usuario();
 
-            usr.ActualizarUsuarioWeb(txtRutActualizar.Text, txtACorreoActualizar.Text, txtCelularActualizar.Text, txtTipoUsuarioActualizar_.Text);
+            Usuario usr = new Usuario();
+            if(txtRutActualizar.Text.Length>1 && txtACorreoActualizar.Text.Length>1 && txtCelularActualizar.Text.Length>1 && txtTipoUsuarioActualizar_.Text.Length>1)
+            {
+                usr.ActualizarUsuarioWeb(txtRutActualizar.Text, txtACorreoActualizar.Text, txtCelularActualizar.Text, txtTipoUsuarioActualizar_.Text);
+
+            }
+            else
+            {
+                MessageBox.Show("no puede haber campos vacios");
+            }
         }
     }
 }

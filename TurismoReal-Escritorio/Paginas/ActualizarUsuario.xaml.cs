@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TurismoReal.Capa_Negocio.Departamento;
+using TurismoReal.Capa_Negocio.Usuario;
 
 namespace TurismoReal_Escritorio.Paginas
 {
@@ -33,24 +36,17 @@ namespace TurismoReal_Escritorio.Paginas
             txtACorreoActualizar.Text = correo;
             txtContrasenaActualizar.Password = contrasena;
             txtCelularActualizar.Text = celular;
-            if (tipo_usuario.StartsWith('1'))
-            {
-                txtTipoUsuarioActualizar_.Text = "Cliente";
-            }
-            else if (tipo_usuario.StartsWith('2'))
-             {
-                txtTipoUsuarioActualizar_.Text = "Administrador";
-            }
-            else if (tipo_usuario.StartsWith('3'))
-            {
-                txtTipoUsuarioActualizar_.Text = "Funcionario";
-            }
+         
+            txtTipoUsuarioActualizar_.Text = "Administrador";
+            
 
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
 
+            Usuario usuario = new Usuario();
+            usuario.ActualizarUsuario(txtRutActualizar.Text, txtACorreoActualizar.Text, txtContrasenaActualizar.Password, txtCelularActualizar.Text);
         }
     }
 }
