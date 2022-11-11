@@ -25,9 +25,7 @@
         <PasswordBox x:Name="txtContrasenaActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,167,0,0"></PasswordBox>
         <TextBox x:Name="txtCelularActualizar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,235,0,0"/>
         <ComboBox x:Name="txtTipoUsuarioActualizar_" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,310,0,0">
-            <ComboBoxItem>Administrador</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">Cliente</ComboBoxItem>
-            <ComboBoxItem>Funcionario</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
         </ComboBox>
 
         <Button Margin="64,363,63,205" Background="CadetBlue" Content="Actualizar" x:Name="btnActualizar" Click="btnActualizar_Click" BorderBrush="Transparent" RenderTransformOrigin="0.386,0.416" Cursor="Hand"></Button>

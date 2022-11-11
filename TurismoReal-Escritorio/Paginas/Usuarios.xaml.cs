@@ -40,6 +40,13 @@ namespace TurismoReal_Escritorio.Paginas
 
             usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
             TXTTotalusuarios.Text = "USUARIOS: "+ usuarios_l.Count.ToString();
+            this.PreviewKeyDown += (ss, ee) =>
+            {
+                if (ee.Key == Key.Escape)
+                {
+                    VentanaAgregarusario.IsOpen = false;
+                }
+            };
         }
 
         private void btnAgregarUsuario_Click(object sender, RoutedEventArgs e)
@@ -55,16 +62,8 @@ namespace TurismoReal_Escritorio.Paginas
             {
                 TxtTipo.Text = "2";
 
-            }else if (TxtTipo.Text == "Cliente")
-            {
-                TxtTipo.Text = "1";
-
             }
-            else if (TxtTipo.Text == "Funcionario")
-            {
-                TxtTipo.Text = "3";
-
-            }
+         
 
             try
             {
@@ -73,11 +72,20 @@ namespace TurismoReal_Escritorio.Paginas
 
                 if(usr.AgregarUsuario(TxtRUT.Text, TxtNombre.Text, TxtCorreo.Text, TxtGenero.Text, TxtContrasena.Text, TxtApellido.Text, TxtCelular.Text, TxtTipo.Text))
                 {
+                    VentanaAgregarusario.IsOpen = false;
 
                 }
                 else
                 {
-                    MessageBox.Show("No se agrego la persona a la base de datos");
+
+                    this.PreviewKeyDown += (ss, ee) =>
+                    {
+                        if (ee.Key == Key.Escape)
+                        {
+                            VentanaAgregarusario.IsOpen = false;
+
+                        }
+                    };
 
                 }
 

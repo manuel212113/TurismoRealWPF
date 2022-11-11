@@ -82,11 +82,12 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
             cone.Open();
 
-
+             
+           string  contra_encriptada = EncriptarContraseña(contraseña.Password.ToString());
             OracleCommand comando = new OracleCommand("SELECT * FROM USUARIO WHERE EMAIL = :Usuario AND TIPO_USUARIO_ID_TIPO_USUARIO=2 AND CONTRASENA = :Contra", cone);
 
             comando.Parameters.Add(":Usuario", txtUsuario.Text);
-            comando.Parameters.Add(":Contra", contraseña.Password);
+            comando.Parameters.Add(":Contra", contra_encriptada);
 
 
             try
@@ -118,22 +119,33 @@ namespace TurismoReal.Capa_Negocio.Usuario
         {
             try
             {
-                int.Parse(tipo_user);
-                cone.Open();
-                OracleCommand comando3 = new OracleCommand("SP_CREAR_USUARIO", cone);
-                comando3.CommandType = System.Data.CommandType.StoredProcedure;
-                comando3.Parameters.Add("rut",  rut);
-                comando3.Parameters.Add("nombre",  nombre);
-                comando3.Parameters.Add("email",  email);
-                comando3.Parameters.Add("genero",  genero);
-                comando3.Parameters.Add("contrasena",  contrasena);
-                comando3.Parameters.Add("apellido",  apellido);
-                comando3.Parameters.Add("celular", celular);
-                comando3.Parameters.Add("TIPO_USUARIO_ID_TIPO_USUARIO", (tipo_user));
-                comando3.ExecuteNonQuery();
-                MessageBox.Show("Persona agregada a la base de datos");
-                cone.Close();
-                return true;
+
+                if(rut.Length>1 && nombre.Length>1 && email.Length>1 && genero.Length>1 && contrasena.Length>1 && apellido.Length>1 && celular.Length>1  && tipo_user.Length>=1)
+                {
+                    int.Parse(tipo_user);
+                    contrasena = EncriptarContraseña(contrasena);
+                    cone.Open();
+                    OracleCommand comando3 = new OracleCommand("SP_CREAR_USUARIO", cone);
+                    comando3.CommandType = System.Data.CommandType.StoredProcedure;
+                    comando3.Parameters.Add("rut", rut);
+                    comando3.Parameters.Add("nombre", nombre);
+                    comando3.Parameters.Add("email", email);
+                    comando3.Parameters.Add("genero", genero);
+                    comando3.Parameters.Add("contrasena", contrasena);
+                    comando3.Parameters.Add("apellido", apellido);
+                    comando3.Parameters.Add("celular", celular);
+                    comando3.ExecuteNonQuery();
+                    MessageBox.Show("Persona agregada a la base de datos");
+                    cone.Close();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("No puede haber campos vacios");
+
+                    return false;
+                }
+               
             }
             catch (Exception e)
             {
