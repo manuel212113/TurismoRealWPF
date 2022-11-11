@@ -143,6 +143,35 @@ namespace TurismoReal.Capa_Negocio.Servicios
 
         }
 
+        public string ActualizarServicioExtra(string IDSER, string NOMBRESRV, string PRECIO)
+        {
+
+            try
+            {
+                cone.Open();
+                OracleCommand ComandoAgregar = new OracleCommand("SP_ACTUA_SEREX", cone);
+                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoAgregar.Parameters.Add("ID_SRV_ACTU", IDSER);
+                ComandoAgregar.Parameters.Add("NOMBRESRV", NOMBRESRV);
+                ComandoAgregar.Parameters.Add("PRECIO", PRECIO);
+
+                ComandoAgregar.ExecuteNonQuery();
+                MessageBox.Show("Servicio extra actualizado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                cone.Close();
+                return "Exito";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se actualizo el servicio extra", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                cone.Close();
+
+                MessageBox.Show(ex.Message);
+                return "Error";
+
+
+            }
+        }
+
 
 
     }

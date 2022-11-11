@@ -76,9 +76,16 @@ namespace TurismoReal_Escritorio.Paginas
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Editar_Click(object sender, RoutedEventArgs e)
         {
+            var ServicioSelecciona = Lista.SelectedItem as Servicio_Extra;
+            string IDDSER_Selecciona = ServicioSelecciona.IDSER;
+            string NOMBRESRV_Selecciona = ServicioSelecciona.NOMBRESRV;
+            string PRECIO_Selecciona = ServicioSelecciona.PRECIO;
 
+            ActualizarServicioExtra pagina_actualizar = new ActualizarServicioExtra(IDDSER_Selecciona, NOMBRESRV_Selecciona, PRECIO_Selecciona);
+
+            pagina_actualizar.Show();
         }
 
         private void Lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
