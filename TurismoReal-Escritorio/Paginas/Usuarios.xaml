@@ -45,7 +45,7 @@
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
-          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" >
+           >
                        
                     </Button>
                 </StackPanel>

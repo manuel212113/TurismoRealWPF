@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="400" Width="400"
       Title="Actualizar_Servicios_Extra">
 
-    <Grid Background="{DynamicResource SecundaryBackgroundColor}" Margin="200,0,200,132" Width="400">
-        
-        <TextBlock Text="NOMBRESRV" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
-        <TextBlock Text="PRECIO" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,80,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
+    <Grid Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,60" Height="600" Width="400">
 
-        <TextBox x:Name="TxtNOMBRE_SRV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,37,0,0"></TextBox>
-        <TextBox x:Name="TxtPRECIO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="137,66,0,0"></TextBox>
+        <TextBlock Text="NOMBRESRV" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,112,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
+        <TextBlock Text="PRECIO" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,142,0,0" RenderTransformOrigin="1.323,0.535"></TextBlock>
 
-        <Button Margin="52,433,75,58" Background="CadetBlue" Content="Actualizar" x:Name="btnActualizar" Click="btnActualizar_Click" BorderBrush="Transparent" RenderTransformOrigin="0.386,0.416" Cursor="Hand"></Button>
+        <TextBox x:Name="TxtNOMBRE_SRV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="146,99,0,0"></TextBox>
+        <TextBox x:Name="TxtPRECIO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="146,128,0,0"></TextBox>
+
+        <Button Margin="52,284,75,284" Background="CadetBlue" Content="Actualizar" x:Name="btnActualizar" Click="btnActualizar_Click" BorderBrush="Transparent" RenderTransformOrigin="0.386,0.416" Cursor="Hand"></Button>
     </Grid>
 </Window>
