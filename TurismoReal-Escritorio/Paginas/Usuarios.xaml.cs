@@ -105,6 +105,7 @@ namespace TurismoReal_Escritorio.Paginas
             {
                 var usuarioSeleccionado = UsuarioDatagrid.SelectedItem as Usuario;
                 string rut_seleccionado = usuarioSeleccionado.RUT;
+                string genero = usuarioSeleccionado.GENERO;
                 string nombre_completo_seleccionado=usuarioSeleccionado.NOMBRE +" " +usuarioSeleccionado.APELLIDO;
 
                 MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a :"+nombre_completo_seleccionado  , "Eliminar Usuario:"+rut_seleccionado, MessageBoxButton.YesNo);
@@ -113,14 +114,17 @@ namespace TurismoReal_Escritorio.Paginas
                     try
                     {
 
-                    
-                        cone.Open();
-                        OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_USUARIO", cone);
-                        comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
-                        comandoEliminar.Parameters.Add("RUT_ELIMINAR", OracleType.VarChar).Value = rut_seleccionado;
-                        comandoEliminar.ExecuteNonQuery();
-                        MessageBox.Show("Usuario Eliminado de la base de datos");
-                        cone.Close();
+                        Usuario usr = new Usuario();
+
+
+                        if (genero == "Desconocido")
+                        {
+                            usr.EliminarUsuario_WEB(rut_seleccionado);
+                        }else{
+                            usr.EliminarUsuario(rut_seleccionado);
+
+                        }
+
                         usuarios_l.Clear();
                         usr.CargarUsuarios(usuarios_l, UsuarioDatagrid);
                         UsuarioDatagrid.Items.Refresh();

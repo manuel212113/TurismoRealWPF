@@ -158,6 +158,29 @@ namespace TurismoReal.Capa_Negocio.Usuario
         }
 
 
+        public bool EliminarUsuario_WEB(string rut)
+        {
+            try
+            {
+                cone.Open();
+                OracleCommand comandoEliminar = new OracleCommand("SP_Eliminar_usuario_WEB", cone);
+                comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoEliminar.Parameters.Add("RUT_ELIMINAR", rut);
+                comandoEliminar.ExecuteNonQuery();
+                MessageBox.Show("Usuario Eliminado de la base de datos");
+
+                cone.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cone.Close();
+                return false;
+
+            }
+        }
+
 
         public bool EliminarUsuario(string rut)
         {
@@ -167,8 +190,10 @@ namespace TurismoReal.Capa_Negocio.Usuario
                 OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_USUARIO", cone);
                 comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
                 comandoEliminar.Parameters.Add("RUT_ELIMINAR" ,rut);
-                MessageBox.Show("Usuario Eliminado de la base de datos");
+                comandoEliminar.ExecuteNonQuery();
                 cone.Close();
+                MessageBox.Show("Usuario Eliminado de la base de datos");
+
                 return true;
             }
             catch (Exception ex)
@@ -230,18 +255,20 @@ namespace TurismoReal.Capa_Negocio.Usuario
 
     }
 
-        public string ActualizarUsuario(string rut, string correo,string contrasena, string celular)
+        public string ActualizarUsuario(string rut, string correo, string contrasena, string celular)
         {
-         
+
 
             try
             {
                 cone.Open();
+                string contra_encriptada = EncriptarContraseña(contrasena);
+
                 OracleCommand ComandoAgregar = new OracleCommand("SP_ACTUALIZAR_USUARIO", cone);
                 ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
                 ComandoAgregar.Parameters.Add("RUT_ACTUALIZAR", rut);
                 ComandoAgregar.Parameters.Add("EMAIL_AC", correo);
-                ComandoAgregar.Parameters.Add("CONTRASENA_AC", contrasena);
+                ComandoAgregar.Parameters.Add("CONTRASENA_AC", contra_encriptada);
                 ComandoAgregar.Parameters.Add("CELULAR_AC", celular);
                 ComandoAgregar.Parameters.Add("TIPO_USUARIO_AC", "2");
       
