@@ -78,6 +78,7 @@ namespace TurismoReal.Capa_Negocio.Departamento
             try
             {
                 cone.Open();
+              
                 OracleCommand ComandoAgregar = new OracleCommand("SP_Crear_Departamento", cone);
                 ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
                 ComandoAgregar.Parameters.Add("nombre", nombre);
