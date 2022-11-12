@@ -21,6 +21,8 @@ using TurismoReal.Capa_Negocio.Cliente;
 using TurismoReal.Capa_Negocio.Departamento;
 using System.Runtime.Intrinsics.Arm;
 using TurismoReal.Capa_Negocio.Inventario;
+using System.Drawing;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace TurismoReal_Escritorio.Paginas
 {
@@ -51,15 +53,24 @@ namespace TurismoReal_Escritorio.Paginas
             ObservableCollection<Inventarios> Invent_lista = new ObservableCollection<Inventarios>();
 
             Invent_lista = inv.CargarInventario(Invent);
-            Lista.ItemsSource = Invent_lista;
+            DatagridInventario.ItemsSource = Invent_lista;
             Inventario_inve.Text = "INVENTARIO: " + Invent.Count.ToString();
 
             ListaCategoria2 = CAT.CargarCategoria(ListaCategoria);
 
+            var diccionarioCategorias = new Dictionary<string, string>();
+
             foreach (var i in ListaCategoria2)
             {
-                ComboBoxCategoria.Items.Add(i.NOMBRE_CATEGORIA);
+           
+                diccionarioCategorias.Add( i.ID_CAT, i.NOMBRE_CATEGORIA);
             }
+
+            ComboBoxCategoria.ItemsSource = (diccionarioCategorias);
+            ComboBoxCategoria.SelectedValuePath = "Key";
+             ComboBoxCategoria.DisplayMemberPath = "Value";
+            ComboBoxCategoria.SelectedIndex = 0;
+
         }
 
         private void btnFormularioInventario_Click(object sender, RoutedEventArgs e)
@@ -74,16 +85,23 @@ namespace TurismoReal_Escritorio.Paginas
             VentanaAgregarServicio.IsOpen = false;
             try
             {
+
+
                 string PRODUCTO = TxtPRODCUTO.Text;
                 string CANTIDAD = TxtCANTIDAD.Text;
                 string ESTADO = ComboBoxESTADO.Text;
                 string DESCRIPCION = TxtDESCRIPCION.Text;
-                string TIPO_PROD = "1";
-                string TIPO_PROD_ID_T_PR = "2";
+
+                var tipo_producto_id = (ComboBoxCategoria.SelectedValue.ToString());
+                string TIPO_PROD = tipo_producto_id;
+                string TIPO_PROD_ID_T_PR = tipo_producto_id;
                 string DEPARTAMENTO_ID_DEPA = TxtDEPARTAMENTO_ID_DEPA.Text;
 
+                if (PRODUCTO.Length>1 && CANTIDAD.Length>1 && ESTADO.Length>1 && DESCRIPCION.Length>1 && tipo_producto_id.Length>=1 && DEPARTAMENTO_ID_DEPA.Length>=1)
+                {
+                    inv.guardar_inventario(PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
 
-                inv.guardar_inventario( PRODUCTO, CANTIDAD, ESTADO, DESCRIPCION, TIPO_PROD, TIPO_PROD_ID_T_PR, DEPARTAMENTO_ID_DEPA);
+                }
             }
             catch (Exception ex)
             {
@@ -113,7 +131,7 @@ namespace TurismoReal_Escritorio.Paginas
             try
             {
 
-                var ProductoSeleccionado = Lista.SelectedItem as Inventarios;
+                var ProductoSeleccionado = DatagridInventario.SelectedItem as Inventarios;
                 Inventarios ProductoSeleccionado1 = ProductoSeleccionado;
                 string id_Producto_seleccionado = ProductoSeleccionado1.ID_INV;
                 int producto_id = int.Parse(ProductoSeleccionado.ID_INV);
@@ -151,6 +169,31 @@ namespace TurismoReal_Escritorio.Paginas
             }
         }
 
+        private void ComboBoxCategoria_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+         
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var productoseleccionado = DatagridInventario.SelectedItem as  Inventarios;
+            string id_producto = productoseleccionado.ID_INV;
+            string nombre_producto = productoseleccionado.PRODUCTO;
+            string cantidad_producto = productoseleccionado.CANTIDAD;
+            string estado_producto = productoseleccionado.ESTADO;
+            string descripcion_producto = productoseleccionado.DESCRIPCION;
+            string categoria_producto = productoseleccionado.TIPO_PROD;
+            string categoria_producto_id = productoseleccionado.TIPO_PROD_ID_T_PR;
+            string id_depa_sel = productoseleccionado.DEPARTAMENTO_ID_DEPA;
+
+
+
+
+
+            ActualizarInventario pagina_actualizar = new ActualizarInventario(id_producto, nombre_producto, cantidad_producto, estado_producto, descripcion_producto, id_depa_sel, categoria_producto, categoria_producto_id);
+
+            pagina_actualizar.Show();
+        }
     }
 }
 

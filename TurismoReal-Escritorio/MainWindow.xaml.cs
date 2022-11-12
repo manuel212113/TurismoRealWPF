@@ -104,6 +104,20 @@ namespace TurismoReal_Escritorio
         {
 
         }
+
+        private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Cerrar Sesion?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+               
+            }
+            else
+            {
+                Login ventanaPrincipal = new Login();
+                Close();
+                ventanaPrincipal.Show();
+            }
+        }
     }
 }
 
