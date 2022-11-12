@@ -53,6 +53,40 @@ namespace TurismoReal.Capa_Negocio.Inventario
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
+
+
+        public bool ActualizarProducto(string id_producto,string PRODUCTO, string CANTIDAD, string ESTADO, string DESCRIPCION, string TIPO_PROD, string TIPO_PROD_ID_T_PR, string DEPARTAMENTO_ID_DEPA)
+        {
+            try
+            {
+                cone.Open();
+                OracleCommand ComandoAgregar = new OracleCommand("SP_ACTUA_INVEN", cone);
+                ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoAgregar.Parameters.Add("ID_INV_ACTU",id_producto);
+                ComandoAgregar.Parameters.Add("PRODUCTO_ACTU", PRODUCTO);
+                ComandoAgregar.Parameters.Add("CANTIDAD_ACTU", CANTIDAD);
+                ComandoAgregar.Parameters.Add("ESTADO_ACTU", ESTADO);
+                ComandoAgregar.Parameters.Add("DESCRIPCION_ACTU", DESCRIPCION);
+                ComandoAgregar.Parameters.Add("TIPO_PROD_ACTU", TIPO_PROD);
+                ComandoAgregar.Parameters.Add("TIPO_PROD_ID_T_PR_ACTU", TIPO_PROD_ID_T_PR);
+                ComandoAgregar.Parameters.Add("DEPARTAMENTO_ID_DEPA_ACTU", DEPARTAMENTO_ID_DEPA);
+
+                ComandoAgregar.ExecuteNonQuery();
+                MessageBox.Show("Se actualizo el producto", "Exito", MessageBoxButton.OK);
+                cone.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo Actualizar el producto", "Error", MessageBoxButton.OK);
+                cone.Close();
+
+                MessageBox.Show(ex.Message);
+                return false;
+
+            }
+        }
+
         public string guardar_inventario( string PRODUCTO, string CANTIDAD, string ESTADO, string DESCRIPCION, string TIPO_PROD, string TIPO_PROD_ID_T_PR, string DEPARTAMENTO_ID_DEPA)
         {
            
