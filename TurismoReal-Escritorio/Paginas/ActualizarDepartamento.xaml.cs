@@ -66,6 +66,7 @@ namespace TurismoReal_Escritorio.Paginas
 
 
             string iddepa_final = iddepa_fina.Text;
+            valorarriendo=valorarriendo.ToString();
 
             Departamento departamento = new Departamento();
             departamento.ActualizarDepartamento(iddepa_final, nombre, direccion, descripcion, metroscuadrados, habitaciones,
