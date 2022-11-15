@@ -202,5 +202,15 @@ namespace TurismoReal_Escritorio.Paginas
         {
 
         }
+
+        private void TxtRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(TxtRegion.Text);
+            if (TxtRegion.SelectedIndex==1)
+            {
+                TxtComuna.Items.Clear();
+                TxtComuna.Items.Add("Viña del Mar");
+            }
+        }
     }
 }

@@ -46,11 +46,29 @@
 
                     <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
                         <TextBox materialDesign:HintAssist.Hint="banos" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtBanos" Margin="0,10,0,0" Width="200"></TextBox>
-                        <TextBox materialDesign:HintAssist.Hint="region" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtRegion" Margin="20,10,0,0" Width="200"></TextBox>
+                        <ComboBox materialDesign:HintAssist.Hint="region" SelectionChanged="TxtRegion_SelectionChanged" x:Name="TxtRegion" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Margin="20,10,0,0" Width="200">
+                            <ComboBoxItem 
+                        Content="Valparaiso" />
+                            <ComboBoxItem
+                        Content="Los Lagos" />
+                            <ComboBoxItem
+                        Content="Araucania" />
+                            <ComboBoxItem
+                        Content="Coquimbo" />
+                        </ComboBox>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
-                        <TextBox materialDesign:HintAssist.Hint="comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0" Width="200"></TextBox>
+                        <ComboBox materialDesign:HintAssist.Hint="Comuna" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtComuna" Margin="0,10,0,0" Width="200">
+                            <ComboBoxItem
+                        Content="Viña Del Mar" />
+                            <ComboBoxItem
+                        Content="Pucon" />
+                            <ComboBoxItem
+                        Content="La Serena" />
+                            <ComboBoxItem
+                        Content="Puerto Varas" />
+                        </ComboBox>
                         <TextBox materialDesign:HintAssist.Hint="valorarriendo" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtValorArriendo" Margin="20,10,0,0" Width="200"></TextBox>
                     </StackPanel>
 
