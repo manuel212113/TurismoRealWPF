@@ -1,0 +1,132 @@
+﻿<Page x:Class="TurismoReal_Escritorio.Paginas.Transporte"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="950"
+      Title="Transporte">
+
+    <materialDesign:DialogHost  x:Name="VentanaAgregarServicio" Background="{DynamicResource SecundaryBackgroundColor}" >
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
+                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
+
+                    <TextBox materialDesign:HintAssist.Hint="CONDUCTOR" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="AUTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="PATENTE" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
+
+
+
+
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarServicio_Click"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Content="Aceptar"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+
+
+
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+        <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+
+            <Grid Margin="0,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Left Menu-->
+
+                <!--Main Section-->
+                <Grid Grid.Column="1" Margin="10,20,20,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+
+
+                    </Grid.RowDefinitions>
+
+                    <!--Search Textbox-->
+
+
+                    <!--Top Buttons-->
+                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
+                        <Icon:PackIconMaterial Kind="Cog"/>
+                    </Button>
+
+
+
+                    <!--Page Title-->
+                    <TextBlock Text="Servicios extras" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+                    <Button Style="{StaticResource addButton}" Click="btnAgregarServicio_click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                            <TextBlock Text="Agregar Servicio extras"/>
+
+                        </StackPanel>
+                    </Button>
+
+                    <!--Seprator-->
+                    <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+                    <!--Counter Title-->
+                    <TextBlock Text="Servicios:" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="144"  x:Name="Servicio_srv"/>
+
+
+
+                    <!--Members Data Grid-->
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="CONDUCTOR" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="AUTO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="PATENTE" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
+
+                            <DataGridTemplateColumn Header="Accion" IsReadOnly="True" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="btnEditar" Click="Editar_Click" Style="{StaticResource gridEditButton}"  >
+                                                <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario"  Click="BtnEliminarInventario_Click"  Style="{StaticResource gridRemoveButton}"   >
+                                                <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!--Pagingation Section-->
+
+                </Grid>
+
+            </Grid>
+        </Border>
+    </materialDesign:DialogHost>
+
+
+</Page>
