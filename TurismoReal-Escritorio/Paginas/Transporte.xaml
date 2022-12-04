@@ -3,6 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
+
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TurismoReal_Escritorio.Paginas"
@@ -19,15 +21,15 @@
                 <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
                     <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
-                    <TextBox materialDesign:HintAssist.Hint="CONDUCTOR" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtNOMBRE_SRV" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="AUTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="PATENTE" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPRECIO" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="CONDUCTOR" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="txtConductor" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="AUTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="txtAuto" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="PATENTE" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="txtPatente" Margin="0,10,0,0"></TextBox>
 
 
 
 
                     <Button
-          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarServicio_Click"
+          Style="{StaticResource MaterialDesignFlatButton}"
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
@@ -82,7 +84,7 @@
                     <TextBlock Text="Servicios extras" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
 
                     <!--Add Button-->
-                    <Button Style="{StaticResource addButton}" Click="btnAgregarServicio_click" Margin="0,24,0,4" Grid.Row="1" Width="185">
+                    <Button Style="{StaticResource addButton}"  Margin="0,24,0,4" Grid.Row="1" Width="185">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                             <TextBlock Text="Agregar Servicio extras"/>
@@ -99,7 +101,7 @@
 
 
                     <!--Members Data Grid-->
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" SelectionChanged="Lista_SelectionChanged">
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="CONDUCTOR" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="AUTO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
@@ -109,10 +111,10 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEditar" Click="Editar_Click" Style="{StaticResource gridEditButton}"  >
+                                            <Button x:Name="btnEditar"  Style="{StaticResource gridEditButton}"  >
                                                 <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
-                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario"  Click="BtnEliminarInventario_Click"  Style="{StaticResource gridRemoveButton}"   >
+                                            <Button Margin="5 0 0 0" x:Name="BtnEliminarInventario"    Style="{StaticResource gridRemoveButton}"   >
                                                 <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                         </StackPanel>

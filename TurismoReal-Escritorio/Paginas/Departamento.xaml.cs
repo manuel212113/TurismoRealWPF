@@ -179,12 +179,10 @@ namespace TurismoReal_Escritorio.Paginas
         private void TxtHabitaciones_PreviewTextInput(object sender, TextCompositionEventArgs e )
         {
             var textBox = sender as TextBox;
-            // Use SelectionStart property to find the caret position.
-            // Insert the previewed text into the existing text in the textbox.
+          
             var fullText = textBox.Text.Insert(textBox.SelectionStart, e.Text);
 
             int val;
-            // If parsing is successful, set Handled to false
             e.Handled = !int.TryParse(fullText, out val);
         }
 
@@ -211,6 +209,31 @@ namespace TurismoReal_Escritorio.Paginas
                 TxtComuna.Items.Clear();
                 TxtComuna.Items.Add("Viña del Mar");
             }
+        }
+
+        private void btnvVerImagen_Click(object sender, RoutedEventArgs e)
+        {
+            var departamentoSelecciona = DataGridDepa.SelectedItem as Departamento;
+            string iddepa_seleccionada = departamentoSelecciona.iddepa;
+            string nombre_seleccionada = departamentoSelecciona.nombre;
+            string direccion_seleccionado = departamentoSelecciona.direccion;
+            string descripcion_seleccionado = departamentoSelecciona.descripcion;
+            string metros_cuadrados_seleccionado = departamentoSelecciona.metroscuadrados;
+            string habitaciones_seleccionado = departamentoSelecciona.habitaciones;
+            string banos_seleccionado = departamentoSelecciona.banos;
+            string region_seleccionado = departamentoSelecciona.region;
+            string comuna_seleccionado = departamentoSelecciona.comuna;
+            string valorarriendo_seleccionado = departamentoSelecciona.valorarriendo;
+            string habilitado_seleccionado = departamentoSelecciona.habilitado;
+            string imagen_seleccionado = departamentoSelecciona.imagen;
+
+
+            InfoDepartamento pagina_actualizar = new InfoDepartamento(iddepa_seleccionada, nombre_seleccionada, direccion_seleccionado, descripcion_seleccionado,
+           metros_cuadrados_seleccionado, habitaciones_seleccionado, banos_seleccionado, region_seleccionado, comuna_seleccionado, valorarriendo_seleccionado,
+          habilitado_seleccionado, imagen_seleccionado);
+
+            pagina_actualizar.Show();
+
         }
     }
 }
