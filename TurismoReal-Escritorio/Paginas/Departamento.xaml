@@ -216,7 +216,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnvVerImagen" Style="{StaticResource gridEditButton}" >
+                                            <Button x:Name="btnvVerImagen" Click="btnvVerImagen_Click" Style="{StaticResource gridEditButton}" >
                                                 <Icon:PackIconMaterial Kind="Eye" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                             <Button x:Name="btnEditar" Style="{StaticResource gridEditButton}" Click="btnEditar_Click" >

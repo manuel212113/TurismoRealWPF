@@ -33,34 +33,39 @@ namespace TurismoReal_Escritorio.Paginas
         TurismoReal.Capa_Negocio.Transporte.Planificar_transporte trn = new TurismoReal.Capa_Negocio.Transporte.Planificar_transporte();
         public Transporte()
         {
-            InitializeComponent();
+            /*InitializeComponent();
             ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte> Lista1 = new ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte>();
             ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte> Lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Trasnporte.Planificar_transporte>();
 
             Lista1 = trn.(Lista2);
             Lista.ItemsSource = Lista1;
-            Servicio_srv.Text = "TRASNPORTE: " + Lista1.Count.ToString();
+            .Text = "TRASNPORTE: " + Lista1.Count.ToString();
+
+            */
+
+            /*  public void btnAgregarServicio_click(object sender, RoutedEventArgs e)
+              {
+                  VentanaAgregarServicioextra.IsOpen = true;
 
 
+              }
 
-            public void btnAgregarServicio_click(object sender, RoutedEventArgs e)
-            {
-                VentanaAgregarServicioextra.IsOpen = true;
-
-
-            }
-
-            public void btnGuardarServicio_Click(object sender, RoutedEventArgs e)
-            {
-                try
-                {
-                    string CONDUCTOR = TxtNOMBRE_SRV.Text;
-                    string AUTO = TxtPRECIO.Text;
-                    string PATENTE = TxtPATENTE.Text;
+              public void btnGuardarServicio_Click(object sender, RoutedEventArgs e)
+              {
+                  try
+                  {
+                      /* string CONDUCTOR = TxtNOMBRE_SRV.Text;
+                      string AUTO = TxtPRECIO.Text;
+                      string PATENTE = TxtPATENTE.Text;
 
 
-                    srv.AgregarServicioExtra(NOMBRESRV, PRECIO);
-                }
+                        srv.AgregarServicioExtra(NOMBRESRV, PRECIO);
+
+                      */
+        }
+
+        /*
+
                 catch (Exception ex)
                 {
                     MessageBox.Show("No se agrego el Departamento a la base de datos");
@@ -69,6 +74,12 @@ namespace TurismoReal_Escritorio.Paginas
                     MessageBox.Show(ex.Message);
                 }
             }
+
+
         }
+        */
+
+
+
     }
 }
