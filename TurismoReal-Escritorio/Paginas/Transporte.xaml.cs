@@ -33,38 +33,38 @@ namespace TurismoReal_Escritorio.Paginas
         TurismoReal.Capa_Negocio.Transporte.Planificar_transporte trn = new TurismoReal.Capa_Negocio.Transporte.Planificar_transporte();
         public Transporte()
         {
-            /*InitializeComponent();
+            InitializeComponent();
             ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte> Lista1 = new ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte>();
             ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte> Lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Trasnporte.Planificar_transporte>();
 
             Lista1 = trn.(Lista2);
             Lista.ItemsSource = Lista1;
-            .Text = "TRASNPORTE: " + Lista1.Count.ToString();
+            Transporte_trn.Text = "TRASNPORTE: " + Lista1.Count.ToString();
 
-            */
+           
 
-            /*  public void btnAgregarServicio_click(object sender, RoutedEventArgs e)
+              public void btnAgregarTransporte_click(object sender, RoutedEventArgs e)
               {
-                  VentanaAgregarServicioextra.IsOpen = true;
+                  VentanaAgregarTransporte.IsOpen = true;
 
 
               }
 
-              public void btnGuardarServicio_Click(object sender, RoutedEventArgs e)
+              public void btnGuardarTransporte_Click(object sender, RoutedEventArgs e)
               {
                   try
                   {
-                      /* string CONDUCTOR = TxtNOMBRE_SRV.Text;
-                      string AUTO = TxtPRECIO.Text;
+                      string CONDUCTOR = TxtCONDUCTOR.Text;
+                      string AUTO = TxtAUTO.Text;
                       string PATENTE = TxtPATENTE.Text;
 
 
-                        srv.AgregarServicioExtra(NOMBRESRV, PRECIO);
+                        trn.AgregarServicioExtra(NOMBRESRV, PRECIO);
 
-                      */
+                      
         }
 
-        /*
+        
 
                 catch (Exception ex)
                 {
@@ -77,7 +77,7 @@ namespace TurismoReal_Escritorio.Paginas
 
 
         }
-        */
+       
 
 
 
