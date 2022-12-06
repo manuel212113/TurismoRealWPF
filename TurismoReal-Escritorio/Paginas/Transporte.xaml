@@ -1,4 +1,4 @@
-﻿<Page x:Class="TurismoReal_Escritorio.Paginas.Transporte"
+﻿<Window x:Class="TurismoReal_Escritorio.Paginas.Transporte"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -21,9 +21,9 @@
                 <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
                     <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Formulario" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
 
-                    <TextBox materialDesign:HintAssist.Hint="CONDUCTOR" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="txtConductor" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="AUTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="txtAuto" Margin="0,10,0,0"></TextBox>
-                    <TextBox materialDesign:HintAssist.Hint="PATENTE" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="txtPatente" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="CONDUCTOR" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtCONDUCTOR" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="AUTO" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtAUTO" Margin="0,10,0,0"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="PATENTE" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" x:Name="TxtPATENTE" Margin="0,10,0,0"></TextBox>
 
 
 
@@ -101,7 +101,7 @@
 
 
                     <!--Members Data Grid-->
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,35,10" Grid.Row="5" >
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,0,10" Grid.Row="5" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="CONDUCTOR" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="AUTO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
@@ -133,4 +133,4 @@
     </materialDesign:DialogHost>
 
 
-</Page>
+</Window>

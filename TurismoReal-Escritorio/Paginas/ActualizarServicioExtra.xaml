@@ -16,6 +16,6 @@
         <TextBox x:Name="TxtNOMBRE_SRV" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="146,99,0,0"></TextBox>
         <TextBox x:Name="TxtPRECIO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200px" Margin="146,128,0,0"></TextBox>
 
-        <Button Margin="52,284,75,284" Background="CadetBlue" Content="Actualizar" x:Name="btnActualizar" Click="btnActualizar_Click" BorderBrush="Transparent" RenderTransformOrigin="0.386,0.416" Cursor="Hand"></Button>
+        <Button Margin="55,231,72,337" Background="CadetBlue" Content="Actualizar" x:Name="btnActualizar" Click="btnActualizar_Click" BorderBrush="Transparent" RenderTransformOrigin="0.386,0.416" Cursor="Hand"></Button>
     </Grid>
 </Window>
