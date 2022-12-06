@@ -69,7 +69,7 @@ namespace TurismoReal_Escritorio.Paginas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se agrego el Departamento a la base de datos");
+                MessageBox.Show("No se agrego el servicio");
                 cone.Close();
 
                 MessageBox.Show(ex.Message);

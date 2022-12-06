@@ -80,6 +80,75 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
         }
 
+        public ObservableCollection<Planificar_transporte> CargarTransporte(ObservableCollection<Planificar_transporte> lista_Transporte)
+        {
+
+            try
+            {
+                cone.Open();
+                OracleCommand comando_lista_Transporte = new OracleCommand("FN_LISTAR_TRANS", cone);
+                comando_lista_Transporte.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                OracleParameter lista_salida = comando_lista_Transporte.Parameters.Add("SYS_REFCURSOR", OracleDbType.RefCursor);
+
+                lista_salida.Direction = System.Data.ParameterDirection.ReturnValue;
+
+                comando_lista_Transporte.ExecuteNonQuery();
+
+                OracleDataReader lector = ((OracleRefCursor)lista_salida.Value).GetDataReader();
+
+                while (lector.Read())
+                {
+                    Planificar_transporte Trans = new Planificar_transporte();
+
+                    Trans.CONDUCTOR = lector.GetString(0);
+                    Trans.AUTO = lector.GetString(1);
+                    Trans.PATENTE = lector.GetString(2);
+
+
+
+                    lista_Transporte.Add(Trans);
+                }
+                cone.Close();
+                return lista_Transporte;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return lista_Transporte;
+
+            }
+
+        }
+
+        /*
+        public bool EliminarTransporte(string IDSER)
+        {
+            try
+            {
+                cone.Open();
+                OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_SERVICIO", cone);
+                comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoEliminar.Parameters.Add("IDSER", IDSER);
+                comandoEliminar.ExecuteNonQuery();
+                cone.Close();
+
+
+                MessageBox.Show("Eliminado de la base de datos");
+                cone.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                cone.Close();
+                MessageBox.Show(ex.Message);
+                return false;
+
+            }
+        }
+        */
     }
 
 }

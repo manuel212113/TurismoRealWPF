@@ -28,7 +28,7 @@
 
 
                     <Button
-          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarServicio_Click"
+          Style="{StaticResource MaterialDesignFlatButton}" Click="btnGuardarTransporte_Click"
           IsCancel="True"
           Margin="0 8 8 0"
           Content="Aceptar"
