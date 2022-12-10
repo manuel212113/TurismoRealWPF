@@ -23,6 +23,7 @@ using OracleDataReader = Oracle.ManagedDataAccess.Client.OracleDataReader;
 using OracleParameter = Oracle.ManagedDataAccess.Client.OracleParameter;
 using System.Collections.ObjectModel;
 using MaterialDesignThemes.Wpf;
+using TurismoReal.Capa_Negocio.Transporte;
 
 namespace TurismoReal_Escritorio.Paginas
 {
@@ -70,6 +71,26 @@ namespace TurismoReal_Escritorio.Paginas
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void btnAsignarAuto_Click(object sender, RoutedEventArgs e)
+        {
+            var transporteSeleccionado = Lista.SelectedItem as SolicitudTransporte;
+            string Estado_Transporte = transporteSeleccionado.ESTADO;
+
+            if(Estado_Transporte=="Pendiente Vehiculo")
+            {
+
+                AsignarTransporte pagin_asignarTransp = new AsignarTransporte();
+
+
+                pagin_asignarTransp.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Ya se asigno un vehiculo y conductor al Transporte");
+            }
         }
 
         /*

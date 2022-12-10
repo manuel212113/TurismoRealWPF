@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace TurismoReal_Escritorio.Paginas
         {
             InitializeComponent();
         }
+
+
 
         public void AgregarDatosFormulario(string CONDUCTOR, string AUTO, string PATENTE)
         {
