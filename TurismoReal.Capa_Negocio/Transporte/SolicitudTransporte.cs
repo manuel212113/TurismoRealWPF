@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +25,9 @@ namespace TurismoReal.Capa_Negocio.Transporte
             this.Init();
         }
 
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+
+
         public void Init()
         {
             ID_SOLICITUD = string.Empty;
@@ -30,9 +35,12 @@ namespace TurismoReal.Capa_Negocio.Transporte
             HORA_SOLICITUD = string.Empty;
             ORIGEN = string.Empty;  
             DESTINO= string.Empty;
-
-
+            ESTADO= string.Empty;
+            ID_RESERVA=string.Empty;
         }
+
+
+       
 
 
 

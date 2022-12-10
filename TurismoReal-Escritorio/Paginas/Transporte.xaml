@@ -83,14 +83,6 @@
                     <!--Page Title-->
                     <TextBlock Text="Transporte" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
 
-                    <!--Add Button-->
-                    <Button Style="{StaticResource addButton}"  Click="btnAgregarTransporte_click" Margin="0,24,0,4" Grid.Row="1" Width="185">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
-                            <TextBlock Text="Agregar Trasnporte"/>
-
-                        </StackPanel>
-                    </Button>
 
                     <!--Seprator-->
                     <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
@@ -103,16 +95,22 @@
                     <!--Members Data Grid-->
                     <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" dgx:DataGridFilter.IsAutoFilterEnabled="True"  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="Lista" Style="{DynamicResource DataGridStyle1}" Margin="31,5,0,10" Grid.Row="5" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="CONDUCTOR" Binding="{Binding NOMBRESRV}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="AUTO" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="PATENTE" Binding="{Binding PRECIO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID_SOLICITUD}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="FECHA" Binding="{Binding FECHA_SOLICITUD}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="HORA" Binding="{Binding HORA_SOLICITUD}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="ORIGEN" Binding="{Binding ORIGEN}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="DESTINO" Binding="{Binding DESTINO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="ID_RESERVA" Binding="{Binding ID_RESERVA}" IsReadOnly="True" Width="*"/>
+
+
 
                             <DataGridTemplateColumn Header="Accion" IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button x:Name="btnEditar"  Style="{StaticResource gridEditButton}"  >
-                                                <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                            <Button x:Name="btnAsignarAuto" Click="btnAsignarAuto_Click"  Style="{StaticResource gridEditButton}"  >
+                                                <Icon:PackIconMaterial Kind="Car" Style="{StaticResource gridButtonIcon}"/>
                                             </Button>
                                             <Button Margin="5 0 0 0" x:Name="BtnEliminarTransporte"    Style="{StaticResource gridRemoveButton}"   >
                                                 <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
