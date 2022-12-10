@@ -26,21 +26,21 @@ using MaterialDesignThemes.Wpf;
 
 namespace TurismoReal_Escritorio.Paginas
 {
-    public partial class Transporte : Window
+    public partial class Transporte : Page
     {
 
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
         TurismoReal.Capa_Negocio.Transporte.Planificar_transporte trn = new TurismoReal.Capa_Negocio.Transporte.Planificar_transporte();
         public Transporte()
         {
             InitializeComponent();
-            ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte> Lista1 = new ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte>();
-            ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte> Lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Transporte.Planificar_transporte>();
+            ObservableCollection<TurismoReal.Capa_Negocio.Transporte.SolicitudTransporte> Lista1 = new ObservableCollection<TurismoReal.Capa_Negocio.Transporte.SolicitudTransporte>();
+            ObservableCollection<TurismoReal.Capa_Negocio.Transporte.SolicitudTransporte> Lista2 = new ObservableCollection<TurismoReal.Capa_Negocio.Transporte.SolicitudTransporte>();
 
             Lista1 = trn.CargarTransporte(Lista2);
             Lista.ItemsSource = Lista1;
-            Transporte_trn.Text = "TRASNPORTE: " + Lista1.Count.ToString();
+            Transporte_trn.Text = "TRASNSPORTE: " + Lista1.Count.ToString();
 
         }
 

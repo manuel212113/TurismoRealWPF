@@ -118,6 +118,12 @@ namespace TurismoReal_Escritorio
                 ventanaPrincipal.Show();
             }
         }
+
+        private void rdTransporte_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new System.Uri("Paginas/Transporte.xaml", UriKind.RelativeOrAbsolute));
+
+        }
     }
 }
 

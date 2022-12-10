@@ -124,6 +124,11 @@ namespace TurismoReal_Escritorio.Paginas
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnGuardarTransporte_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
        
