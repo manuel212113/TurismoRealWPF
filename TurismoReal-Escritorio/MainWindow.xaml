@@ -61,6 +61,8 @@
                         <RadioButton x:Name="rdServicios" Content="Servicios extra" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Inventory}" Margin="0 5 0 5" Click="rdServicios_Click" Cursor="Hand" />
 
                         <RadioButton x:Name="rdEstadisticas" Content="Reportes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Graph}" Margin="0 5 0 5" Cursor="Hand" Click="rdEstadisticas_Click" />
+                        <RadioButton x:Name="rdTransporte" Content="Reportes" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource Graph}" Margin="0 5 0 5" Cursor="Hand" Click="rdTransporte_Click" />
+
 
                         <ToggleButton x:Name="btnTema" IsChecked="False"  Style="{StaticResource MaterialDesignActionToggleButton}" Background="{DynamicResource PrimaryBlueColor}"
   ToolTip="MaterialDesignActionLightToggleButton"

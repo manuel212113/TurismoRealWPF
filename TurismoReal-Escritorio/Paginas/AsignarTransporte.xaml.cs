@@ -26,14 +26,11 @@ namespace TurismoReal_Escritorio.Paginas
         public AsignarTransporte()
         {
             InitializeComponent();
-            AgregarDatosFormulario(CONDUCTOR, AUTO, PATENTE);
         }
 
         public void AgregarDatosFormulario(string CONDUCTOR, string AUTO, string PATENTE)
         {
-            TxtCONDUCTOR.Text = CONDUCTOR;
-            TxtAUTO.Text = AUTO;
-            TxtPATENTE.Text = PATENTE;
+          
 
         }
 

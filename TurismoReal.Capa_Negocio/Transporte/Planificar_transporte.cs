@@ -48,7 +48,7 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
         }
 
-        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
+        OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
         public string AgregarTransporte(string CONDUCTOR, string AUTO, string PATENTE)
         {
@@ -80,13 +80,13 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
         }
 
-        public ObservableCollection<Planificar_transporte> CargarTransporte(ObservableCollection<Planificar_transporte> lista_Transporte)
+        public ObservableCollection<SolicitudTransporte> CargarTransporte(ObservableCollection<SolicitudTransporte> lista_Transporte)
         {
 
             try
             {
                 cone.Open();
-                OracleCommand comando_lista_Transporte = new OracleCommand("FN_LISTAR_TRANS", cone);
+                OracleCommand comando_lista_Transporte = new OracleCommand("FN_LISTAR_SOLI_TRANSPORTE", cone);
                 comando_lista_Transporte.CommandType = System.Data.CommandType.StoredProcedure;
 
 
@@ -100,11 +100,18 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
                 while (lector.Read())
                 {
-                    Planificar_transporte Trans = new Planificar_transporte();
+                    SolicitudTransporte Trans = new SolicitudTransporte();
 
-                    Trans.CONDUCTOR = lector.GetString(0);
-                    Trans.AUTO = lector.GetString(1);
-                    Trans.PATENTE = lector.GetString(2);
+                    Trans.ID_SOLICITUD = lector.GetString(0);
+                    Trans.FECHA_SOLICITUD = lector.GetString(1);
+                    Trans.HORA_SOLICITUD = lector.GetString(2);
+                    Trans.ORIGEN = lector.GetString(3);
+                    Trans.DESTINO = lector.GetString(4);
+                    Trans.ESTADO = lector.GetString(5);
+                    Trans.ID_RESERVA = lector.GetString(6);
+
+
+
 
 
 

@@ -43,7 +43,7 @@ namespace TurismoReal_Escritorio.Paginas
             ImagenEncabezado.Source = image.Source;
 
             TituloDepa.Text = nombre;
-            DescripcionTxt.Text= descripcion + " " + direccion + "  Metros Cuadrados" + metroscuadrados + "  Habitaciones" + habitaciones + "  Baños" + banos;
+            DescripcionTxt.Text= descripcion + " " + direccion + " Metros Cuadrados:" + metroscuadrados + "  Habitaciones:" + habitaciones + "  Baños:" + banos;
 
             if(habilitado=="SI" || habilitado == "si")
             {
