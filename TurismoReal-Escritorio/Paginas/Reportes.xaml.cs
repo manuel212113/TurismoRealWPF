@@ -40,7 +40,9 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnGenerarReportes_click(object sender, RoutedEventArgs e)
         {
-        MessageBox.Show("Se descarga un pdf con informacion respecto a las ganancias de los departamentos y zonas");
+            Informe inf = new Informe();
+
+            inf.Show();
         }
 
         private void Lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
