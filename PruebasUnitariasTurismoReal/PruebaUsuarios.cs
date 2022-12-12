@@ -7,7 +7,7 @@ namespace PruebasUnitariasTurismoReal
     {
 
         [Fact]
-        public void CrearDepartamento()
+        public void AgregarUsuario()
         {
             Usuario usr = new Usuario();
 
@@ -22,9 +22,9 @@ namespace PruebasUnitariasTurismoReal
 
 
 
-            string resultado = usr.AgregarUsuario(rut, nombre, email, genero, contrasena, apellido, celular, tipo_user);
+            bool resultado = usr.AgregarUsuario(rut, nombre, email, genero, contrasena, apellido, celular, tipo_user);
 
-            Assert.Equal("Exito", resultado);
+            Assert.Equal(true, resultado);
         }
 
 
@@ -35,9 +35,9 @@ namespace PruebasUnitariasTurismoReal
 
             string rut = "203107761";
 
-            string resultado = usr.EliminarUsuario(rut);
+             bool resultado = usr.EliminarUsuario(rut);
 
-            Assert.Equal("Exito", resultado);
+            Assert.Equal(true, resultado);
 
         }
 

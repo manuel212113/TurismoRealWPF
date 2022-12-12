@@ -22,7 +22,7 @@ namespace PruebasUnitariasTurismoReal
             Assert.Equal("Exito", resultado);
         }
 
-        /*
+        
         [Fact]
         public void EliminarTransporte()
         {
@@ -30,11 +30,10 @@ namespace PruebasUnitariasTurismoReal
 
             string ID_PLANIFICACION = "203107761";
 
-            string resultado = usr.EliminarUsuario(rut);
-
-            Assert.Equal("Exito", resultado);
+            bool resultado = trn.EliminarTransporte(ID_PLANIFICACION);
+            Assert.Equal(true, resultado);
 
         }
-        */
+        
     }
 }
