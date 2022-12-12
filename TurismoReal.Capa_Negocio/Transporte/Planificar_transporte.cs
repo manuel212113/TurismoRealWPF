@@ -130,20 +130,20 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
         }
 
-        /*
+        
         public bool EliminarTransporte(string IDSER)
         {
             try
             {
                 cone.Open();
-                OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_SERVICIO", cone);
+                OracleCommand comandoEliminar = new OracleCommand("SP_ELIMINAR_TRANSP", cone);
                 comandoEliminar.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoEliminar.Parameters.Add("IDSER", IDSER);
+                comandoEliminar.Parameters.Add("ID_PLANIFICACION", ID_PLANIFICACION);
                 comandoEliminar.ExecuteNonQuery();
                 cone.Close();
 
 
-                MessageBox.Show("Eliminado de la base de datos");
+                MessageBox.Show("Transporte eliminado");
                 cone.Close();
                 return true;
             }
@@ -155,7 +155,7 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
             }
         }
-        */
+        
     }
 
 }
