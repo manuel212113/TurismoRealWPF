@@ -78,24 +78,24 @@ namespace TurismoReal_Escritorio.Paginas
             }
         }
 
-        /*
+        
         private void BtnEliminarTransporte_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var TransporteSeleccionado = Lista.SelectedItem as Servicio_Extra;
-                Servicio_Extra TransporteSeleccionado1 = TransporteSeleccionado;
-                string TransporteSeleccionado_ID = TransporteSeleccionado1.PATENTE;
-                Int16 PATENTE_ID = Convert.ToInt16(TransporteSeleccionado1.PATENTE);
+                var TransporteSeleccionado = Lista.SelectedItem as Planificar_transporte;
+                Planificar_transporte TransporteSeleccionado1 = TransporteSeleccionado;
+                string TransporteSeleccionado_ID = TransporteSeleccionado1.ID_PLANIFICACION;
+                Int16 PATENTE_ID = Convert.ToInt16(TransporteSeleccionado1.ID_PLANIFICACION);
 
-                MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar a el departamento con  ID :" + TransporteSeleccionado_ID, "Eliminar TRANSPORTE:", MessageBoxButton.YesNo);
+                MessageBoxResult dialogResult = MessageBox.Show("Estas seguro de eliminar EL  ID :" + TransporteSeleccionado_ID, "Eliminar TRANSPORTE:", MessageBoxButton.YesNo);
                 if (dialogResult == MessageBoxResult.Yes)
                 {
 
                     try
                     {
-                        Servicio_Extra servicios = new Servicio_Extra();
-                        servicios.EliminarTransporte(TransporteSeleccionado_ID);
+                        Planificar_transporte trasnporte = new Planificar_transporte();
+                        trasnporte.EliminarTransporte(TransporteSeleccionado_ID);
                     }
                     catch (Exception ex)
                     {
@@ -112,7 +112,6 @@ namespace TurismoReal_Escritorio.Paginas
             }
         }
 
-        */
     }
 }
 

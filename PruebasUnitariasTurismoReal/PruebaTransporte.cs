@@ -8,7 +8,7 @@ namespace PruebasUnitariasTurismoReal
     {
 
         [Fact]
-        public void CrearDepartamento()
+        public void CrearTrasporte()
         {
             TurismoReal.Capa_Negocio.Transporte.Planificar_transporte trn = new TurismoReal.Capa_Negocio.Transporte.Planificar_transporte();
 
@@ -17,7 +17,7 @@ namespace PruebasUnitariasTurismoReal
             string PATENTE = "777";
            
 
-            string resultado = trn.AgregarTransporte(CONDUCTOR, AUTO, PATENTE);
+            string resultado = trn.AgregarTransporte(CONDUCTOR, AUTO, PATENTE,"82");
 
             Assert.Equal("Exito", resultado);
         }
@@ -28,7 +28,7 @@ namespace PruebasUnitariasTurismoReal
         {
             TurismoReal.Capa_Negocio.Transporte.Planificar_transporte trn = new TurismoReal.Capa_Negocio.Transporte.Planificar_transporte();
 
-            string ID_PLANIFICACION = "203107761";
+            string ID_PLANIFICACION = "82";
 
             bool resultado = trn.EliminarTransporte(ID_PLANIFICACION);
             Assert.Equal(true, resultado);
