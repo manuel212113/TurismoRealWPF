@@ -19,9 +19,13 @@ namespace TurismoReal_Escritorio.Paginas
 
   public partial class Informe : Window
   {
-    public Informe()
+    public Informe(string ganancias, string cant_rese )
     {
       InitializeComponent();
+      txtCantReservas.Text = cant_rese;
+      txtGanancias.Text = ganancias;
+      txtTotal.Text = ganancias;
+      txtFecha.Text = DateTime.Now.ToString("dddd , MMM dd yyyy,hh:mm:ss"); ;
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)

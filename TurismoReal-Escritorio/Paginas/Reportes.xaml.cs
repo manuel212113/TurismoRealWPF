@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TurismoReal.Capa_Negocio.Reportes;
 
 namespace TurismoReal_Escritorio.Paginas
 {
@@ -40,13 +41,9 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnGenerarReportes_click(object sender, RoutedEventArgs e)
         {
-            /*
-             * 
-             * Informe inf = new Informe();
+          
 
-     inf.Show();
-
-     */
+     
 
             VentanaReporte.IsOpen = true;
         }
@@ -56,5 +53,39 @@ namespace TurismoReal_Escritorio.Paginas
 
         }
 
+        private void btnGuardarReporte_Click(object sender, RoutedEventArgs e)
+        {
+            if(ComboBoxRegion.Text.Length>1 && ComboBoxTiempo.Text.Length > 1)
+            {
+                Reporte rep = new Reporte();
+                string cant_reserv="";
+                string ganancias_f="";
+
+                if(rep.GenerarReporte(ComboBoxRegion.Text, ComboBoxTiempo.Text, ref ganancias_f, ref cant_reserv))
+                {
+
+                    if(ganancias_f=="null" || ganancias_f == "")
+                    {
+                        MessageBox.Show("No existen Datos par generar el reporte");
+
+                    }
+                    else
+                    {
+
+                        Informe inf = new Informe(ganancias_f, cant_reserv);
+
+                        inf.Show();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No existen Datos para generar el reporte");
+
+                }
+            }
+
+            
+        }
     }
 }
