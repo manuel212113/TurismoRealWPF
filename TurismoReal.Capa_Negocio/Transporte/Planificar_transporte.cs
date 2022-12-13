@@ -22,6 +22,7 @@ using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 using System.Collections.ObjectModel;
 using TurismoReal.Capa_Negocio.Servicios;
+using System.Data;
 
 namespace TurismoReal.Capa_Negocio.Transporte
 {
@@ -50,17 +51,62 @@ namespace TurismoReal.Capa_Negocio.Transporte
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
 
-        public string AgregarTransporte(string CONDUCTOR, string AUTO, string PATENTE)
+
+        public bool BuscarTransporte(string id_reserva)
         {
 
             try
             {
+
+
                 cone.Open();
+
+
+                OracleCommand Comando = new OracleCommand("SP_ENCONTRAR_TRANSPORTE_soli", cone);
+                Comando.CommandType = System.Data.CommandType.StoredProcedure;
+                Comando.Parameters.Add("ID_SOLI", id_reserva);
+                Comando.Parameters.Add("V_SALIDA", "").Direction = ParameterDirection.Output;
+                Comando.ExecuteNonQuery();
+
+
+                if ((string)Comando.Parameters["V_SALIDA"].Value == "1")
+                {
+
+                    cone.Close();
+                    return true;
+                    
+                }
+                else
+                {
+                    cone.Close();
+                    return false;
+
+                }
+
+            }catch( OracleException e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+
+            }
+
+        }
+
+        public string AgregarTransporte(string CONDUCTOR, string AUTO, string PATENTE , string ID_SOLICITUD)
+        {
+
+            try
+            {
+
+                cone.Open();
+
+
                 OracleCommand ComandoAgregar = new OracleCommand("SP_CREAR_TRANSPORTE", cone);
                 ComandoAgregar.CommandType = System.Data.CommandType.StoredProcedure;
                 ComandoAgregar.Parameters.Add("CONDUCTOR", CONDUCTOR);
-                ComandoAgregar.Parameters.Add("AUTO", AUTO);
+                ComandoAgregar.Parameters.Add("AUTO_V", AUTO);
                 ComandoAgregar.Parameters.Add("PATENTE", PATENTE);
+                ComandoAgregar.Parameters.Add("ID_SOLICITUD_V", ID_SOLICITUD);
 
 
                 ComandoAgregar.ExecuteNonQuery();

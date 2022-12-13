@@ -54,22 +54,6 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnGuardarTransporte_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string CONDUCTOR = TxtCONDUCTOR.Text;
-                string AUTO = TxtAUTO.Text;
-                string PATENTE = TxtPATENTE.Text;
-
-
-                trn.AgregarTransporte(CONDUCTOR, AUTO, PATENTE);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se agrego el transporte");
-                cone.Close();
-
-                MessageBox.Show(ex.Message);
-            }
 
         }
 
@@ -77,11 +61,12 @@ namespace TurismoReal_Escritorio.Paginas
         {
             var transporteSeleccionado = Lista.SelectedItem as SolicitudTransporte;
             string Estado_Transporte = transporteSeleccionado.ESTADO;
+            string id_reserva_seleccionado = transporteSeleccionado.ID_SOLICITUD;
 
             if(Estado_Transporte=="Pendiente Vehiculo")
             {
 
-                AsignarTransporte pagin_asignarTransp = new AsignarTransporte();
+                AsignarTransporte pagin_asignarTransp = new AsignarTransporte( id_reserva_seleccionado);
 
 
                 pagin_asignarTransp.Show();
