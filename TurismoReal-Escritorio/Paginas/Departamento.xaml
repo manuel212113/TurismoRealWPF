@@ -155,6 +155,8 @@
 
                     <!--Page Title-->
                     <TextBlock Text="Departamento" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+                    <materialDesign:PackIcon RenderTransformOrigin="8.896,4.833" Margin="231,20,0,0" Grid.Row="1" Height="40" Kind="HouseCityOutline" Width="39"></materialDesign:PackIcon>
+
 
                     <!--Add Button-->
                     <Button x:Name="btnAgregarDepa" Style="{StaticResource addButton}" Click="btnAgregarDepa_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">

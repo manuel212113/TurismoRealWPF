@@ -40,9 +40,15 @@ namespace TurismoReal_Escritorio.Paginas
 
         private void btnGenerarReportes_click(object sender, RoutedEventArgs e)
         {
-            Informe inf = new Informe();
+            /*
+             * 
+             * Informe inf = new Informe();
 
-            inf.Show();
+     inf.Show();
+
+     */
+
+            VentanaReporte.IsOpen = true;
         }
 
         private void Lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
