@@ -29,16 +29,16 @@
            
 
                     <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <ComboBox x:Name="ComboBoxComuna"     Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Comuna"  >
+                        <ComboBox x:Name="ComboBoxRegion"     Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Region"  >
 
                             <ComboBoxItem
-                        Content="Viña Del Mar" />
+                        Content="Región Metropolitana" />
                             <ComboBoxItem
-                        Content="Pucon" />
+                        Content="Valparaiso" />
                             <ComboBoxItem
-                        Content="La Serena" />
+                        Content="Los Lagos" />
                             <ComboBoxItem
-                        Content="Puerto Varas" />
+                        Content="Araucania" />
                         </ComboBox>
 
                         <ComboBox x:Name="ComboBoxTiempo"     Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Tipo Reporte (Tiempo)" Margin="20,0,0,0"  >
@@ -63,8 +63,8 @@
 
 
                     <Button
-                         x:Name="guardar_inventario"
-    
+                         x:Name="btnGuardarReporte"
+                        Click="btnGuardarReporte_Click"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonAssist.CornerRadius="10"
    
