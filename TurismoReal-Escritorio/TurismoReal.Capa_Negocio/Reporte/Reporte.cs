@@ -13,7 +13,7 @@ using OracleConnection = Oracle.ManagedDataAccess.Client.OracleConnection;
 
 namespace TurismoReal.Capa_Negocio.Reportes
 {
-    public  class Reporte
+    public class Reporte
     {
 
         OracleConnection cone = new OracleConnection("Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id = C##TR; Password=123");
@@ -21,7 +21,7 @@ namespace TurismoReal.Capa_Negocio.Reportes
 
 
 
-        public bool GenerarReporte(string region , string fecha_tipo, ref string ganancias_f, ref string cantidad_reserva_f)
+        public bool GenerarReporte(string region, string fecha_tipo, ref string ganancias_f, ref string cantidad_reserva_f)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace TurismoReal.Capa_Negocio.Reportes
                 string v_salida = Comando.Parameters["V_SALIDA"].Value.ToString();
 
 
-                if (ganancias == "null" || ganancias == "" || cant_reserva == "null" || cant_reserva=="")
+                if (ganancias == "null" || ganancias == "" || cant_reserva == "null" || cant_reserva == "")
                 {
 
                     cone.Close();
@@ -57,7 +57,7 @@ namespace TurismoReal.Capa_Negocio.Reportes
                     ganancias_f = ganancias;
 
                     cantidad_reserva_f = cant_reserva;
- 
+
 
                     cone.Close();
                     return true;
@@ -74,3 +74,4 @@ namespace TurismoReal.Capa_Negocio.Reportes
 
         }
     }
+}
