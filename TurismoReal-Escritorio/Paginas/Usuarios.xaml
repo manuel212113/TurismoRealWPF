@@ -83,6 +83,8 @@
                     <!--Page Title-->
                     <TextBlock Text="Usuarios" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
 
+                    <materialDesign:PackIcon RenderTransformOrigin="8.896,4.833" Margin="171,20,0,0" Grid.Row="1" Height="40" Kind="UserOutline" Width="39"></materialDesign:PackIcon>
+
                     <!--Add Button-->
                     <Button Style="{StaticResource addButton}" Click="btnAgregarUsuario_Click" Margin="0,24,0,4" Grid.Row="1" Width="185">
                         <StackPanel Orientation="Horizontal">

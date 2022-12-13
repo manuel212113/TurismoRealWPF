@@ -12,8 +12,74 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Reportes">
 
-    <materialDesign:DialogHost  x:Name="VentanaAgregarServicio" Background="{DynamicResource SecundaryBackgroundColor}" >
-       
+    <materialDesign:DialogHost  x:Name="VentanaReporte" Background="{DynamicResource SecundaryBackgroundColor}" >
+
+
+        <materialDesign:DialogHost.DialogContent >
+            <Grid Margin="0" Height="550px" Width="550px" Background="{DynamicResource SecundaryBackgroundColor}">
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Height="Auto" Margin="15,25,15,15">
+                    <TextBlock FontFamily="/fuentes/#Quicksand Bold" Foreground="{DynamicResource ActionIconColor}"  Text="Generar Pdf Ganancias" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20" FontSize="15"></TextBlock>
+
+                   
+
+
+           
+
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                        <ComboBox x:Name="ComboBoxComuna"     Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Comuna"  >
+
+                            <ComboBoxItem
+                        Content="Viña Del Mar" />
+                            <ComboBoxItem
+                        Content="Pucon" />
+                            <ComboBoxItem
+                        Content="La Serena" />
+                            <ComboBoxItem
+                        Content="Puerto Varas" />
+                        </ComboBox>
+
+                        <ComboBox x:Name="ComboBoxTiempo"     Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Row="0" Foreground="{DynamicResource ActionIconColor}" Width="200" materialDesign:HintAssist.Hint="Tipo Reporte (Tiempo)" Margin="20,0,0,0"  >
+                            <ComboBoxItem Content="Mensual">
+                                
+                            </ComboBoxItem>
+
+                            <ComboBoxItem Content="Anual">
+                                
+                            </ComboBoxItem>
+
+                            <ComboBoxItem Content="Semanal">
+                                
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                    </StackPanel>
+
+
+
+
+
+
+                    <Button
+                         x:Name="guardar_inventario"
+    
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    materialDesign:ButtonAssist.CornerRadius="10"
+   
+      
+            IsCancel="True"
+          Margin="0 8 8 0"
+          Content="Generar"
+         >
+                    </Button>
+                </StackPanel>
+
+
+
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
         <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
 
             <Grid Margin="0,0,10,0">
@@ -23,6 +89,9 @@
 
                 <!--Left Menu-->
 
+                
+                
+                
                 <!--Main Section-->
                 <Grid Grid.Column="1" Margin="10,20,20,20">
                     <Grid.RowDefinitions>
@@ -49,6 +118,7 @@
 
                     <!--Page Title-->
                     <TextBlock Text="Reportes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="{DynamicResource ActionIconColor}" HorizontalAlignment="Left"/>
+                    <materialDesign:PackIcon RenderTransformOrigin="8.896,4.833" Margin="171,20,0,0" Grid.Row="1" Height="40" Kind="FilePdfBox" Width="39"></materialDesign:PackIcon>
 
                     <!--Add Button-->
                     <Button Style="{StaticResource addButton}" Click="btnGenerarReportes_click" Margin="0,24,0,4" Grid.Row="1" Width="185">
@@ -110,4 +180,5 @@
             </Grid>
         </Border>
     </materialDesign:DialogHost>
+
 </Page>

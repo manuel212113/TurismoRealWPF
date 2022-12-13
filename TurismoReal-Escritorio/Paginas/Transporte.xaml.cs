@@ -41,7 +41,7 @@ namespace TurismoReal_Escritorio.Paginas
 
             Lista1 = trn.CargarTransporte(Lista2);
             Lista.ItemsSource = Lista1;
-            Transporte_trn.Text = "TRASNSPORTE: " + Lista1.Count.ToString();
+            Transporte_trn.Text = "TRANSPORTE: " + Lista1.Count.ToString();
 
         }
 
